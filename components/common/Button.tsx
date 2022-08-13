@@ -1,9 +1,11 @@
-import { color } from '@constants/color'
+import type { HTMLAttributes, MouseEventHandler } from 'react'
+
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+
 import { Kind, Size } from '@enums/Button'
 
-import type { HTMLAttributes, MouseEventHandler } from 'react'
+import { color } from '@constants/color'
 
 interface SButtonProps {
   kind?: Kind

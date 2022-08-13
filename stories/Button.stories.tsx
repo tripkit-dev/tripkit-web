@@ -1,5 +1,6 @@
-import { Kind, Size } from '@enums/Button'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+
+import { Kind, Size } from '@enums/Button'
 
 import { Button } from '@components/common'
 

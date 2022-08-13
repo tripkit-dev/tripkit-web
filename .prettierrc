@@ -2,7 +2,15 @@
   "semi": false,
   "singleQuote": true,
   "trailingComma": "none",
-  "importOrder": ["^react", "^next", "^@components/(.*)$", "^[./]"],
+  "importOrder": [
+    "^react",
+    "^next",
+    "^@emotion/(.*)$",
+    "^@enums/(.*)$",
+    "^@constants/(.*)$",
+    "^@components/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrderCaseInsensitive": true
