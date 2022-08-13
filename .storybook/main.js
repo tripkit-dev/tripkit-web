@@ -23,8 +23,9 @@ module.exports = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@components': path.resolve(__dirname, '../src/components'),
-      '@assets': path.resolve(__dirname, '../src/assets')
+      '@components': path.resolve(__dirname, '../components'),
+      '@constants': path.resolve(__dirname, '../constants'),
+      '@enums': path.resolve(__dirname, '../enums')
     }
 
     return config
