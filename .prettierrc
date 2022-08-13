@@ -2,7 +2,8 @@
   "semi": false,
   "singleQuote": true,
   "trailingComma": "none",
-  "importOrder": ["^components/(.*)$", "^[./]"],
+  "importOrder": ["^react", "^next", "^@components/(.*)$", "^[./]"],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true
 }

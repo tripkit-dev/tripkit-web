@@ -1,7 +1,7 @@
+import { Kind, Size } from '@enums/Button'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import React from 'react'
 
-import { Button } from './Button'
+import { Button } from '@components/common'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,23 +19,45 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  primary: true,
+  kind: Kind.PRIMARY,
   label: 'Button'
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
+  kind: Kind.SECONDARY,
   label: 'Button'
 }
 
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large',
+export const Mustard = Template.bind({})
+Mustard.args = { kind: Kind.MUSTARD, label: 'Button' }
+
+export const XSmall = Template.bind({})
+XSmall.args = {
+  size: Size.X_SMALL,
   label: 'Button'
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: 'small',
+  size: Size.SMALL,
+  label: 'Button'
+}
+
+export const Medium = Template.bind({})
+Medium.args = {
+  size: Size.MEDIUM,
+  label: 'Button'
+}
+
+export const Large = Template.bind({})
+Large.args = {
+  size: Size.LARGE,
+  label: 'Button'
+}
+
+export const XLarge = Template.bind({})
+XLarge.args = {
+  size: Size.X_LARGE,
   label: 'Button'
 }
