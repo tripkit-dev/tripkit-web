@@ -1,6 +1,7 @@
-import React from 'react'
+import { Size } from '@enums/Button'
 
-import { Button } from './Button'
+import { Button } from '@components/common'
+
 import './header.css'
 
 type User = {
@@ -52,14 +53,13 @@ export const Header = ({
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size="small" onClick={onLogout} label="Log out" />
+            <Button size={Size.SMALL} onClick={onLogout} label="Log out" />
           </>
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
+            <Button size={Size.SMALL} onClick={onLogin} label="Log in" />
             <Button
-              primary
-              size="small"
+              size={Size.SMALL}
               onClick={onCreateAccount}
               label="Sign up"
             />
