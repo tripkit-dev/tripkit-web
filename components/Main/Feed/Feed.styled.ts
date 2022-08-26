@@ -1,15 +1,19 @@
 import styled from '@emotion/styled'
 
-import { color } from '@constants/color'
+import { css } from '@emotion/react'
 
 export const Container = styled.section`
-  width: 100%;
+  position: relative;
+  width: calc(100% - 52px);
   height: 75vh;
   max-height: 633px;
   padding: 26px;
 
-  background: ${color.gray02} url(/images/bg_feed.png) no-repeat;
-  background-size: cover;
+  overflow: hidden;
+
+  * {
+    z-index: 1;
+  }
 `
 
 export const Inner = styled.div`
@@ -20,4 +24,13 @@ export const Inner = styled.div`
   height: calc(100% - 92px);
   margin: 0 auto;
   padding: 40px 0 52px 0;
+`
+
+export const BgImgStyle = css`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 `
