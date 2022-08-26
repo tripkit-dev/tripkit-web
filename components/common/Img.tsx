@@ -5,14 +5,12 @@ import NextImage, { ImageProps } from 'next/image'
 import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
-import { css, Interpolation, Theme } from '@emotion/react'
+import { css } from '@emotion/react'
 
 interface SImageProps {
   shape?: Shape
   hasNewIcon?: boolean
   hasBorder?: boolean
-  isFull?: boolean
-  containerCSS?: Interpolation<Theme>
 }
 
 interface Props extends SImageProps, ImageProps {
@@ -24,22 +22,14 @@ export default function Img({
   shape = Shape.ROUND,
   hasNewIcon,
   hasBorder,
-  isFull,
-  containerCSS,
-  src,
   notSSR,
+  src,
   ...props
 }: Props) {
   const sideLength = hasBorder ? '56px' : '58px'
 
   return (
-    <Container
-      shape={shape}
-      hasNewIcon={hasNewIcon}
-      hasBorder={hasBorder}
-      isFull={isFull}
-      css={containerCSS}
-    >
+    <Container shape={shape} hasNewIcon={hasNewIcon} hasBorder={hasBorder}>
       {notSSR ? (
         <picture>
           <source srcSet={src} type="image/webp" />
@@ -74,7 +64,6 @@ const Container = styled.span<SImageProps>`
   ${({ shape }) => styles[shape!]}
   ${({ hasNewIcon }) => (hasNewIcon ? styles.new : '')}
   ${({ hasBorder }) => (hasBorder ? styles.border : '')}
-  ${({ isFull }) => (isFull ? styles.full : '')}
 `
 
 const styles = {
@@ -103,9 +92,5 @@ const styles = {
     width: 56px;
     height: 56px;
     border: 1px solid ${color.main};
-  `,
-  full: css`
-    width: 100%;
-    height: 100%;
   `
 }

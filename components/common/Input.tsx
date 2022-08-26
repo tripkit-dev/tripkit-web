@@ -26,7 +26,7 @@ export default Input
 
 const SInput = styled.input<SInputProps & { shape: Shape; kind: Kind }>`
   display: inline-block;
-  width: calc(100% - 4px);
+  width: 100%;
   max-width: 356px;
   border: 1px solid;
 
