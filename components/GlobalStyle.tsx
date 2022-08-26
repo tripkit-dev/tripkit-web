@@ -16,6 +16,14 @@ export default function GlobalStyle({ children }: Props) {
               sans-serif;
           }
 
+          html,
+          body,
+          #__next {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+          }
+
           a {
             color: inherit;
             text-decoration: none;
