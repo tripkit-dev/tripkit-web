@@ -1,18 +1,18 @@
-import type { HTMLAttributes, MouseEventHandler } from 'react'
-
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+
+import type { HTMLAttributes, MouseEventHandler } from 'react'
 
 import { Kind, Size } from '@enums/Button'
 
 import { color } from '@constants/color'
+import { css } from '@emotion/react'
 
 interface SButtonProps {
   kind?: Kind
   size?: Size
 }
 
-interface ButtonProps extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
+interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
   label: string
   backgroundColor?: string
   borderColor?: string
@@ -28,7 +28,7 @@ const Button = ({
   color,
   label,
   ...props
-}: ButtonProps) => {
+}: Props) => {
   return (
     <SButton
       kind={kind}
@@ -43,15 +43,15 @@ const Button = ({
 
 export default Button
 
-const SButton = styled.button<SButtonProps & { size: Size; kind: Kind }>`
+const SButton = styled.button<SButtonProps>`
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 1px solid ${color.main};
   cursor: pointer;
   display: inline-block;
 
-  ${({ kind }) => styles[kind]}
-  ${({ size }) => styles[size]}
+  ${({ kind }) => styles[kind!]}
+  ${({ size }) => styles[size!]}
 `
 
 const styles = {
@@ -62,6 +62,11 @@ const styles = {
   [Kind.SECONDARY]: css`
     color: ${color.main};
     background-color: transparent;
+  `,
+  [Kind.TERTIARY]: css`
+    color: ${color.white};
+    border-color: ${color.white};
+    background-color: ${color.gray01};
   `,
   [Kind.MUSTARD]: css`
     color: ${color.white};

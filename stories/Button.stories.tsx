@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-
 import { Kind, Size } from '@enums/Button'
+
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { Button } from '@components/common'
 
@@ -27,6 +27,12 @@ Primary.args = {
 export const Secondary = Template.bind({})
 Secondary.args = {
   kind: Kind.SECONDARY,
+  label: 'Button'
+}
+
+export const Tertiary = Template.bind({})
+Tertiary.args = {
+  kind: Kind.TERTIARY,
   label: 'Button'
 }
 
