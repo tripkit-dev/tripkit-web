@@ -1,11 +1,12 @@
-import type { HTMLAttributes } from 'react'
-
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { Kind, Shape } from '@enums/Input'
+import { forwardRef, HTMLAttributes } from 'react'
+
+import { Kind } from '@enums/Input'
+import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
+import { css } from '@emotion/react'
 
 interface SInputProps {
   shape?: Shape
@@ -14,27 +15,27 @@ interface SInputProps {
 
 interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {}
 
-const Input = ({
-  shape = Shape.NORMAL,
-  kind = Kind.PRIMARY,
-  ...props
-}: InputProps) => {
-  return <SInput type="text" shape={shape} kind={kind} {...props} />
-}
+const Input = forwardRef<HTMLInputElement, InputProps>(function input(
+  { shape = Shape.NORMAL, kind = Kind.PRIMARY, ...props },
+  ref
+) {
+  return <SInput ref={ref} type="text" shape={shape} kind={kind} {...props} />
+})
 
 export default Input
 
 const SInput = styled.input<SInputProps & { shape: Shape; kind: Kind }>`
-  font-weight: 700;
-  border: 1px solid;
   display: inline-block;
-  background-color: transparent;
-  text-align: center;
-  font-weight: 400;
-  font-size: 18px;
-
   width: 100%;
   max-width: 356px;
+  border: 1px solid;
+
+  background-color: ${color.white};
+
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 18px;
 
   ${({ shape }) => styles[shape]}
   ${({ kind }) => styles[kind]}
@@ -59,10 +60,17 @@ const styles = {
   `,
   [Kind.SECONDARY]: css`
     color: ${color.lightBlack};
-    border-color: ${color.gray};
+    border-color: ${color.gray02};
 
     &::placeholder {
-      color: ${color.gray};
+      color: ${color.gray02};
+    }
+  `,
+  [Kind.TERTIARY]: css`
+    border: none;
+
+    &:focus {
+      outline: none;
     }
   `
 }
