@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Kind } from '@enums/Input'
+import { Shape } from '@enums/Shape'
 
-import { Kind, Shape } from '@enums/Input'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { Input } from '@components/common'
 
@@ -37,4 +38,11 @@ Secondary.args = {
   kind: Kind.SECONDARY,
   shape: Shape.NORMAL,
   placeholder: 'secondary input'
+}
+
+export const Tertiary = Template.bind({})
+Tertiary.args = {
+  kind: Kind.TERTIARY,
+  shape: Shape.NORMAL,
+  placeholder: 'tertiary input'
 }
