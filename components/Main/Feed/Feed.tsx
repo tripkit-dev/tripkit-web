@@ -54,8 +54,9 @@ export default function Feed() {
                 size={Size.X_LARGE}
                 kind={ButtonKind.TERTIARY}
                 onClick={handleSubmit}
-                label="검색"
-              />
+              >
+                검색
+              </Button>
             </>
           )}
         </UncontrolledForm>

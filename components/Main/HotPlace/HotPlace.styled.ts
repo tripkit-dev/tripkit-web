@@ -3,13 +3,11 @@ import styled from '@emotion/styled'
 import { color } from '@constants/color'
 import { css } from '@emotion/react'
 
-const space = '36px'
-
 export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - ${space});
+  width: calc(100% - 32px);
   margin-top: 59px;
   margin-bottom: 20px;
   padding: 0 16px;
