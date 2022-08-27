@@ -3,13 +3,11 @@ import styled from '@emotion/styled'
 import { color } from '@constants/color'
 import { css } from '@emotion/react'
 
-const space = '36px'
-
 export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - ${space});
+  width: calc(100% - 32px);
   margin-top: 59px;
   margin-bottom: 20px;
   padding: 0 16px;
@@ -31,15 +29,11 @@ export const Cards = styled.ul`
   height: 228px;
   overflow: auto;
   white-space: nowrap;
-
-  p {
-    color: ${color.white};
-  }
 `
 
-export const textHeightStyle = css`
+export const descriptionStyle = css`
   margin-top: 8px;
-  height: ${space};
+  height: 32px;
 `
 
 export const cardTitleStyle = css`

@@ -25,14 +25,19 @@ export default function HotPlace() {
                 {hotPlace.name}
               </Text>
             }
-            bottom={
-              <>
-                <Text size={Size.SMALL}>{hotPlace.subName}</Text>
-                <Text size={Size.X_SMALL} css={s.textHeightStyle} lineClamp={2}>
-                  {hotPlace.description}
-                </Text>
-              </>
-            }
+            bottom={[
+              <Text key="subName" size={Size.SMALL}>
+                {hotPlace.subName}
+              </Text>,
+              <Text
+                key="description"
+                size={Size.X_SMALL}
+                css={s.descriptionStyle}
+                lineClamp={2}
+              >
+                {hotPlace.description}
+              </Text>
+            ]}
           />
         ))}
       </s.Cards>

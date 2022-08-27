@@ -22,50 +22,50 @@ export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   kind: Kind.PRIMARY,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
   kind: Kind.SECONDARY,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const Tertiary = Template.bind({})
 Tertiary.args = {
   kind: Kind.TERTIARY,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const Mustard = Template.bind({})
-Mustard.args = { kind: Kind.MUSTARD, label: 'Button' }
+Mustard.args = { kind: Kind.MUSTARD, children: 'Button' }
 
 export const XSmall = Template.bind({})
 XSmall.args = {
   size: Size.X_SMALL,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const Small = Template.bind({})
 Small.args = {
   size: Size.SMALL,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
   size: Size.MEDIUM,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const Large = Template.bind({})
 Large.args = {
   size: Size.LARGE,
-  label: 'Button'
+  children: 'Button'
 }
 
 export const XLarge = Template.bind({})
 XLarge.args = {
   size: Size.X_LARGE,
-  label: 'Button'
+  children: 'Button'
 }

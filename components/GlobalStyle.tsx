@@ -19,9 +19,15 @@ export default function GlobalStyle({ children }: Props) {
           html,
           body,
           #__next {
+            overflow: hidden;
             margin: 0;
             width: 100%;
             height: 100%;
+          }
+
+          #__next {
+            overflow: hidden;
+            overflow-y: auto;
           }
 
           ul,
