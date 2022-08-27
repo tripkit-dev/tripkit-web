@@ -13,8 +13,8 @@ interface SCardProps {
 }
 
 interface CardProps extends SCardProps {
-  top?: React.ReactNode
-  bottom?: React.ReactNode
+  top?: React.ReactNode | React.ReactNode[]
+  bottom?: React.ReactNode | React.ReactNode[]
 }
 
 export default function Card({
@@ -57,7 +57,11 @@ export const SCard = styled.li<CardProps>`
 
   transition: opacity 0.3s;
 
-  &:first-child {
+  * {
+    color: ${color.white};
+  }
+
+  &:first-of-type {
     margin-left: 28px;
   }
 

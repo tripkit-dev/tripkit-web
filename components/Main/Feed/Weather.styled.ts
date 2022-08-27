@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 import { color } from '@constants/color'
+import { css } from '@emotion/react'
 
 export const Container = styled.div`
   width: 100%;
@@ -32,4 +33,8 @@ export const Status = styled.span`
   color: ${color.main};
   font-size: 18px;
   font-weight: 600;
+`
+
+export const whiteImgStyle = css`
+  filter: brightness(0) invert(1);
 `

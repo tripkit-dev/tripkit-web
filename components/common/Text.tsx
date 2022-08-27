@@ -32,7 +32,6 @@ export default Text
 const SText = styled.p<STextProps>`
   display: inline-block;
   margin: 0;
-  width: 100%;
 
   ${({ lineClamp }) =>
     lineClamp

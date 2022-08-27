@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 
+import { useState } from 'react'
+
 import NextImage, { ImageProps } from 'next/image'
 
 import { Shape } from '@enums/Shape'
@@ -18,18 +20,24 @@ interface Props extends SImageProps, ImageProps {
   notSSR?: boolean
 }
 
-export default function Img({
+const Img = ({
   shape = Shape.ROUND,
   hasNewIcon,
   hasBorder,
   notSSR,
   src,
   ...props
-}: Props) {
+}: Props) => {
+  const [isError, setIsError] = useState<boolean>(false)
   const sideLength = hasBorder ? '56px' : '58px'
 
   return (
-    <Container shape={shape} hasNewIcon={hasNewIcon} hasBorder={hasBorder}>
+    <Container
+      shape={shape}
+      hasNewIcon={hasNewIcon}
+      hasBorder={hasBorder}
+      isError={isError}
+    >
       {notSSR ? (
         <picture>
           <source srcSet={src} type="image/webp" />
@@ -46,6 +54,9 @@ export default function Img({
           src={src}
           width={sideLength}
           height={sideLength}
+          onError={() => {
+            setIsError(true)
+          }}
           {...props}
         />
       )}
@@ -53,17 +64,18 @@ export default function Img({
   )
 }
 
-const Container = styled.span<SImageProps>`
+export default Img
+
+const Container = styled.span<SImageProps & { isError: boolean }>`
   display: inline-block;
   width: 56px;
   height: 56px;
   position: relative;
 
-  background-color: ${color.gray02};
-
   ${({ shape }) => styles[shape!]}
   ${({ hasNewIcon }) => (hasNewIcon ? styles.new : '')}
   ${({ hasBorder }) => (hasBorder ? styles.border : '')}
+  ${({ isError }) => (isError ? styles.placeholder : '')}
 `
 
 const styles = {
@@ -92,5 +104,8 @@ const styles = {
     width: 56px;
     height: 56px;
     border: 1px solid ${color.main};
+  `,
+  placeholder: css`
+    background-color: ${color.gray02};
   `
 }
