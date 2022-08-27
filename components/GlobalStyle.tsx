@@ -24,6 +24,12 @@ export default function GlobalStyle({ children }: Props) {
             height: 100%;
           }
 
+          ul,
+          ol {
+            margin: 0;
+            padding: 0;
+          }
+
           a {
             color: inherit;
             text-decoration: none;

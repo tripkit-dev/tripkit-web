@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { color } from '@constants/color'
 
 export const Container = styled.section`
-  width: 100%;
+  width: calc(100% - 52px);
   height: 75vh;
   max-height: 633px;
   padding: 26px;

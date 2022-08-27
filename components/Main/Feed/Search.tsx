@@ -2,9 +2,10 @@ import * as s from './Search.styled'
 
 import React, { useRef } from 'react'
 
-import { Kind as ButtonKind, Size } from '@enums/Button'
+import { Kind as ButtonKind } from '@enums/Button'
 import { Kind as InputKind } from '@enums/Input'
 import { Shape } from '@enums/Shape'
+import { Size } from '@enums/Size'
 
 import { Button, Input } from '@components/common'
 

@@ -2,12 +2,13 @@ import React from 'react'
 
 import type { NextPage } from 'next'
 
-import { Feed } from '@components/Main'
+import { Feed, HotPlace } from '@components/Main'
 
 const Home: NextPage = () => {
   return (
     <>
       <Feed />
+      <HotPlace />
     </>
   )
 }
