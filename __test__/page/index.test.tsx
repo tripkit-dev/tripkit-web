@@ -7,6 +7,6 @@ describe('Home', () => {
 
     const title = document.querySelector('h1')?.textContent
 
-    expect(title).toEqual('Welcome to Next.js!')
+    expect(title).toEqual(undefined)
   })
 })

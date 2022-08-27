@@ -9,6 +9,9 @@ module.exports = {
     '^.+\\.(css|sass|scss)$': '<rootDir>/styles/__mocks__/styleMock.js',
     '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$': `<rootDir>/__mocks__/fileMock.js`,
     '^@components/(.*)$': '<rootDir>/components/$1',
+    '^@constants/(.*)$': '<rootDir>/constants/$1',
+    '^@enums/(.*)$': '<rootDir>/enums/$1',
+    '^models/(.*)$': '<rootDir>/models/$1',
     '^@pages/(.*)$': '<rootDir>/pages/$1'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
