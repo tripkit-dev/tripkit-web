@@ -1,18 +1,21 @@
 import styled from '@emotion/styled'
 
 import { Size } from '@enums/Card'
+import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
 import { css } from '@emotion/react'
 
+import Img from './Img'
+
 const space = '36px'
 
 interface SCardProps {
-  imgSrc: string
   size?: Size
 }
 
-interface CardProps extends SCardProps {
+interface Props extends SCardProps {
+  imgSrc: string
   top?: React.ReactNode | React.ReactNode[]
   bottom?: React.ReactNode | React.ReactNode[]
 }
@@ -22,9 +25,17 @@ export default function Card({
   size = Size.MEDIUM,
   top,
   bottom
-}: CardProps) {
+}: Props) {
   return (
-    <SCard imgSrc={imgSrc} size={size}>
+    <SCard size={size}>
+      <Img
+        src={imgSrc}
+        shape={Shape.NORMAL}
+        sideLength="100%"
+        containerCss={styles.img}
+        layout="fill"
+        objectFit="cover"
+      />
       <STopArea>{top || '제목'}</STopArea>
       <SBottomArea>
         {bottom || (
@@ -39,9 +50,10 @@ export default function Card({
   )
 }
 
-export const SCard = styled.li<CardProps>`
+export const SCard = styled.li<SCardProps>`
   display: inline-block;
   position: relative;
+  overflow: hidden;
   margin: 0 6px;
   padding: 18px;
   border-radius: 4px;
@@ -64,12 +76,6 @@ export const SCard = styled.li<CardProps>`
   &:hover {
     opacity: 0.7;
   }
-
-  ${({ imgSrc }) => css`
-    background-image: url(${imgSrc});
-    background-size: cover;
-    background-position: center;
-  `}
 
   ${({ size }) => styles[size!]}
 `
@@ -105,5 +111,10 @@ const styles = {
   [Size.LARGE]: css`
     width: calc(310px - ${space});
     height: calc(200px - ${space});
+  `,
+  img: css`
+    position: absolute;
+    top: 0;
+    left: 0;
   `
 }
