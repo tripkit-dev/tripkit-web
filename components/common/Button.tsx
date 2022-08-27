@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 
 import type { HTMLAttributes, MouseEventHandler } from 'react'
 
-import { Kind, Size } from '@enums/Button'
+import { Kind } from '@enums/Button'
+import { Size } from '@enums/Size'
 
 import { color } from '@constants/color'
 import { css } from '@emotion/react'

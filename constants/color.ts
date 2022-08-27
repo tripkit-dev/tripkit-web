@@ -5,5 +5,6 @@ export const color = {
   mustard: '#FF9900',
   lightBlack: '#222',
   gray01: '#6B6B6B',
-  gray02: '#ACACAC'
+  gray02: '#ACACAC',
+  graySkeleton: '#EEE'
 }
