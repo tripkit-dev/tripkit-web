@@ -47,14 +47,6 @@ export const SCard = styled.li<CardProps>`
   border-radius: 4px;
   background-color: ${color.graySkeleton};
 
-  ${({ imgSrc }) => css`
-    background-image: url(${imgSrc});
-    background-size: cover;
-    background-position: center;
-  `}
-
-  ${({ size }) => styles[size!]}
-
   transition: opacity 0.3s;
 
   * {
@@ -72,6 +64,14 @@ export const SCard = styled.li<CardProps>`
   &:hover {
     opacity: 0.7;
   }
+
+  ${({ imgSrc }) => css`
+    background-image: url(${imgSrc});
+    background-size: cover;
+    background-position: center;
+  `}
+
+  ${({ size }) => styles[size!]}
 `
 
 export const STopArea = styled.div`
@@ -86,8 +86,17 @@ export const SBottomArea = styled.div`
 
 const styles = {
   [Size.SMALL]: css`
-    width: calc(130px - ${space});
-    height: calc(200px - ${space});
+    width: calc(130px - 34px);
+    height: calc(200px - 34px);
+    padding: 17px;
+
+    &:first-of-type {
+      margin-left: 40px;
+    }
+
+    &:last-child {
+      margin-right: 40px;
+    }
   `,
   [Size.MEDIUM]: css`
     width: calc(160px - ${space});

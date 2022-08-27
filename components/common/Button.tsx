@@ -14,30 +14,31 @@ interface SButtonProps {
 }
 
 interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
-  label: string
   backgroundColor?: string
   borderColor?: string
   color?: string
-  onClick: MouseEventHandler<HTMLButtonElement>
+  margin?: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-const Button = ({
+const Button: React.FC<Props> = ({
   kind = Kind.PRIMARY,
   size = Size.MEDIUM,
   backgroundColor,
   borderColor,
   color,
-  label,
+  margin,
+  children,
   ...props
-}: Props) => {
+}) => {
   return (
     <SButton
       kind={kind}
       size={size}
-      style={{ backgroundColor, color, borderColor }}
+      style={{ backgroundColor, color, borderColor, margin }}
       {...props}
     >
-      {label}
+      {children}
     </SButton>
   )
 }

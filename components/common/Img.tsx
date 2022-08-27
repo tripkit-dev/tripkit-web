@@ -7,36 +7,45 @@ import NextImage, { ImageProps } from 'next/image'
 import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
+import { css, Interpolation, Theme } from '@emotion/react'
 
 interface SImageProps {
   shape?: Shape
   hasNewIcon?: boolean
+  isIconLeft?: boolean
   hasBorder?: boolean
+  sideLength?: string
 }
 
 interface Props extends SImageProps, ImageProps {
   src: string
   notSSR?: boolean
+  containerCss?: Interpolation<Theme>
 }
 
 const Img = ({
   shape = Shape.ROUND,
   hasNewIcon,
+  isIconLeft,
   hasBorder,
+  sideLength,
   notSSR,
+  containerCss,
   src,
   ...props
 }: Props) => {
   const [isError, setIsError] = useState<boolean>(false)
-  const sideLength = hasBorder ? '56px' : '58px'
+  const _sideLength = sideLength || (hasBorder ? '56px' : '58px')
 
   return (
     <Container
       shape={shape}
       hasNewIcon={hasNewIcon}
+      isIconLeft={isIconLeft}
       hasBorder={hasBorder}
+      sideLength={sideLength}
       isError={isError}
+      css={containerCss}
     >
       {notSSR ? (
         <picture>
@@ -44,16 +53,16 @@ const Img = ({
           <img
             src={src}
             alt="img"
-            width={sideLength}
-            height={sideLength}
+            width={_sideLength}
+            height={_sideLength}
             {...props}
           />
         </picture>
       ) : (
         <NextImage
           src={src}
-          width={sideLength}
-          height={sideLength}
+          width={_sideLength}
+          height={_sideLength}
           onError={() => {
             setIsError(true)
           }}
@@ -68,14 +77,16 @@ export default Img
 
 const Container = styled.span<SImageProps & { isError: boolean }>`
   display: inline-block;
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   position: relative;
 
   ${({ shape }) => styles[shape!]}
   ${({ hasNewIcon }) => (hasNewIcon ? styles.new : '')}
+  ${({ isIconLeft }) => (isIconLeft ? styles.leftIcon : '')}
   ${({ hasBorder }) => (hasBorder ? styles.border : '')}
   ${({ isError }) => (isError ? styles.placeholder : '')}
+  ${({ sideLength }) => (sideLength ? styles.sideLength(sideLength) : '')}
 `
 
 const styles = {
@@ -100,6 +111,12 @@ const styles = {
       z-index: 999;
     }
   `,
+  leftIcon: css`
+    &::before {
+      top: 2px;
+      left: 2px;
+    }
+  `,
   border: css`
     width: 56px;
     height: 56px;
@@ -107,5 +124,9 @@ const styles = {
   `,
   placeholder: css`
     background-color: ${color.gray02};
+  `,
+  sideLength: (length: string) => css`
+    width: ${length};
+    height: ${length};
   `
 }
