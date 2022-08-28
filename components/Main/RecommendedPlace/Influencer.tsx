@@ -1,8 +1,10 @@
 import * as s from './Influencer.styled'
+import { whiteImgStyle } from 'styles/common.styled'
 
 import React from 'react'
 
 import { Size as CardSize } from '@enums/Card'
+import { Shape } from '@enums/Shape'
 import { Size } from '@enums/Size'
 import { Size as TextSize } from '@enums/Text'
 
@@ -54,7 +56,15 @@ export default function Influencer() {
                 lineClamp={2}
               >
                 {hotPlace.description}
-              </Text>
+              </Text>,
+              <s.Heart key="heart">
+                <Img
+                  src="/images/sample/heart.svg"
+                  shape={Shape.NORMAL}
+                  sideLength="24px"
+                  containerCss={whiteImgStyle}
+                />
+              </s.Heart>
             ]}
           />
         ))}
@@ -99,7 +109,15 @@ export default function Influencer() {
                 lineClamp={2}
               >
                 {hotPlace.description}
-              </Text>
+              </Text>,
+              <s.Heart key="heart">
+                <Img
+                  src="/images/sample/heart.svg"
+                  shape={Shape.NORMAL}
+                  sideLength="24px"
+                  containerCss={whiteImgStyle}
+                />
+              </s.Heart>
             ]}
           />
         ))}

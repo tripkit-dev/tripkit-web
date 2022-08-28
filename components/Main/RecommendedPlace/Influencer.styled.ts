@@ -48,6 +48,13 @@ export const Cards = styled.ul`
   margin-bottom: 19px;
 `
 
+export const Heart = styled.button`
+  width: 100%;
+  padding: 0;
+  background: none;
+  text-align: right;
+`
+
 export const imgStyle = css`
   position: absolute;
 `
