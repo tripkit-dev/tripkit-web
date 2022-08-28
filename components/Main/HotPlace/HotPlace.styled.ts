@@ -39,7 +39,7 @@ export const descriptionStyle = css`
 export const cardTitleStyle = css`
   display: block;
   position: relative;
-  margin-left: 7px;
+  margin-left: 3px;
   z-index: 9;
 
   &::before {
