@@ -8,13 +8,12 @@ import { hotPlaceModels } from 'models/hotPlace'
 
 import { Card, Text } from '@components/common'
 
+import SectionTitle from '../SectionTitle'
+
 export default function HotPlace() {
   return (
     <>
-      <s.Title>
-        <Text size={Size.LARGE}>요즘 핫한 여행지</Text>
-        <s.More>더보기</s.More>
-      </s.Title>
+      <SectionTitle title="요즘 핫한 여행지" hasMore />
       <s.Cards>
         {hotPlaceModels.map((hotPlace) => (
           <Card

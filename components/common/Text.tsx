@@ -11,17 +11,29 @@ interface STextProps {
   lineClamp?: number
 }
 
-interface Props extends HTMLAttributes<HTMLSpanElement>, STextProps {}
+interface Props extends HTMLAttributes<HTMLSpanElement>, STextProps {
+  fontWeight?: string
+  margin?: string
+  padding?: string
+}
 
 const Text: FC<Props> = ({
   size = Size.MEDIUM,
   lineClamp,
   color,
+  fontWeight,
+  margin,
+  padding,
   children,
   ...props
 }) => {
   return (
-    <SText size={size} lineClamp={lineClamp} style={{ color }} {...props}>
+    <SText
+      size={size}
+      lineClamp={lineClamp}
+      style={{ color, fontWeight, margin, padding }}
+      {...props}
+    >
       {children}
     </SText>
   )

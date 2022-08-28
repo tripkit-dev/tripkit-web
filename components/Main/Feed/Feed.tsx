@@ -1,4 +1,5 @@
 import * as s from './Feed.styled'
+import { whiteImgStyle } from 'styles/common.styled'
 
 import React from 'react'
 
@@ -28,7 +29,7 @@ export default function Feed() {
             src="/images/sample/weather_windy_sun.png"
             priority
             alt="날씨아이콘"
-            css={s.whiteImgStyle}
+            css={whiteImgStyle}
           />
           <s.Description>
             오늘의 날씨 :<s.Status>맑음</s.Status>

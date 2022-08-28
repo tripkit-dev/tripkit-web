@@ -42,10 +42,17 @@ export const Strong = styled.strong`
 
 export const Cards = styled.ul`
   width: 100%;
-  height: 200px;
+  height: 204px;
   overflow: auto;
   white-space: nowrap;
   margin-bottom: 19px;
+`
+
+export const Heart = styled.button`
+  width: 100%;
+  padding: 0;
+  background: none;
+  text-align: right;
 `
 
 export const imgStyle = css`

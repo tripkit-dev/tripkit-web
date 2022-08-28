@@ -61,10 +61,6 @@ export const Status = styled.span`
   font-weight: 600;
 `
 
-export const whiteImgStyle = css`
-  filter: brightness(0) invert(1);
-`
-
 export const formStyle = css`
   position: absolute;
   bottom: 30px;

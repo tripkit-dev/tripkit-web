@@ -2,7 +2,7 @@ import React from 'react'
 
 import type { NextPage } from 'next'
 
-import { Feed, HotPlace, RecommendedPlace } from '@components/Main'
+import { Feed, Festival, HotPlace, RecommendedPlace } from '@components/Main'
 
 const Home: NextPage = () => {
   return (
@@ -10,6 +10,7 @@ const Home: NextPage = () => {
       <Feed />
       <HotPlace />
       <RecommendedPlace />
+      <Festival />
     </>
   )
 }

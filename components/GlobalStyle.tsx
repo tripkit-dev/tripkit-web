@@ -40,6 +40,11 @@ export default function GlobalStyle({ children }: Props) {
             color: inherit;
             text-decoration: none;
           }
+
+          button {
+            outline: none;
+            border: none;
+          }
         `}
       />
       {children}

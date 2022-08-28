@@ -26,7 +26,7 @@ export const More = styled.button`
 
 export const Cards = styled.ul`
   width: 100%;
-  height: 228px;
+  height: 232px;
   overflow: auto;
   white-space: nowrap;
 `
@@ -39,7 +39,7 @@ export const descriptionStyle = css`
 export const cardTitleStyle = css`
   display: block;
   position: relative;
-  margin-left: 7px;
+  margin-left: 3px;
   z-index: 9;
 
   &::before {
