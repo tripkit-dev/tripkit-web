@@ -42,7 +42,7 @@ export const Strong = styled.strong`
 
 export const Cards = styled.ul`
   width: 100%;
-  height: 200px;
+  height: 204px;
   overflow: auto;
   white-space: nowrap;
   margin-bottom: 19px;

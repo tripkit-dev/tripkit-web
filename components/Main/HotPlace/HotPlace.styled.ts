@@ -26,7 +26,7 @@ export const More = styled.button`
 
 export const Cards = styled.ul`
   width: 100%;
-  height: 228px;
+  height: 232px;
   overflow: auto;
   white-space: nowrap;
 `
