@@ -3,3 +3,8 @@ export enum Size {
   MEDIUM = 'medium',
   LARGE = 'large'
 }
+
+export enum Direction {
+  ROW = 'row',
+  COLUMN = 'column'
+}

@@ -1,33 +1,37 @@
 import styled from '@emotion/styled'
 
-import { Size } from '@enums/Card'
+import { Direction, Size } from '@enums/Card'
 import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
+import { css, Interpolation, Theme } from '@emotion/react'
 
 import Img from './Img'
 
-const space = '36px'
+const cardSpace = '36px'
 
 interface SCardProps {
   size?: Size
+  direction?: Direction
 }
 
 interface Props extends SCardProps {
   imgSrc: string
   top?: React.ReactNode | React.ReactNode[]
   bottom?: React.ReactNode | React.ReactNode[]
+  bottomStyle?: Interpolation<Theme>
 }
 
 export default function Card({
   imgSrc,
   size = Size.MEDIUM,
+  direction = Direction.ROW,
   top,
-  bottom
+  bottom,
+  bottomStyle
 }: Props) {
   return (
-    <SCard size={size}>
+    <SCard size={size} direction={direction}>
       <Img
         src={imgSrc}
         shape={Shape.NORMAL}
@@ -36,16 +40,8 @@ export default function Card({
         layout="fill"
         objectFit="cover"
       />
-      <STopArea>{top || '제목'}</STopArea>
-      <SBottomArea>
-        {bottom || (
-          <>
-            하단
-            <br />
-            최하단
-          </>
-        )}
-      </SBottomArea>
+      <STopArea>{top}</STopArea>
+      <SBottomArea css={bottomStyle}>{bottom}</SBottomArea>
     </SCard>
   )
 }
@@ -65,29 +61,24 @@ export const SCard = styled.li<SCardProps>`
     color: ${color.white};
   }
 
-  &:first-of-type {
-    margin-left: 28px;
-  }
-
-  &:last-child {
-    margin-right: 28px;
-  }
-
   &:hover {
     opacity: 0.7;
   }
 
   ${({ size }) => styles[size!]}
+  ${({ direction }) => styles[direction!]}
 `
 
 export const STopArea = styled.div`
-  margin-top: 9px;
+  position: absolute;
+  width: calc(100% - ${cardSpace});
+  top: 21px;
 `
 
 export const SBottomArea = styled.div`
   position: absolute;
   bottom: 21px;
-  width: calc(100% - ${space});
+  width: calc(100% - ${cardSpace});
 `
 
 const styles = {
@@ -105,13 +96,23 @@ const styles = {
     }
   `,
   [Size.MEDIUM]: css`
-    width: calc(160px - ${space});
-    height: calc(228px - ${space});
+    width: calc(160px - ${cardSpace});
+    height: calc(228px - ${cardSpace});
   `,
   [Size.LARGE]: css`
-    width: calc(310px - ${space});
-    height: calc(200px - ${space});
+    width: calc(310px - ${cardSpace});
+    height: calc(200px - ${cardSpace});
   `,
+  [Direction.ROW]: css`
+    &:first-of-type {
+      margin-left: 28px;
+    }
+
+    &:last-child {
+      margin-right: 28px;
+    }
+  `,
+  [Direction.COLUMN]: css``,
   img: css`
     position: absolute;
     top: 0;
