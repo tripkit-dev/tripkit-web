@@ -37,6 +37,11 @@ const Img = ({
   const [isError, setIsError] = useState<boolean>(false)
   const _sideLength = sideLength || (hasBorder ? '56px' : '58px')
 
+  const imgAdditionalProps =
+    props.layout === 'fill'
+      ? props
+      : { width: _sideLength, height: _sideLength, ...props }
+
   return (
     <Container
       shape={shape}
@@ -50,13 +55,7 @@ const Img = ({
       {notSSR ? (
         <picture>
           <source srcSet={src} type="image/webp" />
-          <img
-            src={src}
-            alt="img"
-            width={_sideLength}
-            height={_sideLength}
-            {...props}
-          />
+          <img src={src} alt="img" {...imgAdditionalProps} />
         </picture>
       ) : (
         <NextImage

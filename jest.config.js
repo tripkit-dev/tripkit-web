@@ -12,7 +12,8 @@ module.exports = {
     '^@constants/(.*)$': '<rootDir>/constants/$1',
     '^@enums/(.*)$': '<rootDir>/enums/$1',
     '^models/(.*)$': '<rootDir>/models/$1',
-    '^@pages/(.*)$': '<rootDir>/pages/$1'
+    '^@pages/(.*)$': '<rootDir>/pages/$1',
+    '^styles/(.*)$': '<rootDir>/styles/$1'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
