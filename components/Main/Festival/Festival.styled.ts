@@ -41,7 +41,7 @@ export const CardWrapper = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 320px;
+  width: 340px;
   height: 210px;
   margin-bottom: 30px;
   text-align: center;
