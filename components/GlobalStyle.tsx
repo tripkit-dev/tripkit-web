@@ -14,6 +14,8 @@ export default function GlobalStyle({ children }: Props) {
           * {
             font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial,
               sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
           }
 
           html,
@@ -39,11 +41,13 @@ export default function GlobalStyle({ children }: Props) {
           a {
             color: inherit;
             text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           }
 
           button {
             outline: none;
             border: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           }
         `}
       />
