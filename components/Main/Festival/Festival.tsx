@@ -1,8 +1,6 @@
 import * as s from './Festival.styled'
 import { whiteImgStyle } from 'styles/common.styled'
 
-import React from 'react'
-
 import { Size as CardSize, Direction } from '@enums/Card'
 import { Size as TextSize } from '@enums/Text'
 
@@ -14,7 +12,7 @@ import SectionTitle from '../SectionTitle'
 
 export default function Festival() {
   return (
-    <>
+    <section>
       <SectionTitle
         title="이번달 축제는 어디?"
         subTitle="여행에 축제가 빠질 수 없지"
@@ -72,6 +70,6 @@ export default function Festival() {
           )
         })}
       </s.Cards>
-    </>
+    </section>
   )
 }

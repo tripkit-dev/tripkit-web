@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { color } from '@constants/color'
 import { css } from '@emotion/react'
 
-export const Cards = styled.div`
+export const Cards = styled.ul`
   text-align: center;
 `
 
@@ -14,7 +14,7 @@ interface ReadyProps {
 export const Status = styled.span<ReadyProps>`
   position: absolute;
   top: -16px;
-  right: 14px;
+  right: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@ export const CardWrapper = styled.div`
   text-align: center;
 
   &:first-of-type {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 
   p {
