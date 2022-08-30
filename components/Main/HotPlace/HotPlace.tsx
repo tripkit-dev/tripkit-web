@@ -1,7 +1,5 @@
 import * as s from './HotPlace.styled'
 
-import React from 'react'
-
 import { Size } from '@enums/Size'
 
 import { hotPlaceModels } from 'models/hotPlace'
@@ -12,7 +10,7 @@ import SectionTitle from '../SectionTitle'
 
 export default function HotPlace() {
   return (
-    <>
+    <section>
       <SectionTitle title="요즘 핫한 여행지" hasMore />
       <s.Cards>
         {hotPlaceModels.map((hotPlace) => (
@@ -40,6 +38,6 @@ export default function HotPlace() {
           />
         ))}
       </s.Cards>
-    </>
+    </section>
   )
 }
