@@ -49,12 +49,14 @@ export default function Feed() {
                 kind={InputKind.TERTIARY}
                 shape={Shape.ROUND}
                 placeholder="어디로 놀러가세요?"
+                cssStyle={s.inputStyle}
               />
 
               <Button
                 size={Size.X_LARGE}
                 kind={ButtonKind.TERTIARY}
                 onClick={handleSubmit}
+                cssStyle={s.buttonStyle}
               >
                 검색
               </Button>

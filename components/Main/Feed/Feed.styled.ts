@@ -47,6 +47,7 @@ export const Description = styled.div`
   border-radius: 16px;
 
   background-color: ${color.white};
+  box-shadow: 0px 3px 10px #0000002e;
 
   text-align: center;
   font-size: 14px;
@@ -73,4 +74,12 @@ export const formStyle = css`
   button {
     margin-top: 24px;
   }
+`
+
+export const inputStyle = css`
+  box-shadow: 0px 3px 10px #00000014;
+`
+
+export const buttonStyle = css`
+  box-shadow: 0px 3px 6px #00000029;
 `
