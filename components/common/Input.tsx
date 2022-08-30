@@ -6,20 +6,31 @@ import { Kind } from '@enums/Input'
 import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
+import { css, Interpolation, Theme } from '@emotion/react'
 
 interface SInputProps {
   shape?: Shape
   kind?: Kind
 }
 
-interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {}
+interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
+  cssStyle?: Interpolation<Theme>
+}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function input(
-  { shape = Shape.NORMAL, kind = Kind.PRIMARY, ...props },
+  { shape = Shape.NORMAL, kind = Kind.PRIMARY, cssStyle, ...props },
   ref
 ) {
-  return <SInput ref={ref} type="text" shape={shape} kind={kind} {...props} />
+  return (
+    <SInput
+      ref={ref}
+      type="text"
+      shape={shape}
+      kind={kind}
+      css={cssStyle}
+      {...props}
+    />
+  )
 })
 
 export default Input

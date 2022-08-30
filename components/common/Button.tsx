@@ -6,7 +6,7 @@ import { Kind } from '@enums/Button'
 import { Size } from '@enums/Size'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
+import { css, Interpolation, Theme } from '@emotion/react'
 
 interface SButtonProps {
   kind?: Kind
@@ -18,6 +18,7 @@ interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
   borderColor?: string
   color?: string
   margin?: string
+  cssStyle?: Interpolation<Theme>
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -28,6 +29,7 @@ const Button: React.FC<Props> = ({
   borderColor,
   color,
   margin,
+  cssStyle,
   children,
   ...props
 }) => {
@@ -36,6 +38,7 @@ const Button: React.FC<Props> = ({
       kind={kind}
       size={size}
       style={{ backgroundColor, color, borderColor, margin }}
+      css={cssStyle}
       {...props}
     >
       {children}
