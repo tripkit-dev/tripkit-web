@@ -55,16 +55,15 @@ const Img = ({
       {notSSR ? (
         <picture>
           <source srcSet={src} type="image/webp" />
-          <img src={src} alt="img" {...imgAdditionalProps} />
+          <img src={src} alt="img" width={_sideLength} height={_sideLength} />
         </picture>
       ) : (
         <NextImage
           src={src}
-          width={_sideLength}
-          height={_sideLength}
           onError={() => {
             setIsError(true)
           }}
+          {...imgAdditionalProps}
           {...props}
         />
       )}

@@ -36,7 +36,7 @@ export const Status = styled.span<ReadyProps>`
         `}
 `
 
-export const CardWrapper = styled.li`
+export const CardWrapper = styled.div`
   position: relative;
   display: inline-flex;
   align-items: center;
