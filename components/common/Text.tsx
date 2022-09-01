@@ -46,7 +46,14 @@ const SText = styled.p<STextProps>`
   margin: 0;
 
   ${({ lineClamp }) =>
-    lineClamp
+    lineClamp === 1
+      ? css`
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        `
+      : Number.isInteger(lineClamp)
       ? css`
           display: -webkit-box;
           -webkit-box-orient: vertical;
