@@ -5,7 +5,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 
 import { Header } from '@components/common'
-import { Profile } from '@components/MyPage'
+import { PlanNavigation, Profile } from '@components/MyPage'
 
 const MyPage: NextPage = () => {
   return (
@@ -13,6 +13,7 @@ const MyPage: NextPage = () => {
       <Header center="마이페이지" />
       <Container>
         <Profile />
+        <PlanNavigation />
       </Container>
     </>
   )
