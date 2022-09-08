@@ -6,7 +6,7 @@ import { Size as TextSize } from '@enums/Text'
 
 import { Menu as MenuType } from 'types/MyPage'
 
-import { Img, Text } from '@components/common'
+import { Text } from '@components/common'
 
 const Menu = ({ label, path }: MenuType) => {
   const { push } = useRouter()
@@ -18,11 +18,7 @@ const Menu = ({ label, path }: MenuType) => {
   return (
     <s.Menu onClick={handleRoute}>
       <Text size={TextSize.SMALL}>{label}</Text>
-      <Img
-        src="/images/img_profile_example.png"
-        sideLength="20px"
-        containerCss={s.iconStyle}
-      />
+      &gt;
     </s.Menu>
   )
 }

@@ -5,7 +5,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 
 import { Header } from '@components/common'
-import { PlanNavigation, Profile } from '@components/MyPage'
+import { PlanNavigation, Profile, PublicNavigation } from '@components/MyPage'
 
 const MyPage: NextPage = () => {
   return (
@@ -14,6 +14,7 @@ const MyPage: NextPage = () => {
       <Container>
         <Profile />
         <PlanNavigation />
+        <PublicNavigation />
       </Container>
     </>
   )
