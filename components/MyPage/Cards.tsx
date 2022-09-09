@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { whiteImgStyle } from 'styles/common.styled'
 
 import React from 'react'
 
@@ -42,7 +43,26 @@ function Card({ imgSrc, bottom }: CardProps) {
   )
 }
 
+interface HeartProps {
+  count: number
+}
+
+function Heart({ count }: HeartProps) {
+  return (
+    <SHeart key="heart">
+      <Img
+        src="/images/sample/heart.svg"
+        shape={Shape.NORMAL}
+        sideLength="16px"
+        containerCss={whiteImgStyle}
+      />
+      {count}
+    </SHeart>
+  )
+}
+
 Cards.Card = Card
+Cards.Heart = Heart
 
 export default Cards
 
@@ -57,10 +77,16 @@ const SCards = styled.ul`
 
 const SCard = styled.li`
   position: relative;
-  display: inline-block;
-  width: calc(min(calc((100vw - 36px)), 716px) / 4);
-  height: calc(min(calc((100vw - 36px)), 716px) / 4);
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  width: calc(min(calc((100vw - 36px)), 716px) / 4 - 32px);
+  height: calc(min(calc((100vw - 36px)), 716px) / 4 - 32px);
+  padding: 16px;
   border: 0.5px solid ${color.main};
+
+  overflow: hidden;
 
   transition: opacity 0.15s;
 
@@ -71,23 +97,20 @@ const SCard = styled.li`
 
   @media screen and (max-width: 720px) {
     & {
-      width: calc(calc((100vw - 35px)) / 3);
-      height: calc(calc((100vw - 35px)) / 3);
+      width: calc(calc((100vw - 35px)) / 3 - 32px);
+      height: calc(calc((100vw - 35px)) / 3 - 32px);
     }
   }
 
   @media screen and (max-width: 400px) {
     & {
-      width: calc(calc((100vw - 34px)) / 2);
-      height: calc(calc((100vw - 34px)) / 2);
+      width: calc(calc((100vw - 34px)) / 2 - 32px);
+      height: calc(calc((100vw - 34px)) / 2 - 32px);
     }
   }
 `
 
 const SBottom = styled.div`
-  margin-top: calc(100% - 40px);
-  padding-right: 16px;
-
   color: ${color.white};
   text-align: right;
 `
@@ -98,4 +121,24 @@ const imgStyle = css`
   left: 0;
   z-index: -1;
   background-color: ${color.mainPlaceholder};
+`
+
+const SHeart = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 4px;
+  background: none;
+  text-align: right;
+
+  color: ${color.white};
+  font-weight: 600;
+
+  cursor: pointer;
+
+  span {
+    margin-right: 4px;
+  }
 `

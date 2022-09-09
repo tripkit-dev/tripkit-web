@@ -1,3 +1,5 @@
+import React from 'react'
+
 import type { GetServerSideProps, NextPage } from 'next'
 
 import { Size as TextSize } from '@enums/Text'
@@ -22,9 +24,12 @@ const Share: NextPage<Props> = ({ travelDestinations }) => {
               key={destination.id}
               imgSrc={destination.src}
               bottom={
-                <Text size={TextSize.SMALL} lineClamp={1}>
-                  {destination.title}
-                </Text>
+                <>
+                  <MyPageCards.Heart count={destination.likes} />
+                  <Text size={TextSize.SMALL} lineClamp={1}>
+                    {destination.title}
+                  </Text>
+                </>
               }
             />
           ))}
