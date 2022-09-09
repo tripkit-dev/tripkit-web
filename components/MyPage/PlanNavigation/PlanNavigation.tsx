@@ -1,5 +1,6 @@
 import * as s from './PlanNavigation.styled'
 
+import { routes } from 'libraries/routes'
 import { Menu as MenuType } from 'types/MyPage'
 
 import Menu from './Menu'
@@ -8,7 +9,7 @@ export default function Navigation() {
   const menuList: MenuType[] = [
     {
       label: '만든 여행지',
-      path: ''
+      path: routes.mypage.own.path
     },
     {
       label: '공유한 여행지',

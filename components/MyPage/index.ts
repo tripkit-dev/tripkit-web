@@ -1,3 +1,5 @@
 export * from './Profile'
 export * from './PlanNavigation'
 export * from './PublicNavigation'
+export { default as MyPageLayout } from './Layout'
+export { default as MyPageCards } from './Cards'

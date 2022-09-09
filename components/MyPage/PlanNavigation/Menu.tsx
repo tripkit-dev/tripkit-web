@@ -9,14 +9,16 @@ import { Menu as MenuType } from 'types/MyPage'
 import { Img, Text } from '@components/common'
 
 const Menu = ({ label, path }: MenuType) => {
-  const { push } = useRouter()
+  const { push, pathname } = useRouter()
+
+  const isActive = path === pathname
 
   const handleRoute = () => {
     push(path)
   }
 
   return (
-    <s.Menu onClick={handleRoute}>
+    <s.Menu onClick={handleRoute} active={isActive}>
       <Text size={TextSize.SMALL}>{label}</Text>
       <Img
         src="/images/img_profile_example.png"

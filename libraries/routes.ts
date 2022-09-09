@@ -3,7 +3,10 @@ export const routes = {
     path: '/'
   },
   mypage: {
-    path: '/mypage'
+    path: '/mypage',
+    own: {
+      path: '/mypage/own'
+    }
   },
   admin: {
     path: '/admin'
