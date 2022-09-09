@@ -3,4 +3,5 @@ export interface TravelDestination {
   likes: number
   src: string
   title: string
+  peoples: string[]
 }

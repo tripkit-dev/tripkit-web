@@ -10,6 +10,9 @@ export const routes = {
     share: {
       path: '/mypage/share'
     },
+    invite: {
+      path: '/mypage/invite'
+    },
     like: {
       path: '/mypage/like'
     }

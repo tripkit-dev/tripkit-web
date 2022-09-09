@@ -17,7 +17,7 @@ export default function Navigation() {
     },
     {
       label: '초대된 여행지',
-      path: ''
+      path: routes.mypage.invite.path
     },
     {
       label: '좋아요한 여행지',

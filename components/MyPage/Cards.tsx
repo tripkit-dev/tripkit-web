@@ -56,8 +56,29 @@ function Heart({ count, sideLength }: HeartProps) {
   )
 }
 
+interface PeopleProps {
+  srcs: string[]
+}
+
+function People({ srcs }: PeopleProps) {
+  return (
+    <SPeople>
+      {srcs.map((src, idx) => (
+        <Img
+          key={src}
+          src={src}
+          sideLength="38px"
+          hasBorder
+          containerCss={personStyle(srcs.length - (idx + 1))}
+        />
+      ))}
+    </SPeople>
+  )
+}
+
 Cards.Card = Card
 Cards.Heart = Heart
+Cards.People = People
 
 export default Cards
 
@@ -75,6 +96,7 @@ const SCard = styled.li`
   display: inline-flex;
   align-items: flex-end;
   justify-content: flex-end;
+  float: left;
 
   width: calc(min(calc((100vw - 36px)), 716px) / 4 - 32px);
   height: calc(min(calc((100vw - 36px)), 716px) / 4 - 32px);
@@ -137,3 +159,15 @@ const SHeart = styled.button`
     margin-right: 4px;
   }
 `
+
+const SPeople = styled.div`
+  position: relative;
+  height: 42px;
+  overflow: hidden;
+`
+
+const personStyle = (deps: number) =>
+  css`
+    transform: translateX(${10 * deps}px);
+    z-index: ${deps};
+  `
