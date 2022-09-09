@@ -9,6 +9,9 @@ export const routes = {
     },
     share: {
       path: '/mypage/share'
+    },
+    like: {
+      path: '/mypage/like'
     }
   },
   admin: {
