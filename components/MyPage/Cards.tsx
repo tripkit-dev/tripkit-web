@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { whiteImgStyle } from 'styles/common.styled'
 
 import React from 'react'
 
@@ -8,7 +7,7 @@ import { Shape } from '@enums/Shape'
 import { color } from '@constants/color'
 import { css } from '@emotion/react'
 
-import { Img } from '@components/common'
+import { HeartIcon, Img } from '@components/common'
 
 interface Props {
   children: React.ReactNode
@@ -44,18 +43,14 @@ function Card({ imgSrc, bottom }: CardProps) {
 }
 
 interface HeartProps {
-  count: number
+  count?: number
+  sideLength?: string
 }
 
-function Heart({ count }: HeartProps) {
+function Heart({ count, sideLength }: HeartProps) {
   return (
     <SHeart key="heart">
-      <Img
-        src="/images/sample/heart.svg"
-        shape={Shape.NORMAL}
-        sideLength="16px"
-        containerCss={whiteImgStyle}
-      />
+      <HeartIcon sideLength={sideLength || '16px'} />
       {count}
     </SHeart>
   )

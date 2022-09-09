@@ -11,7 +11,7 @@ import { Size as TextSize } from '@enums/Text'
 import { color } from '@constants/color'
 import { hotPlaceModels } from 'models/hotPlace'
 
-import { Button, Card, Img, Text } from '@components/common'
+import { Button, Card, HeartIcon, Img, Text } from '@components/common'
 
 export default function Influencer() {
   return (
@@ -58,12 +58,7 @@ export default function Influencer() {
                 {hotPlace.description}
               </Text>,
               <s.Heart key="heart">
-                <Img
-                  src="/images/sample/heart.svg"
-                  shape={Shape.NORMAL}
-                  sideLength="24px"
-                  containerCss={whiteImgStyle}
-                />
+                <HeartIcon />
               </s.Heart>
             ]}
           />
