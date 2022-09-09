@@ -6,6 +6,9 @@ export const routes = {
     path: '/mypage',
     own: {
       path: '/mypage/own'
+    },
+    share: {
+      path: '/mypage/share'
     }
   },
   admin: {

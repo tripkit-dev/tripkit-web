@@ -6,18 +6,20 @@ import { Header } from '@components/common'
 import { PlanNavigation, Profile } from '@components/MyPage'
 
 interface Props {
-  children: React.ReactNode
+  inner?: React.ReactNode
+  outer?: React.ReactNode
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ inner, outer }) => {
   return (
     <>
       <Header center="마이페이지" />
       <Container>
         <Profile />
         <PlanNavigation />
+        {inner}
       </Container>
-      {children}
+      {outer}
     </>
   )
 }

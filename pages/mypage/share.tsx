@@ -12,7 +12,7 @@ interface Props {
   travelDestinations: TravelDestination[]
 }
 
-const Own: NextPage<Props> = ({ travelDestinations }) => {
+const Share: NextPage<Props> = ({ travelDestinations }) => {
   return (
     <MyPageLayout
       outer={
@@ -34,7 +34,7 @@ const Own: NextPage<Props> = ({ travelDestinations }) => {
   )
 }
 
-export default Own
+export default Share
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {

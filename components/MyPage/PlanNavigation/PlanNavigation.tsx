@@ -13,7 +13,7 @@ export default function Navigation() {
     },
     {
       label: '공유한 여행지',
-      path: ''
+      path: routes.mypage.share.path
     },
     {
       label: '초대된 여행지',

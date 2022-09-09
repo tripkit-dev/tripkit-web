@@ -20,6 +20,7 @@ export const Menu = styled.li<MenuProps>`
   box-shadow: 0px 3px 6px #00000029;
   border: 0.5px solid #0800ff33;
   border-radius: 15px;
+  cursor: pointer;
 
   ${({ active }) =>
     active
