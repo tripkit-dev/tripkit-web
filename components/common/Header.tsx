@@ -62,4 +62,5 @@ const SBack = styled.button`
   background: #0800ff14 url(/images/sample/ico_back.svg) no-repeat;
   background-size: 27px;
   background-position: 7px center;
+  cursor: pointer;
 `
