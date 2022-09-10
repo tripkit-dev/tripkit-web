@@ -1,18 +1,34 @@
 import * as s from './Festival.styled'
 import { whiteImgStyle } from 'styles/common.styled'
 
+import { useRef } from 'react'
+import { useQuery } from 'react-query'
+
 import { Size as CardSize, Direction } from '@enums/Card'
 import { Size as TextSize } from '@enums/Text'
 
-import { hotPlaceModels } from 'models/hotPlace'
+import { HotPlace } from 'types/HotPlace'
+
+import { hotPlaceApi } from 'apis/hotPlace'
+import useIntersectionObserver from 'hooks/useIntersectionObserver'
+import { withExtractData } from 'libraries/query'
 
 import { Card, Img, Text } from '@components/common'
 
 import SectionTitle from '../SectionTitle'
 
 export default function Festival() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { entry } = useIntersectionObserver(sectionRef)
+
+  const { data: hotPlaces } = useQuery(
+    'hotPlace/get',
+    () => withExtractData<HotPlace[]>(hotPlaceApi.get),
+    { enabled: entry?.isIntersecting }
+  )
+
   return (
-    <section>
+    <section ref={sectionRef}>
       <SectionTitle
         title="이번달 축제는 어디?"
         subTitle="여행에 축제가 빠질 수 없지"
@@ -20,7 +36,7 @@ export default function Festival() {
       />
 
       <s.Cards>
-        {hotPlaceModels.map((place, idx) => {
+        {hotPlaces?.map((place, idx) => {
           const isReady = idx > 2
 
           return (
