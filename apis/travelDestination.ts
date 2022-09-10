@@ -7,7 +7,7 @@ interface GetRequest {
 
 export const travelDestinationApi = {
   get: ({ page = 1, size = 10 }: GetRequest = {}) =>
-    axios.get('http://localhost:3000/api/models/travel_destinations', {
+    axios.get('/api/models/travel_destinations', {
       params: { page, size }
     })
 }
