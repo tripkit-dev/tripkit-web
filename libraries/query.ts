@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios'
 
-type WithExtractData<T> = (data: any) => Promise<AxiosResponse<T>>
+type WithExtractData<T> = (data: any) => Promise<AxiosResponse<T> | any>
 
 export async function withExtractData<T>(
   asyncFunc: WithExtractData<T>,

@@ -1,10 +1,11 @@
-import { HotPlace } from 'types/HotPlace'
-
-import axios from 'axios'
+import { hotPlaceModels } from 'models/hotPlace'
 
 export const hotPlaceApi = {
-  get: (size?: number) =>
-    axios.get<HotPlace[]>('/api/models/hot_places', {
-      params: size
+  get: () => {
+    return new Promise((res) => {
+      setTimeout(() => {
+        res({ data: hotPlaceModels })
+      }, 200)
     })
+  }
 }

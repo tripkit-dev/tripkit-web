@@ -14,7 +14,7 @@ import { Card, Text } from '@components/common'
 import SectionTitle from '../SectionTitle'
 
 export default function HotPlace() {
-  const { data: hotPlaces } = useQuery('hotPlace/get', () =>
+  const { data: hotPlaces } = useQuery<HotPlaceType[]>(['hotPlace/get'], () =>
     withExtractData<HotPlaceType[]>(hotPlaceApi.get)
   )
 

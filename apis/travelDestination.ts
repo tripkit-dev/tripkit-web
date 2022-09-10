@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { travelDestinationModels } from 'models/travelDestination'
 
 interface GetRequest {
   page?: number
@@ -6,8 +6,22 @@ interface GetRequest {
 }
 
 export const travelDestinationApi = {
-  get: ({ page = 1, size = 10 }: GetRequest = {}) =>
-    axios.get('/api/models/travel_destinations', {
-      params: { page, size }
+  get: ({ page = 1, size = 10 }: GetRequest = {}) => {
+    return new Promise((res) => {
+      setTimeout(() => {
+        res({
+          data: {
+            page,
+            size,
+            totalElements: travelDestinationModels.length,
+            totalPages: Math.ceil(travelDestinationModels.length / size),
+            contents: travelDestinationModels.slice(
+              (page - 1) * size,
+              page * size
+            )
+          }
+        })
+      }, 200)
     })
+  }
 }
