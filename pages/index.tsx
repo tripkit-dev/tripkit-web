@@ -26,7 +26,7 @@ export default Home
 export const getServerSideProps: GetServerSideProps = async () => {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery('hotPlace/get', async () =>
+  await queryClient.prefetchQuery(['hotPlace/get'], () =>
     withExtractData<HotPlaceType[]>(hotPlaceApi.get)
   )
 
