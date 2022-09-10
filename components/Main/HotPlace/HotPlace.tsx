@@ -1,19 +1,28 @@
 import * as s from './HotPlace.styled'
 
+import { useQuery } from 'react-query'
+
 import { Size } from '@enums/Size'
 
-import { hotPlaceModels } from 'models/hotPlace'
+import { HotPlace as HotPlaceType } from 'types/HotPlace'
+
+import { hotPlaceApi } from 'apis/hotPlace'
+import { withExtractData } from 'libraries/query'
 
 import { Card, Text } from '@components/common'
 
 import SectionTitle from '../SectionTitle'
 
 export default function HotPlace() {
+  const { data: hotPlaces } = useQuery('hotPlace/get', () =>
+    withExtractData<HotPlaceType[]>(hotPlaceApi.get)
+  )
+
   return (
     <section>
       <SectionTitle title="요즘 핫한 여행지" hasMore />
       <s.Cards>
-        {hotPlaceModels.map((hotPlace) => (
+        {hotPlaces?.map((hotPlace) => (
           <Card
             key={hotPlace.id}
             imgSrc={hotPlace.img}
