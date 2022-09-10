@@ -21,7 +21,7 @@ export default function Festival() {
   const sectionRef = useRef<HTMLElement>(null)
   const { entry } = useIntersectionObserver(sectionRef)
 
-  const { data: hotPlaces } = useQuery(
+  const { data: hotPlaces } = useQuery<HotPlace[]>(
     'hotPlace/get',
     () => withExtractData<HotPlace[]>(hotPlaceApi.get),
     { enabled: entry?.isIntersecting }
