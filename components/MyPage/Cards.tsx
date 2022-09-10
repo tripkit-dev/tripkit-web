@@ -65,7 +65,7 @@ function People({ srcs }: PeopleProps) {
     <SPeople>
       {srcs.map((src, idx) => (
         <Img
-          key={src}
+          key={idx}
           src={src}
           sideLength="38px"
           hasBorder
@@ -89,6 +89,7 @@ const SContainer = styled.section`
 const SCards = styled.ul`
   margin: 0 auto;
   max-width: min(calc(100vw - 32px), 720px);
+  overflow: hidden;
 `
 
 const SCard = styled.li`

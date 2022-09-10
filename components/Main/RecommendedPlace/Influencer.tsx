@@ -8,12 +8,17 @@ import { Shape } from '@enums/Shape'
 import { Size } from '@enums/Size'
 import { Size as TextSize } from '@enums/Text'
 
+import { HotPlace } from 'types/HotPlace'
+
 import { color } from '@constants/color'
-import { hotPlaceModels } from 'models/hotPlace'
 
 import { Button, Card, HeartIcon, Img, Text } from '@components/common'
 
-export default function Influencer() {
+interface Props {
+  hotPlaces?: HotPlace[]
+}
+
+export default function Influencer({ hotPlaces }: Props) {
   return (
     <>
       <s.Influencer>
@@ -30,7 +35,7 @@ export default function Influencer() {
         <Text size={TextSize.SMALL}>한적하게 걷기 좋은 곳을 자주 다녀요.</Text>
       </s.Influencer>
       <s.Cards>
-        {hotPlaceModels.map((hotPlace) => (
+        {hotPlaces?.map((hotPlace) => (
           <Card
             key={hotPlace.id}
             size={CardSize.SMALL}
@@ -78,7 +83,7 @@ export default function Influencer() {
         <Text size={TextSize.SMALL}>풍경이 좋은 곳을 자주 찾곤해요.</Text>
       </s.Influencer>
       <s.Cards>
-        {hotPlaceModels.map((hotPlace) => (
+        {hotPlaces?.map((hotPlace) => (
           <Card
             key={hotPlace.id}
             size={CardSize.SMALL}
