@@ -3,6 +3,9 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import NextNProgress from 'nextjs-progressbar'
+
+import { color } from '@constants/color'
 
 import { ErrorBoundary } from '@components/common'
 import GlobalStyle from '@components/GlobalStyle'
@@ -36,7 +39,15 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
         <ErrorBoundary>
-          <GlobalStyle>{getLayout(<Component {...pageProps} />)}</GlobalStyle>
+          <GlobalStyle>
+            <NextNProgress
+              color={color.mainPlaceholder}
+              height={2}
+              stopDelayMs={100}
+              options={{ showSpinner: false }}
+            />
+            {getLayout(<Component {...pageProps} />)}
+          </GlobalStyle>
         </ErrorBoundary>
       </Hydrate>
     </QueryClientProvider>
