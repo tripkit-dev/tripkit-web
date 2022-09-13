@@ -106,7 +106,7 @@ const styles = {
       right: 0;
       border-radius: 50%;
       background-color: ${color.main};
-      z-index: 999;
+      z-index: 9;
     }
   `,
   leftIcon: css`

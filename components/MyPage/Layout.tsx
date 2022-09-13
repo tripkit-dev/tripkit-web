@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 import React from 'react'
 
-import { Header } from '@components/common'
+import { Header } from '@components/layout'
 import { PlanNavigation, Profile } from '@components/MyPage'
 
 interface Props {
