@@ -61,6 +61,8 @@ const SLi = styled.li<SLiProps>`
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
   p {
     margin-top: 8px;
   }

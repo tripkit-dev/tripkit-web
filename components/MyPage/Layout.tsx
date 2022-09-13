@@ -26,7 +26,7 @@ const Layout: React.FC<Props> = ({ inner, outer }) => {
 
 export default Layout
 
-const Container = styled.section`
+const Container = styled.main`
   padding: 46px;
   padding-bottom: 30px;
 `

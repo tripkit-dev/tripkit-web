@@ -8,6 +8,8 @@ import { Kind as InputKind } from '@enums/Input'
 import { Shape } from '@enums/Shape'
 import { Size } from '@enums/Size'
 
+import { color } from '@constants/color'
+
 import { Img, UnControlledForm } from '@components/common'
 import { Button, Input } from '@components/common'
 
@@ -54,7 +56,8 @@ export default function Feed() {
 
               <Button
                 size={Size.X_LARGE}
-                kind={ButtonKind.TERTIARY}
+                kind={ButtonKind.PRIMARY}
+                borderColor={color.white}
                 onClick={handleSubmit}
                 cssStyle={s.buttonStyle}
               >
