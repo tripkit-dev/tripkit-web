@@ -26,11 +26,11 @@ export default function PublicNavigation() {
 
   return (
     <s.Container>
-      <ul>
+      <s.Menus>
         {menuList.map((menu) => (
           <Menu key={menu.label} {...menu} />
         ))}
-      </ul>
+      </s.Menus>
     </s.Container>
   )
 }

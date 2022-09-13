@@ -17,6 +17,6 @@ export default function Layout({ children }: Props) {
   )
 }
 
-const Container = styled.section`
+const Container = styled.div`
   padding-bottom: 90px;
 `
