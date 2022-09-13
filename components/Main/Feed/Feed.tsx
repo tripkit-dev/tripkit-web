@@ -8,7 +8,7 @@ import { Kind as InputKind } from '@enums/Input'
 import { Shape } from '@enums/Shape'
 import { Size } from '@enums/Size'
 
-import { Img, UncontrolledForm } from '@components/common'
+import { Img, UnControlledForm } from '@components/common'
 import { Button, Input } from '@components/common'
 
 export default function Feed() {
@@ -36,7 +36,7 @@ export default function Feed() {
           </s.Description>
         </s.Weather>
 
-        <UncontrolledForm
+        <UnControlledForm
           onSubmit={(value) => {
             console.log(value)
           }}
@@ -62,7 +62,7 @@ export default function Feed() {
               </Button>
             </>
           )}
-        </UncontrolledForm>
+        </UnControlledForm>
       </s.Inner>
     </s.Container>
   )
