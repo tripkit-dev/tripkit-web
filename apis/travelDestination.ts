@@ -6,7 +6,7 @@ interface GetRequest {
 }
 
 export const travelDestinationApi = {
-  get: ({ page = 1, size = 10 }: GetRequest = {}) => {
+  get: ({ page = 1, size = 12 }: GetRequest = {}) => {
     return new Promise((res) => {
       setTimeout(() => {
         res({
