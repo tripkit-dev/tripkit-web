@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
 
+import { css } from '@emotion/react'
+
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
 import { searchState } from 'atoms/search'
 import { combineQuery } from 'libraries/query'
 import { routes } from 'libraries/routes'
@@ -26,7 +27,9 @@ export default function Navigation() {
       },
       {
         icon: '/images/sample/heart.svg',
-        path: combineQuery(routes.search.path, { place: searchValue }),
+        path: combineQuery(routes.search.path, {
+          place: searchValue
+        }),
         label: '탐색'
       },
       { icon: '/images/sample/heart.svg', path: '/plan', label: '계획하기' }

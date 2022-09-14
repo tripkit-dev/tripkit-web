@@ -5,6 +5,7 @@
   "importOrder": [
     ".s?css$",
     ".styled$",
+    "^@emotion",
     "^re",
     "^next",
     "^@enums/(.*)$",

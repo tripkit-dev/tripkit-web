@@ -16,7 +16,7 @@ export function getQuery(
   key: string,
   defaultValue: string | number = ''
 ): string {
-  if (typeof window === 'undefined') return ''
+  if (typeof window === 'undefined') return String(defaultValue || '')
 
   const params = qs.parse(window.location.search, {
     ignoreQueryPrefix: true

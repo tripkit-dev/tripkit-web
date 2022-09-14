@@ -46,7 +46,7 @@ const SInput = styled.input<SInputProps & { shape: Shape; kind: Kind }>`
   text-align: center;
 
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
 
   ${({ shape }) => styles[shape]}
   ${({ kind }) => styles[kind]}
