@@ -1,14 +1,18 @@
 import styled from '@emotion/styled'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useRecoilValue } from 'recoil'
 
 import { color } from '@constants/color'
 import { css } from '@emotion/react'
+import { searchState } from 'atoms/search'
+import { combineQuery } from 'libraries/query'
 import { routes } from 'libraries/routes'
 
 import NavItem from './NavItem'
 
 export default function Navigation() {
+  const searchValue = useRecoilValue(searchState)
   const scrollTopRef = useRef<number>(0)
   const [isVisible, setIsVisible] = useState<boolean>(true)
 
@@ -20,7 +24,11 @@ export default function Navigation() {
         path: routes.mypage.path,
         label: '마이페이지'
       },
-      { icon: '/images/sample/heart.svg', path: '/search', label: '탐색' },
+      {
+        icon: '/images/sample/heart.svg',
+        path: combineQuery(routes.search.path, { place: searchValue }),
+        label: '탐색'
+      },
       { icon: '/images/sample/heart.svg', path: '/plan', label: '계획하기' }
     ],
     []

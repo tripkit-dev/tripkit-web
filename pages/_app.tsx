@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
+import { RecoilRoot } from 'recoil'
 
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
@@ -40,13 +41,15 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <Hydrate state={pageProps.dehydratedState}>
         <ErrorBoundary>
           <GlobalStyle>
-            <NextNProgress
-              color={color.mainPlaceholder}
-              height={2}
-              stopDelayMs={100}
-              options={{ showSpinner: false }}
-            />
-            {getLayout(<Component {...pageProps} />)}
+            <RecoilRoot>
+              <NextNProgress
+                color={color.mainPlaceholder}
+                height={2}
+                stopDelayMs={100}
+                options={{ showSpinner: false }}
+              />
+              {getLayout(<Component {...pageProps} />)}
+            </RecoilRoot>
           </GlobalStyle>
         </ErrorBoundary>
       </Hydrate>

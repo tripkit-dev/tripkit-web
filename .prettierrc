@@ -5,7 +5,7 @@
   "importOrder": [
     ".s?css$",
     ".styled$",
-    "^react",
+    "^re",
     "^next",
     "^@enums/(.*)$",
     "^types/(.*)$",

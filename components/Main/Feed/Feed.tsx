@@ -2,6 +2,9 @@ import * as s from './Feed.styled'
 import { whiteImgStyle } from 'styles/common.styled'
 
 import React from 'react'
+import { useSetRecoilState } from 'recoil'
+
+import { useRouter } from 'next/router'
 
 import { Kind as ButtonKind } from '@enums/Button'
 import { Kind as InputKind } from '@enums/Input'
@@ -9,11 +12,26 @@ import { Shape } from '@enums/Shape'
 import { Size } from '@enums/Size'
 
 import { color } from '@constants/color'
+import { searchState } from 'atoms/search'
+import { routes } from 'libraries/routes'
 
 import { Img, UnControlledForm } from '@components/common'
 import { Button, Input } from '@components/common'
 
 export default function Feed() {
+  const { push } = useRouter()
+  const setSearchValue = useSetRecoilState(searchState)
+
+  const handleSubmit = (value: string) => {
+    setSearchValue(value)
+    push({
+      pathname: routes.search.path,
+      query: {
+        place: value
+      }
+    })
+  }
+
   return (
     <s.Container>
       <s.Inner>
@@ -38,12 +56,7 @@ export default function Feed() {
           </s.Description>
         </s.Weather>
 
-        <UnControlledForm
-          onSubmit={(value) => {
-            console.log(value)
-          }}
-          cssStyle={s.formStyle}
-        >
+        <UnControlledForm onSubmit={handleSubmit} cssStyle={s.formStyle}>
           {({ ref, handleSubmit }) => (
             <>
               <Input

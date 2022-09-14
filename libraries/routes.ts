@@ -2,6 +2,7 @@ export const routes = {
   main: {
     path: '/'
   },
+
   mypage: {
     path: '/mypage',
     own: {
@@ -17,6 +18,11 @@ export const routes = {
       path: '/mypage/like'
     }
   },
+
+  search: {
+    path: '/search'
+  },
+
   admin: {
     path: '/admin'
   }
