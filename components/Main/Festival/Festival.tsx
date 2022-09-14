@@ -11,7 +11,6 @@ import { HotPlace } from 'types/HotPlace'
 
 import { hotPlaceApi } from 'apis/hotPlace'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
-import { withExtractData } from 'libraries/query'
 
 import { Card, Img, Text } from '@components/common'
 
@@ -23,7 +22,7 @@ export default function Festival() {
 
   const { data: hotPlaces } = useQuery<HotPlace[]>(
     'hotPlace/get',
-    () => withExtractData<HotPlace[]>(hotPlaceApi.get),
+    () => hotPlaceApi.get() as Promise<HotPlace[]>,
     { enabled: entry?.isIntersecting }
   )
 

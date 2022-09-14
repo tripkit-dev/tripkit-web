@@ -11,7 +11,6 @@ import { HotPlace } from 'types/HotPlace'
 
 import { color } from '@constants/color'
 import { hotPlaceApi } from 'apis/hotPlace'
-import { withExtractData } from 'libraries/query'
 
 import { Card, HeartIcon, Text } from '@components/common'
 
@@ -22,7 +21,7 @@ interface Props {
 const Recommended = ({ currentCategory }: Props) => {
   const { data: hotPlaces } = useQuery<HotPlace[]>(
     ['hotPlace/get', currentCategory.key],
-    () => withExtractData<HotPlace[]>(hotPlaceApi.get)
+    () => hotPlaceApi.get() as Promise<HotPlace[]>
   )
 
   return (

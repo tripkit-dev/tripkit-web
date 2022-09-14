@@ -28,7 +28,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           queries: {
             retry: 0,
             refetchOnWindowFocus: false,
-            refetchOnMount: false
+            refetchOnMount: false,
+            select: (data: any) => data.data || data
           }
         }
       })

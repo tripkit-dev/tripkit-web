@@ -9,12 +9,11 @@ import { HotPlace as HotPlaceType } from 'types/HotPlace'
 
 import { hotPlaceApi } from 'apis/hotPlace'
 import { searchState } from 'atoms/search'
-import { getQuery, withExtractData } from 'libraries/query'
+import { getQuery } from 'libraries/query'
 import { searchCategoryModels } from 'models/category'
 
 import { Header } from '@components/layout'
-import { Categories, Form } from '@components/Search'
-import Recommended from '@components/Search/Recommended'
+import { Categories, Form, Recommended } from '@components/Search'
 
 const DEFAULT_CATEGORY = searchCategoryModels[0]
 
@@ -48,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   await queryClient.prefetchQuery(
     ['hotPlace/get', category || DEFAULT_CATEGORY.key],
-    () => withExtractData<HotPlaceType[]>(hotPlaceApi.get)
+    () => hotPlaceApi.get() as Promise<HotPlaceType[]>
   )
 
   return {

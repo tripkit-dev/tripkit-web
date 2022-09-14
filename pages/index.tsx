@@ -6,7 +6,6 @@ import type { GetServerSideProps, NextPage } from 'next'
 import { HotPlace as HotPlaceType } from 'types/HotPlace'
 
 import { hotPlaceApi } from 'apis/hotPlace'
-import { withExtractData } from 'libraries/query'
 
 import { Feed, Festival, HotPlace, RecommendedPlace } from '@components/Main'
 
@@ -26,8 +25,9 @@ export default Home
 export const getServerSideProps: GetServerSideProps = async () => {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery(['hotPlace/get'], () =>
-    withExtractData<HotPlaceType[]>(hotPlaceApi.get)
+  await queryClient.prefetchQuery(
+    ['hotPlace/get'],
+    () => hotPlaceApi.get() as Promise<HotPlaceType[]>
   )
 
   return {
