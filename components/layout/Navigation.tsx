@@ -1,29 +1,44 @@
 import styled from '@emotion/styled'
 
+import { css } from '@emotion/react'
+
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useRecoilValue } from 'recoil'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
+import { searchState } from 'atoms/search'
 import { routes } from 'libraries/routes'
 
 import NavItem from './NavItem'
 
 export default function Navigation() {
+  const searchValue = useRecoilValue(searchState)
   const scrollTopRef = useRef<number>(0)
   const [isVisible, setIsVisible] = useState<boolean>(true)
 
   const list = useMemo(
     () => [
-      { icon: '/images/sample/heart.svg', path: routes.main.path, label: '홈' },
       {
         icon: '/images/sample/heart.svg',
-        path: routes.mypage.path,
+        basePath: routes.main.path,
+        label: '홈'
+      },
+      {
+        icon: '/images/sample/heart.svg',
+        basePath: routes.mypage.path,
         label: '마이페이지'
       },
-      { icon: '/images/sample/heart.svg', path: '/search', label: '탐색' },
-      { icon: '/images/sample/heart.svg', path: '/plan', label: '계획하기' }
+      {
+        icon: '/images/sample/heart.svg',
+        basePath: routes.search.path,
+        query: {
+          keyword: searchValue
+        },
+        label: '탐색'
+      },
+      { icon: '/images/sample/heart.svg', basePath: '/plan', label: '계획하기' }
     ],
-    []
+    [searchValue]
   )
 
   useEffect(() => {
@@ -50,7 +65,7 @@ export default function Navigation() {
     <Container visible={isVisible}>
       <SUl>
         {list.map((item, idx) => (
-          <NavItem key={item.path} item={item} idx={idx} />
+          <NavItem key={item.basePath} item={item} idx={idx} />
         ))}
       </SUl>
     </Container>

@@ -1,7 +1,5 @@
 import styled from '@emotion/styled'
 
-import React from 'react'
-
 import { Size as TextSize } from '@enums/Text'
 
 import { color } from '@constants/color'
@@ -16,19 +14,17 @@ interface Props {
 
 export default function SectionTitle({ title, subTitle, hasMore }: Props) {
   return (
-    <>
-      <Container>
-        {subTitle && (
-          <Text size={TextSize.SMALL} color={color.gray02}>
-            {subTitle}
-          </Text>
-        )}
-        <Title>
-          <Text size={TextSize.X_LARGE}>{title}</Text>
-          {hasMore && <More>더보기</More>}
-        </Title>
-      </Container>
-    </>
+    <Container>
+      {subTitle && (
+        <Text size={TextSize.SMALL} color={color.gray02}>
+          {subTitle}
+        </Text>
+      )}
+      <Title>
+        <Text size={TextSize.X_LARGE}>{title}</Text>
+        {hasMore && <More>더보기</More>}
+      </Title>
+    </Container>
   )
 }
 

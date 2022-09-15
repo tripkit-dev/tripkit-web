@@ -1,11 +1,15 @@
 import * as s from './PublicNavigation.styled'
 
-import { Menu as MenuType } from 'types/MyPage'
+import { useRouter } from 'next/router'
 
-import Menu from './Menu'
+import { Size as TextSize } from '@enums/Text'
+
+import { Text } from '@components/common'
 
 export default function PublicNavigation() {
-  const menuList: MenuType[] = [
+  const { push } = useRouter()
+
+  const menuList = [
     {
       label: '공지사항',
       path: ''
@@ -27,9 +31,18 @@ export default function PublicNavigation() {
   return (
     <s.Container>
       <s.Menus>
-        {menuList.map((menu) => (
-          <Menu key={menu.label} {...menu} />
-        ))}
+        {menuList.map(({ label, path }) => {
+          const handleRoute = () => {
+            push(path)
+          }
+
+          return (
+            <s.Menu key={label} onClick={handleRoute}>
+              <Text size={TextSize.SMALL}>{label}</Text>
+              &gt;
+            </s.Menu>
+          )
+        })}
       </s.Menus>
     </s.Container>
   )

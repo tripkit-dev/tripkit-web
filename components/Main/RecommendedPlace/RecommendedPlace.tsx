@@ -5,7 +5,6 @@ import { HotPlace as HotPlaceType } from 'types/HotPlace'
 
 import { hotPlaceApi } from 'apis/hotPlace'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
-import { withExtractData } from 'libraries/query'
 
 import SectionTitle from '../SectionTitle'
 import Influencer from './Influencer'
@@ -14,9 +13,9 @@ const RecommendedPlace = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const { entry } = useIntersectionObserver(sectionRef)
 
-  const { data: hotPlaces } = useQuery(
+  const { data: hotPlaces } = useQuery<HotPlaceType[]>(
     'hotPlace/get',
-    () => withExtractData<HotPlaceType[]>(hotPlaceApi.get),
+    () => hotPlaceApi.get() as Promise<HotPlaceType[]>,
     { enabled: entry?.isIntersecting }
   )
 

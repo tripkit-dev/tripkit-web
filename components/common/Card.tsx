@@ -20,6 +20,7 @@ interface Props extends SCardProps {
   top?: React.ReactNode | React.ReactNode[]
   bottom?: React.ReactNode | React.ReactNode[]
   bottomStyle?: Interpolation<Theme>
+  borderRadius?: string
 }
 
 export default function Card({
@@ -28,10 +29,11 @@ export default function Card({
   direction = Direction.ROW,
   top,
   bottom,
-  bottomStyle
+  bottomStyle,
+  borderRadius
 }: Props) {
   return (
-    <SCard size={size} direction={direction}>
+    <SCard size={size} direction={direction} style={{ borderRadius }}>
       <Img
         src={imgSrc}
         shape={Shape.NORMAL}

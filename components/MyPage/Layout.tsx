@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 
 import { Header } from '@components/layout'
-import { PlanNavigation, Profile } from '@components/MyPage'
+import { Profile, TravelDestinationNavigation } from '@components/MyPage'
 
 interface Props {
   inner?: React.ReactNode
@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ inner, outer }) => {
       <Header center="마이페이지" />
       <Container>
         <Profile />
-        <PlanNavigation />
+        <TravelDestinationNavigation />
         {inner}
       </Container>
       {outer}

@@ -1,3 +1,5 @@
+import styled from '@emotion/styled'
+
 import React, { useRef } from 'react'
 
 import type { Interpolation, Theme } from '@emotion/react'
@@ -26,10 +28,14 @@ const UncontrolledForm = ({ children, onSubmit, cssStyle }: Props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} css={cssStyle}>
+    <SForm onSubmit={handleSubmit} css={cssStyle}>
       {children({ ref: inputRef, handleSubmit })}
-    </form>
+    </SForm>
   )
 }
 
 export default UncontrolledForm
+
+const SForm = styled.form`
+  text-align: center;
+`

@@ -7,15 +7,15 @@ import { Size } from '@enums/Size'
 import { HotPlace as HotPlaceType } from 'types/HotPlace'
 
 import { hotPlaceApi } from 'apis/hotPlace'
-import { withExtractData } from 'libraries/query'
 
 import { Card, Text } from '@components/common'
 
 import SectionTitle from '../SectionTitle'
 
 export default function HotPlace() {
-  const { data: hotPlaces } = useQuery<HotPlaceType[]>(['hotPlace/get'], () =>
-    withExtractData<HotPlaceType[]>(hotPlaceApi.get)
+  const { data: hotPlaces } = useQuery<HotPlaceType[]>(
+    ['hotPlace/get'],
+    () => hotPlaceApi.get() as Promise<HotPlaceType[]>
   )
 
   return (
