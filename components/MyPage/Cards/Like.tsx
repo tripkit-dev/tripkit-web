@@ -1,5 +1,5 @@
-import Cards from './Cards'
+import { Heart } from './Cards'
 
 export function Bottom() {
-  return <Cards.Heart sideLength="24px" />
+  return <Heart sideLength="24px" />
 }

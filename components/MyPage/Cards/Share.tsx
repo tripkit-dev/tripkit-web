@@ -6,7 +6,7 @@ import { TravelDestination } from 'types/TravelDestination'
 
 import { Text } from '@components/common'
 
-import Cards from './Cards'
+import { Heart } from './Cards'
 
 interface Props {
   destination: TravelDestination
@@ -15,7 +15,7 @@ interface Props {
 export function Bottom({ destination }: Props) {
   return (
     <>
-      <Cards.Heart sideLength="24px" />
+      <Heart sideLength="24px" />
       <Text size={TextSize.SMALL} lineClamp={1}>
         {destination.title}
       </Text>
