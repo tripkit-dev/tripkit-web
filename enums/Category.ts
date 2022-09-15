@@ -4,3 +4,10 @@ export enum TravelDestinationCategory {
   INVITE = 'invite',
   LIKE = 'like'
 }
+
+export enum SearchPlaceCategory {
+  CAFE = 'cafe',
+  RESTAURANT = 'restaurant',
+  WALK = 'walk',
+  SHOPPING = 'shopping'
+}

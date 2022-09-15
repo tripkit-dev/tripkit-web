@@ -2,8 +2,12 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
+import React from 'react'
 import { useQuery } from 'react-query'
 
+import { useRouter } from 'next/router'
+
+import { SearchPlaceCategory } from '@enums/Category'
 import { Size, Size as TextSize } from '@enums/Text'
 
 import { Category } from 'types/Category'
@@ -11,14 +15,19 @@ import { HotPlace } from 'types/HotPlace'
 
 import { color } from '@constants/color'
 import { hotPlaceApi } from 'apis/hotPlace'
+import { searchCategoryModels } from 'models/category'
 
 import { Card, HeartIcon, Text } from '@components/common'
 
-interface Props {
-  currentCategory: Category
-}
+const DEFAULT_CATEGORY = SearchPlaceCategory.CAFE
 
-const Recommended = ({ currentCategory }: Props) => {
+const Recommended = () => {
+  const { query } = useRouter()
+  const currentCategoryKey = query.category || DEFAULT_CATEGORY
+  const currentCategory = searchCategoryModels.find(
+    (category) => category.key === currentCategoryKey
+  ) as Category
+
   const { data: hotPlaces } = useQuery<HotPlace[]>(
     ['hotPlace/get', currentCategory.key],
     () => hotPlaceApi.get() as Promise<HotPlace[]>
@@ -57,10 +66,10 @@ const Recommended = ({ currentCategory }: Props) => {
   )
 }
 
-export default Recommended
+export default React.memo(Recommended)
 
-const Container = styled.section`
-  margin-top: 36px;
+const Container = styled.article`
+  margin-top: 18px;
 `
 
 const Cards = styled.ul`

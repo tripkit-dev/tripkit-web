@@ -47,6 +47,7 @@ const Container = styled.section`
   height: 40px;
   padding: 0 32px;
   margin-top: 18px;
+  padding-bottom: 18px;
   overflow-y: scroll;
   text-align: center;
   white-space: nowrap;

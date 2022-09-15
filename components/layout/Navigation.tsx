@@ -32,7 +32,7 @@ export default function Navigation() {
         icon: '/images/sample/heart.svg',
         basePath: routes.search.path,
         query: {
-          place: searchValue
+          keyword: searchValue
         },
         label: '탐색'
       },

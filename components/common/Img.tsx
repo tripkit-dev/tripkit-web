@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 
+import { css, Interpolation, Theme } from '@emotion/react'
+
 import { useState } from 'react'
 
 import NextImage, { ImageProps } from 'next/image'
@@ -7,7 +9,6 @@ import NextImage, { ImageProps } from 'next/image'
 import { Shape } from '@enums/Shape'
 
 import { color } from '@constants/color'
-import { css, Interpolation, Theme } from '@emotion/react'
 
 interface SImageProps {
   shape?: Shape
@@ -55,11 +56,12 @@ const Img = ({
       {notSSR ? (
         <picture>
           <source srcSet={src} type="image/webp" />
-          <img src={src} alt="img" width={_sideLength} height={_sideLength} />
+          <img src={src} alt={src} width={_sideLength} height={_sideLength} />
         </picture>
       ) : (
         <NextImage
           src={src}
+          alt={src}
           onError={() => {
             setIsError(true)
           }}

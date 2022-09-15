@@ -13,7 +13,7 @@ import { getQuery } from 'libraries/query'
 import { searchCategoryModels } from 'models/category'
 
 import { Header } from '@components/layout'
-import { Categories, Form, Recommended } from '@components/Search'
+import { Categories, Form, Places } from '@components/Search'
 
 const DEFAULT_CATEGORY = searchCategoryModels[0]
 
@@ -34,7 +34,7 @@ const Search: NextPage<Props> = ({ defaultCategoryKey }) => {
       <Header center={searchValue || '탐색'} />
       <Form />
       <Categories currentCategory={currentCategory} />
-      <Recommended currentCategory={currentCategory} />
+      <Places />
     </>
   )
 }

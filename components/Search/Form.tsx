@@ -16,7 +16,7 @@ const Form = () => {
   const setSearchValue = useSetRecoilState(searchState)
 
   const handleSubmit = (value: string) => {
-    push(combineQuery(pathname, { ...query, place: value }), undefined, {
+    push(combineQuery(pathname, { ...query, keyword: value }), undefined, {
       shallow: true
     })
     setSearchValue(value)

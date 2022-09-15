@@ -1,3 +1,5 @@
+import { SearchPlaceCategory } from '@enums/Category'
+
 import { Category } from 'types/Category'
 
 export const categoryModels = {
@@ -6,8 +8,8 @@ export const categoryModels = {
 }
 
 export const searchCategoryModels: Category[] = [
-  { key: 'cafe', label: '카페' },
-  { key: 'restaurant', label: '맛집' },
-  { key: 'walk', label: '산책' },
-  { key: 'shopping', label: '쇼핑' }
+  { key: SearchPlaceCategory.CAFE, label: '카페' },
+  { key: SearchPlaceCategory.RESTAURANT, label: '맛집' },
+  { key: SearchPlaceCategory.WALK, label: '산책' },
+  { key: SearchPlaceCategory.SHOPPING, label: '쇼핑' }
 ]

@@ -4,6 +4,7 @@ import { RecoilRoot } from 'recoil'
 
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
 
 import { color } from '@constants/color'
@@ -43,6 +44,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <ErrorBoundary>
           <GlobalStyle>
             <RecoilRoot>
+              <Head>
+                <title>Tripkit</title>
+              </Head>
               <NextNProgress
                 color={color.mainPlaceholder}
                 height={2}
