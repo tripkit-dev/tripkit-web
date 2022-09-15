@@ -12,10 +12,10 @@ export async function withExtractData<T>(
   return result.data
 }
 
-export function getQuery(
+export function getQuery<T>(
   key: string,
   defaultValue: string | number = ''
-): string {
+): string | T {
   if (typeof window === 'undefined') return String(defaultValue || '')
 
   const params = qs.parse(window.location.search, {
@@ -25,7 +25,9 @@ export function getQuery(
   return (params[key] || defaultValue) as string
 }
 
-export function combineQuery(path: string, query: object): string {
+export function combineQuery(path: string, query?: object): string {
+  if (!query) return path
+
   const newQuery = { ...query } as any
 
   Object.keys(newQuery).forEach((key) => {

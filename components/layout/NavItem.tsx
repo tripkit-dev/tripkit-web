@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 
+import { css } from '@emotion/react'
+
 import React from 'react'
 
 import Link from 'next/link'
@@ -9,14 +11,15 @@ import { Shape } from '@enums/Shape'
 import { Size as TextSize } from '@enums/Text'
 
 import { color } from '@constants/color'
-import { css } from '@emotion/react'
+import { combineQuery } from 'libraries/query'
 import { routes } from 'libraries/routes'
 
 import { Img, Text } from '@components/common'
 
 interface Item {
   icon: string
-  path: string
+  basePath: string
+  query?: object
   label: string
 }
 
@@ -28,13 +31,14 @@ interface ItemProps {
 const Item = ({ item, idx }: ItemProps) => {
   const { pathname } = useRouter()
 
-  const regExp = new RegExp(`^${item.path}`, 'g')
-  const iaActiveHome = pathname === routes.main.path
-  const isActiveTab = idx > 0 ? regExp.test(pathname) : iaActiveHome
+  const regExp = new RegExp(`^${item.basePath}`, 'g')
+  const isActiveHome = pathname === routes.main.path
+  const isActiveTab =
+    idx > 0 ? !isActiveHome && regExp.test(pathname) : isActiveHome
 
   return (
-    <Link href={item.path}>
-      <SLi active={idx > 0 ? isActiveTab : iaActiveHome}>
+    <Link href={combineQuery(item.basePath, item.query)}>
+      <SLi active={isActiveTab}>
         <Img src={item.icon} shape={Shape.NORMAL} sideLength="24px" />
         <Text
           size={TextSize.X_SMALL}

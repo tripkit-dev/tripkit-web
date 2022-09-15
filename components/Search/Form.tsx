@@ -12,11 +12,13 @@ import { combineQuery } from 'libraries/query'
 import { Input, UnControlledForm } from '@components/common'
 
 const Form = () => {
-  const { push, pathname } = useRouter()
+  const { push, pathname, query } = useRouter()
   const setSearchValue = useSetRecoilState(searchState)
 
   const handleSubmit = (value: string) => {
-    push(combineQuery(pathname, { place: value }))
+    push(combineQuery(pathname, { ...query, place: value }), undefined, {
+      shallow: true
+    })
     setSearchValue(value)
   }
 

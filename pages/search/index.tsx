@@ -31,7 +31,7 @@ const Search: NextPage<Props> = ({ defaultCategoryKey }) => {
 
   return (
     <>
-      <Header center={searchValue || DEFAULT_CATEGORY.label} />
+      <Header center={searchValue || '탐색'} />
       <Form />
       <Categories currentCategory={currentCategory} />
       <Recommended currentCategory={currentCategory} />

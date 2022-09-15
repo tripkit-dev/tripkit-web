@@ -7,7 +7,6 @@ import { useRecoilValue } from 'recoil'
 
 import { color } from '@constants/color'
 import { searchState } from 'atoms/search'
-import { combineQuery } from 'libraries/query'
 import { routes } from 'libraries/routes'
 
 import NavItem from './NavItem'
@@ -19,22 +18,27 @@ export default function Navigation() {
 
   const list = useMemo(
     () => [
-      { icon: '/images/sample/heart.svg', path: routes.main.path, label: '홈' },
       {
         icon: '/images/sample/heart.svg',
-        path: routes.mypage.path,
+        basePath: routes.main.path,
+        label: '홈'
+      },
+      {
+        icon: '/images/sample/heart.svg',
+        basePath: routes.mypage.path,
         label: '마이페이지'
       },
       {
         icon: '/images/sample/heart.svg',
-        path: combineQuery(routes.search.path, {
+        basePath: routes.search.path,
+        query: {
           place: searchValue
-        }),
+        },
         label: '탐색'
       },
-      { icon: '/images/sample/heart.svg', path: '/plan', label: '계획하기' }
+      { icon: '/images/sample/heart.svg', basePath: '/plan', label: '계획하기' }
     ],
-    []
+    [searchValue]
   )
 
   useEffect(() => {
@@ -61,7 +65,7 @@ export default function Navigation() {
     <Container visible={isVisible}>
       <SUl>
         {list.map((item, idx) => (
-          <NavItem key={item.path} item={item} idx={idx} />
+          <NavItem key={item.basePath} item={item} idx={idx} />
         ))}
       </SUl>
     </Container>
