@@ -1,4 +1,4 @@
-export const routes = {
+const routes = {
   main: {
     path: '/'
   },
@@ -18,3 +18,5 @@ export const routes = {
     path: '/admin'
   }
 }
+
+export default routes

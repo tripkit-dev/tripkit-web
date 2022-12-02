@@ -7,7 +7,7 @@ import { useRecoilValue } from 'recoil'
 
 import { searchState } from '@shared/atoms/search'
 import { color } from '@shared/constants'
-import { routes } from '@shared/libraries/routes'
+import { routes } from '@shared/libraries'
 
 import NavItem from './NavItem'
 

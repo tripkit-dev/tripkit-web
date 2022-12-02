@@ -1,4 +1,5 @@
-import { Category, SearchPlaceCategory } from '@shared/types/Category'
+import { SearchPlaceCategory } from '@search/types'
+import { Category } from '@shared/types/Category'
 
 export const categoryModels = {
   walk: '산책',

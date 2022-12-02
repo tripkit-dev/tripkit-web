@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useQuery } from 'react-query'
 
 import { hotPlaceApi } from '@shared/apis/hotPlace'
-import useIntersectionObserver from '@shared/hooks/useIntersectionObserver'
+import { useIntersectionObserver } from '@shared/hooks'
 import { HotPlace as HotPlaceType } from '@shared/types/HotPlace'
 
 import Influencer from './Influencer'

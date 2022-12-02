@@ -1,8 +1,8 @@
+import { TravelDestinationCategory } from '@mypage/types'
+import { routes } from '@shared/libraries'
 import { combineQuery } from '@shared/libraries/query'
-import { routes } from '@shared/libraries/routes'
-import { TravelDestinationCategory } from '@shared/types/Category'
 
-export const planNavigationModels: PlanNavigationModels[] = [
+const planNavigationModels: PlanNavigationModels[] = [
   {
     key: 'own',
     label: '만든 여행지',
@@ -32,6 +32,8 @@ export const planNavigationModels: PlanNavigationModels[] = [
     })
   }
 ]
+
+export default planNavigationModels
 
 interface PlanNavigationModels {
   key: TravelDestinationCategory

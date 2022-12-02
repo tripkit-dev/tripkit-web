@@ -11,19 +11,19 @@ import {
   MyPageCards,
   OwnCardBottom
 } from '@mypage/components'
+import { planNavigationModels } from '@mypage/models'
+import {
+  ALL_TRAVEL_DESTINATION_CATEGORIES,
+  TravelDestinationCategory
+} from '@mypage/types'
 import { travelDestinationApi } from '@shared/apis/travelDestination'
 import InfiniteScroll from '@shared/components/InfiniteScroll'
+import { routes } from '@shared/libraries'
 import {
   combineQuery,
   getQuery,
   withExtractData
 } from '@shared/libraries/query'
-import { routes } from '@shared/libraries/routes'
-import { planNavigationModels } from '@shared/models/planNavigation'
-import {
-  ALL_TRAVEL_DESTINATION_CATEGORIES,
-  TravelDestinationCategory
-} from '@shared/types/Category'
 import { Pagination } from '@shared/types/Response'
 import { TravelDestination as TravelDestinationType } from '@shared/types/TravelDestination'
 

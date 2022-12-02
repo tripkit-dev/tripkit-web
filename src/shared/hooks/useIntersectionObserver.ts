@@ -1,11 +1,6 @@
 import { RefObject, useEffect, useState } from 'react'
 
-interface Args extends IntersectionObserverInit {
-  freezeOnceVisible?: boolean
-  disable?: boolean
-}
-
-const useIntersectionObserver = (
+export default function useIntersectionObserver(
   elementRef: RefObject<Element>,
   {
     threshold = 0,
@@ -14,7 +9,7 @@ const useIntersectionObserver = (
     freezeOnceVisible = true,
     disable = false
   }: Args = {}
-) => {
+) {
   const [entry, setEntry] = useState<IntersectionObserverEntry>()
 
   const frozen = entry?.isIntersecting && freezeOnceVisible
@@ -44,4 +39,7 @@ const useIntersectionObserver = (
   return { entry }
 }
 
-export default useIntersectionObserver
+interface Args extends IntersectionObserverInit {
+  freezeOnceVisible?: boolean
+  disable?: boolean
+}

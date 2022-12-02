@@ -6,7 +6,7 @@ import { useQuery } from 'react-query'
 
 import { hotPlaceApi } from '@shared/apis/hotPlace'
 import { Card, Img, Text } from '@shared/components'
-import useIntersectionObserver from '@shared/hooks/useIntersectionObserver'
+import { useIntersectionObserver } from '@shared/hooks'
 import { HotPlace } from '@shared/types/HotPlace'
 
 import SectionTitle from './SectionTitle'

@@ -10,7 +10,7 @@ import { searchState } from '@shared/atoms/search'
 import { Img, UnControlledForm } from '@shared/components'
 import { Button, Input } from '@shared/components'
 import { color } from '@shared/constants'
-import { routes } from '@shared/libraries/routes'
+import { routes } from '@shared/libraries'
 
 export default function Feed() {
   const { push } = useRouter()

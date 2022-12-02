@@ -5,11 +5,11 @@ import { useInfiniteQuery } from 'react-query'
 
 import { useRouter } from 'next/router'
 
+import { SearchPlaceCategory } from '@search/types'
 import { travelDestinationApi } from '@shared/apis/travelDestination'
 import InfiniteScroll from '@shared/components/InfiniteScroll'
-import useVirtualList from '@shared/hooks/useVirtualList'
+import { useVirtualList } from '@shared/hooks'
 import { withExtractData } from '@shared/libraries/query'
-import { SearchPlaceCategory } from '@shared/types/Category'
 import { Pagination } from '@shared/types/Response'
 import { TravelDestination as TravelDestinationType } from '@shared/types/TravelDestination'
 

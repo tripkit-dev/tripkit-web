@@ -1,10 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-interface Props<T> {
-  totalList: T[]
-}
-
-const useVirtualList = <T>({ totalList }: Props<T>) => {
+export default function useVirtualList<T>({ totalList }: Props<T>) {
   const ref = useRef<HTMLUListElement>(null)
   const [list, setList] = useState<T[]>([])
   const [totalHeight, setTotalHeight] = useState<number>(0)
@@ -58,7 +54,9 @@ const useVirtualList = <T>({ totalList }: Props<T>) => {
   }
 }
 
-export default useVirtualList
+interface Props<T> {
+  totalList: T[]
+}
 
 /*
     startIndex, endIndex : 렌더링할 데이터 시작 idx(startIndex), 마지막 idx(endIndex)

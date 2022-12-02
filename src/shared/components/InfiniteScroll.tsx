@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { useEffect, useRef } from 'react'
 
 import { color } from '@shared/constants'
-import useIntersectionObserver from '@shared/hooks/useIntersectionObserver'
+import { useIntersectionObserver } from '@shared/hooks'
 
 interface Props {
   fetch: (options?: any) => Promise<any>
