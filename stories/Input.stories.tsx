@@ -1,9 +1,5 @@
-import { Kind } from '@enums/Input'
-import { Shape } from '@enums/Shape'
-
+import { Input } from '@shared/components'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { Input } from '@components/common'
 
 export default {
   title: 'Example/Input',
@@ -14,35 +10,35 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {
-  kind: Kind.PRIMARY,
-  shape: Shape.NORMAL,
+  kind: 'primary',
+  shape: 'normal',
   placeholder: 'normal input'
 }
 
 export const Round = Template.bind({})
 Round.args = {
-  kind: Kind.PRIMARY,
-  shape: Shape.ROUND,
+  kind: 'primary',
+  shape: 'round',
   placeholder: 'round input'
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
-  kind: Kind.PRIMARY,
-  shape: Shape.NORMAL,
+  kind: 'primary',
+  shape: 'normal',
   placeholder: 'primary input'
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
-  kind: Kind.SECONDARY,
-  shape: Shape.NORMAL,
+  kind: 'secondary',
+  shape: 'normal',
   placeholder: 'secondary input'
 }
 
 export const Tertiary = Template.bind({})
 Tertiary.args = {
-  kind: Kind.TERTIARY,
-  shape: Shape.NORMAL,
+  kind: 'tertiary',
+  shape: 'normal',
   placeholder: 'tertiary input'
 }

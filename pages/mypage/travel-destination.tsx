@@ -3,35 +3,29 @@ import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 
 import type { GetServerSideProps, NextPage } from 'next'
 
-import { TravelDestinationCategory } from '@enums/Category'
-
-import { Pagination } from 'types/Response'
-import { TravelDestination as TravelDestinationType } from 'types/TravelDestination'
-
-import { travelDestinationApi } from 'apis/travelDestination'
-import { combineQuery, getQuery, withExtractData } from 'libraries/query'
-import { routes } from 'libraries/routes'
-import { planNavigationModels } from 'models/planNavigation'
-
-import InfiniteScroll from '@components/InfiniteScroll'
 import {
   InviteCardBottom,
+  Layout,
   LikeCardBottom,
   MyPageCard,
   MyPageCards,
-  MyPageLayout,
   OwnCardBottom
-} from '@components/MyPage'
+} from '@mypage/components'
+import { planNavigationModels } from '@mypage/models'
+import {
+  ALL_TRAVEL_DESTINATION_CATEGORIES,
+  TravelDestinationCategory
+} from '@mypage/types'
+import { travelDestinationApi } from '@shared/apis'
+import InfiniteScroll from '@shared/components/InfiniteScroll'
+import { routes } from '@shared/libraries'
+import { combineQuery, getQuery, withExtractData } from '@shared/libraries'
+import { Pagination } from '@shared/types'
+import { TravelDestination as TravelDestinationType } from '@shared/types'
 
 const DEFAULT_PAGE = 1
 const TRAVEL_DESTINATION_KEY = 'travelDestination/pagination'
 const DEFAULT_CATEGORY = planNavigationModels[0].key
-
-type Response = Pagination<TravelDestinationType[]>
-
-interface Props {
-  defaultCategory: TravelDestinationCategory
-}
 
 const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
   const category =
@@ -56,14 +50,14 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
 
   const renderCardBottom = useCallback(
     (destination: TravelDestinationType) => {
-      switch (category) {
-        case TravelDestinationCategory.OWN:
+      switch (category as TravelDestinationCategory) {
+        case 'own':
           return <OwnCardBottom destination={destination} />
-        case TravelDestinationCategory.LIKE:
+        case 'like':
           return <LikeCardBottom />
-        case TravelDestinationCategory.INVITE:
+        case 'invite':
           return <InviteCardBottom destination={destination} />
-        case TravelDestinationCategory.SHARE:
+        case 'share':
           return <OwnCardBottom destination={destination} />
         default:
           return undefined
@@ -73,7 +67,7 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
   )
 
   return (
-    <MyPageLayout
+    <Layout
       outer={
         <MyPageCards>
           {travelDestinations?.pages?.map(({ contents: destinations }) =>
@@ -90,7 +84,7 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
           )}
         </MyPageCards>
       }
-    ></MyPageLayout>
+    ></Layout>
   )
 }
 
@@ -99,7 +93,7 @@ export default TravelDestination
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const queryClient = new QueryClient()
   const defaultCategory = query.category as string
-  const isValidCategory = Object.values(TravelDestinationCategory).find(
+  const isValidCategory = ALL_TRAVEL_DESTINATION_CATEGORIES.find(
     (category) => category === defaultCategory
   )
 
@@ -137,4 +131,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       defaultCategory
     }
   }
+}
+
+type Response = Pagination<TravelDestinationType[]>
+
+interface Props {
+  defaultCategory: TravelDestinationCategory
 }

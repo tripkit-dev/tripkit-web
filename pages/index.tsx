@@ -3,11 +3,9 @@ import { dehydrate, QueryClient } from 'react-query'
 
 import type { GetServerSideProps, NextPage } from 'next'
 
-import { HotPlace as HotPlaceType } from 'types/HotPlace'
-
-import { hotPlaceApi } from 'apis/hotPlace'
-
-import { Feed, Festival, HotPlace, RecommendedPlace } from '@components/Main'
+import { Feed, Festival, HotPlace, RecommendedPlace } from '@home/components'
+import { hotPlaceApi } from '@shared/apis'
+import { HotPlace as HotPlaceType } from '@shared/types'
 
 const Home: NextPage = () => {
   return (

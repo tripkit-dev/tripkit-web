@@ -15,12 +15,19 @@
     "jsx": "preserve",
     "incremental": true,
     "jsxImportSource": "@emotion/react",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"],
+      "@apis/*": ["apis/*"],
+      "@atoms/*": ["atoms/*"],
       "@constants/*": ["constants/*"],
       "@enums/*": ["enums/*"],
-      "@pages/*": ["pages/*"]
+      "@hooks/*": ["hooks/*"],
+      "@libraries/*": ["libraries/*"],
+      "@models/*": ["models/*"],
+      "@shared/*": ["shared/*"],
+      "@home/*": ["home/*"],
+      "@mypage/*": ["mypage/*"],
+      "@search/*": ["search/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

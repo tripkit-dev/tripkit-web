@@ -7,19 +7,9 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
 
-import { color } from '@constants/color'
-
-import { ErrorBoundary } from '@components/common'
-import GlobalStyle from '@components/GlobalStyle'
-import { Layout } from '@components/layout'
-
-type NextPageWithLayout = NextPage & {
-  getLayout?: (page: React.ReactElement) => React.ReactNode
-}
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
+import { ErrorBoundary } from '@shared/components'
+import { GlobalStyle, Layout } from '@shared/components'
+import { color } from '@shared/constants'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const [queryClient] = useState(
@@ -63,3 +53,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 }
 
 export default MyApp
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
