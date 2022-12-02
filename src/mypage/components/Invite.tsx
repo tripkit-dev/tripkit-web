@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Text } from '@shared/components'
-import { Size as TextSize } from '@shared/enums/Text'
 import { TravelDestination } from '@shared/types/TravelDestination'
 
 import { People } from './Cards'
@@ -14,7 +13,7 @@ export default function Invite({ destination }: Props) {
   return (
     <>
       <People srcs={destination.peoples} />
-      <Text size={TextSize.SMALL} lineClamp={1}>
+      <Text size="small" lineClamp={1}>
         {destination.title}
       </Text>
     </>

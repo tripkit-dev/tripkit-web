@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
 
 import { Text } from '@shared/components'
-import { color } from '@shared/constants/color'
-import { Size as TextSize } from '@shared/enums/Text'
+import { color } from '@shared/constants'
 
 interface Props {
   title: string
@@ -14,12 +13,12 @@ export default function SectionTitle({ title, subTitle, hasMore }: Props) {
   return (
     <Container>
       {subTitle && (
-        <Text size={TextSize.SMALL} color={color.gray02}>
+        <Text size="small" color={color.gray02}>
           {subTitle}
         </Text>
       )}
       <Title>
-        <Text size={TextSize.X_LARGE}>{title}</Text>
+        <Text size="xlarge">{title}</Text>
         {hasMore && <More>더보기</More>}
       </Title>
     </Container>

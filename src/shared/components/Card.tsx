@@ -2,17 +2,15 @@ import styled from '@emotion/styled'
 
 import { css, Interpolation, Theme } from '@emotion/react'
 
-import { color } from '@shared/constants/color'
-import { Direction, Size } from '@shared/enums/Card'
-import { Shape } from '@shared/enums/Shape'
+import { color } from '@shared/constants'
 
 import Img from './Img'
 
 const cardSpace = '36px'
 
 interface SCardProps {
-  size?: Size
-  direction?: Direction
+  size?: 'small' | 'medium' | 'large'
+  direction?: 'row' | 'column'
 }
 
 interface Props extends SCardProps {
@@ -25,8 +23,8 @@ interface Props extends SCardProps {
 
 export default function Card({
   imgSrc,
-  size = Size.MEDIUM,
-  direction = Direction.ROW,
+  size = 'medium',
+  direction = 'row',
   top,
   bottom,
   bottomStyle,
@@ -36,7 +34,7 @@ export default function Card({
     <SCard size={size} direction={direction} style={{ borderRadius }}>
       <Img
         src={imgSrc}
-        shape={Shape.NORMAL}
+        shape="normal"
         sideLength="100%"
         containerCss={styles.img}
         layout="fill"
@@ -84,7 +82,7 @@ export const SBottomArea = styled.div`
 `
 
 const styles = {
-  [Size.SMALL]: css`
+  small: css`
     width: calc(130px - 34px);
     height: calc(200px - 34px);
     padding: 17px;
@@ -97,15 +95,15 @@ const styles = {
       margin-right: 40px;
     }
   `,
-  [Size.MEDIUM]: css`
+  medium: css`
     width: calc(160px - ${cardSpace});
     height: calc(228px - ${cardSpace});
   `,
-  [Size.LARGE]: css`
+  large: css`
     width: calc(310px - ${cardSpace});
     height: calc(200px - ${cardSpace});
   `,
-  [Direction.ROW]: css`
+  row: css`
     &:first-of-type {
       margin-left: 28px;
     }
@@ -114,7 +112,7 @@ const styles = {
       margin-right: 28px;
     }
   `,
-  [Direction.COLUMN]: css``,
+  column: css``,
   img: css`
     position: absolute;
     top: 0;

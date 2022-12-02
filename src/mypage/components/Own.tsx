@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Text } from '@shared/components'
-import { Size as TextSize } from '@shared/enums/Text'
 import { TravelDestination } from '@shared/types/TravelDestination'
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 
 export default React.memo(function Own({ destination }: Props) {
   return (
-    <Text size={TextSize.SMALL} lineClamp={1}>
+    <Text size="small" lineClamp={1}>
       {destination.title}
     </Text>
   )

@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Img, Text } from '@shared/components'
-import { Size as TextSize } from '@shared/enums/Text'
 import { planNavigationModels } from '@shared/models/planNavigation'
 
 export default function Navigation() {
@@ -20,7 +19,7 @@ export default function Navigation() {
           return (
             <Link key={key} href={path} shallow>
               <s.Menu active={isActive}>
-                <Text size={TextSize.SMALL}>{label}</Text>
+                <Text size="small">{label}</Text>
                 <Img
                   src="/images/img_profile_example.png"
                   sideLength="20px"

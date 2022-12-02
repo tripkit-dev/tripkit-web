@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { HotPlace } from 'types/HotPlace'
-
-import { Method } from '@shared/enums/Http'
-import { hotPlaceModels } from 'models/hotPlace'
+import { hotPlaceModels } from '@shared/models/hotPlace'
+import { HotPlace } from '@shared/types/HotPlace'
+import { Method } from '@shared/types/Http'
 
 export default function hot_places(
   req: NextApiRequest,
@@ -13,7 +12,7 @@ export default function hot_places(
 }
 
 const handler = {
-  [Method.GET]: (req: NextApiRequest, res: NextApiResponse<HotPlace[]>) => {
+  get: (req: NextApiRequest, res: NextApiResponse<HotPlace[]>) => {
     const size = Number(req.query.size)
 
     if (Number.isInteger(size)) {

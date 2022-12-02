@@ -3,7 +3,6 @@ import * as s from './PublicNavigation.styled'
 import { useRouter } from 'next/router'
 
 import { Text } from '@shared/components'
-import { Size as TextSize } from '@shared/enums/Text'
 
 export default function PublicNavigation() {
   const { push } = useRouter()
@@ -37,7 +36,7 @@ export default function PublicNavigation() {
 
           return (
             <s.Menu key={label} onClick={handleRoute}>
-              <Text size={TextSize.SMALL}>{label}</Text>
+              <Text size="small">{label}</Text>
               &gt;
             </s.Menu>
           )

@@ -9,11 +9,7 @@ import { useRouter } from 'next/router'
 import { searchState } from '@shared/atoms/search'
 import { Img, UnControlledForm } from '@shared/components'
 import { Button, Input } from '@shared/components'
-import { color } from '@shared/constants/color'
-import { Kind as ButtonKind } from '@shared/enums/Button'
-import { Kind as InputKind } from '@shared/enums/Input'
-import { Shape } from '@shared/enums/Shape'
-import { Size } from '@shared/enums/Size'
+import { color } from '@shared/constants'
 import { routes } from '@shared/libraries/routes'
 
 export default function Feed() {
@@ -59,15 +55,15 @@ export default function Feed() {
             <>
               <Input
                 ref={ref}
-                kind={InputKind.TERTIARY}
-                shape={Shape.ROUND}
+                kind="tertiary"
+                shape={'round'}
                 placeholder="어디로 놀러가세요?"
                 cssStyle={s.inputStyle}
               />
 
               <Button
-                size={Size.X_LARGE}
-                kind={ButtonKind.PRIMARY}
+                size="xlarge"
+                kind="primary"
                 borderColor={color.white}
                 onClick={handleSubmit}
                 cssStyle={s.buttonStyle}

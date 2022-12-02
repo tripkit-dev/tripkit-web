@@ -1,5 +1,4 @@
 import { Card } from '@shared/components'
-import { Size } from '@shared/enums/Card'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 const SAMPLE_IMG_PATH = '/images/sample/kyungju_01.png'
@@ -14,7 +13,7 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
 export const Small = Template.bind({})
 Small.args = {
   imgSrc: SAMPLE_IMG_PATH,
-  size: Size.SMALL
+  size: 'small'
 }
 
 export const Medium = Template.bind({})
@@ -25,5 +24,5 @@ Medium.args = {
 export const Large = Template.bind({})
 Large.args = {
   imgSrc: SAMPLE_IMG_PATH,
-  size: Size.LARGE
+  size: 'large'
 }

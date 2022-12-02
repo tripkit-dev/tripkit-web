@@ -13,7 +13,6 @@ import {
 } from '@mypage/components'
 import { travelDestinationApi } from '@shared/apis/travelDestination'
 import InfiniteScroll from '@shared/components/InfiniteScroll'
-import { TravelDestinationCategory } from '@shared/enums/Category'
 import {
   combineQuery,
   getQuery,
@@ -21,6 +20,10 @@ import {
 } from '@shared/libraries/query'
 import { routes } from '@shared/libraries/routes'
 import { planNavigationModels } from '@shared/models/planNavigation'
+import {
+  ALL_TRAVEL_DESTINATION_CATEGORIES,
+  TravelDestinationCategory
+} from '@shared/types/Category'
 import { Pagination } from '@shared/types/Response'
 import { TravelDestination as TravelDestinationType } from '@shared/types/TravelDestination'
 
@@ -57,14 +60,14 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
 
   const renderCardBottom = useCallback(
     (destination: TravelDestinationType) => {
-      switch (category) {
-        case TravelDestinationCategory.OWN:
+      switch (category as TravelDestinationCategory) {
+        case 'own':
           return <OwnCardBottom destination={destination} />
-        case TravelDestinationCategory.LIKE:
+        case 'like':
           return <LikeCardBottom />
-        case TravelDestinationCategory.INVITE:
+        case 'invite':
           return <InviteCardBottom destination={destination} />
-        case TravelDestinationCategory.SHARE:
+        case 'share':
           return <OwnCardBottom destination={destination} />
         default:
           return undefined
@@ -100,7 +103,7 @@ export default TravelDestination
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const queryClient = new QueryClient()
   const defaultCategory = query.category as string
-  const isValidCategory = Object.values(TravelDestinationCategory).find(
+  const isValidCategory = ALL_TRAVEL_DESTINATION_CATEGORIES.find(
     (category) => category === defaultCategory
   )
 

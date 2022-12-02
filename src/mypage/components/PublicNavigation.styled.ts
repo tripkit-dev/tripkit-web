@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { color } from '@shared/constants/color'
+import { color } from '@shared/constants'
 
 export const Container = styled.section`
   margin-top: 61px;

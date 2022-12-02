@@ -1,7 +1,6 @@
 import type { Interpolation, Theme } from '@emotion/react'
 
 import { Img } from '@shared/components'
-import { Shape } from '@shared/enums/Shape'
 
 const DEFAULT_SIDE_LENGTH = '24px'
 
@@ -17,7 +16,7 @@ export default function Heart({
   return (
     <Img
       src="/images/sample/heart.svg"
-      shape={Shape.NORMAL}
+      shape="normal"
       sideLength={sideLength}
       containerCss={containerCss}
     />

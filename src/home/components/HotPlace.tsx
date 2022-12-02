@@ -4,7 +4,6 @@ import { useQuery } from 'react-query'
 
 import { hotPlaceApi } from '@shared/apis/hotPlace'
 import { Card, Text } from '@shared/components'
-import { Size } from '@shared/enums/Size'
 import { HotPlace as HotPlaceType } from '@shared/types/HotPlace'
 
 import SectionTitle from './SectionTitle'
@@ -24,17 +23,17 @@ export default function HotPlace() {
             key={hotPlace.id}
             imgSrc={hotPlace.img}
             top={
-              <Text size={Size.LARGE} css={s.cardTitleStyle}>
+              <Text size="large" css={s.cardTitleStyle}>
                 {hotPlace.name}
               </Text>
             }
             bottom={[
-              <Text key="subName" size={Size.SMALL}>
+              <Text key="subName" size="small">
                 {hotPlace.subName}
               </Text>,
               <Text
                 key="description"
-                size={Size.X_SMALL}
+                size="xsmall"
                 css={s.descriptionStyle}
                 lineClamp={2}
               >

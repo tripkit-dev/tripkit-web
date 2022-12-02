@@ -4,13 +4,11 @@ import { css, Interpolation, Theme } from '@emotion/react'
 
 import { forwardRef, HTMLAttributes } from 'react'
 
-import { color } from '@shared/constants/color'
-import { Kind } from '@shared/enums/Input'
-import { Shape } from '@shared/enums/Shape'
+import { color } from '@shared/constants'
 
 interface SInputProps {
-  shape?: Shape
-  kind?: Kind
+  shape?: 'normal' | 'round'
+  kind?: 'primary' | 'secondary' | 'tertiary'
 }
 
 interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
@@ -18,7 +16,7 @@ interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function input(
-  { shape = Shape.NORMAL, kind = Kind.PRIMARY, cssStyle, ...props },
+  { shape = 'normal', kind = 'primary', cssStyle, ...props },
   ref
 ) {
   return (
@@ -35,7 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function input(
 
 export default Input
 
-const SInput = styled.input<SInputProps & { shape: Shape; kind: Kind }>`
+const SInput = styled.input<SInputProps>`
   display: inline-block;
   width: calc(100% - 4px);
   max-width: 356px;
@@ -48,20 +46,20 @@ const SInput = styled.input<SInputProps & { shape: Shape; kind: Kind }>`
   font-weight: 400;
   font-size: 16px;
 
-  ${({ shape }) => styles[shape]}
-  ${({ kind }) => styles[kind]}
+  ${({ shape }) => styles[shape!]}
+  ${({ kind }) => styles[kind!]}
 `
 
 const styles = {
-  [Shape.NORMAL]: css`
+  normal: css`
     height: 52px;
     border-radius: 4px;
   `,
-  [Shape.ROUND]: css`
+  round: css`
     height: 42px;
     border-radius: 22px;
   `,
-  [Kind.PRIMARY]: css`
+  primary: css`
     color: ${color.lightBlack};
     border-color: ${color.main};
 
@@ -69,7 +67,7 @@ const styles = {
       color: ${color.mainPlaceholder};
     }
   `,
-  [Kind.SECONDARY]: css`
+  secondary: css`
     color: ${color.lightBlack};
     border-color: ${color.gray02};
 
@@ -77,7 +75,7 @@ const styles = {
       color: ${color.gray02};
     }
   `,
-  [Kind.TERTIARY]: css`
+  tertiary: css`
     border: none;
 
     &:focus {

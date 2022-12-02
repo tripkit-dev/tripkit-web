@@ -6,11 +6,10 @@ import { useState } from 'react'
 
 import NextImage, { ImageProps } from 'next/image'
 
-import { color } from '@shared/constants/color'
-import { Shape } from '@shared/enums/Shape'
+import { color } from '@shared/constants'
 
 interface SImageProps {
-  shape?: Shape
+  shape?: 'normal' | 'round'
   hasNewIcon?: boolean
   isIconLeft?: boolean
   hasBorder?: boolean
@@ -24,7 +23,7 @@ interface Props extends SImageProps, ImageProps {
 }
 
 const Img = ({
-  shape = Shape.ROUND,
+  shape = 'round',
   hasNewIcon,
   isIconLeft,
   hasBorder,
@@ -89,8 +88,8 @@ const Container = styled.span<SImageProps & { isError: boolean }>`
 `
 
 const styles = {
-  [Shape.NORMAL]: css``,
-  [Shape.ROUND]: css`
+  normal: css``,
+  round: css`
     border-radius: 50%;
 
     img {

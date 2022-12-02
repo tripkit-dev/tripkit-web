@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
-import { color } from '@shared/constants/color'
+import { color } from '@shared/constants'
 
 export const Influencer = styled.div`
   position: relative;

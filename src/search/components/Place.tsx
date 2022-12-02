@@ -3,9 +3,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 
 import { HeartIcon, Img, Text } from '@shared/components'
-import { color } from '@shared/constants/color'
-import { Shape } from '@shared/enums/Shape'
-import { Size as TextSize } from '@shared/enums/Text'
+import { color } from '@shared/constants'
 import { TravelDestination } from '@shared/types/TravelDestination'
 
 interface Props {
@@ -16,16 +14,16 @@ const Place = ({ place }: Props) => {
   return (
     <SPlace key={place.id}>
       <SImg>
-        <Img src={place.src} shape={Shape.NORMAL} sideLength="110px" />
+        <Img src={place.src} shape="normal" sideLength="110px" />
       </SImg>
       <SContent>
         <STitle>
           <Text>곳</Text>
-          <Text size={TextSize.X_SMALL} lineClamp={1} margin="0 0 0 14px">
+          <Text size="xsmall" lineClamp={1} margin="0 0 0 14px">
             베이커리
           </Text>
         </STitle>
-        <Text size={TextSize.X_SMALL} lineClamp={1}>
+        <Text size="xsmall" lineClamp={1}>
           사천해변 걷다가 하늘계단 오르는 강릉카페
         </Text>
         <SHeart>

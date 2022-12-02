@@ -7,16 +7,16 @@ import { useRouter } from 'next/router'
 
 import { travelDestinationApi } from '@shared/apis/travelDestination'
 import InfiniteScroll from '@shared/components/InfiniteScroll'
-import { SearchPlaceCategory } from '@shared/enums/Category'
 import useVirtualList from '@shared/hooks/useVirtualList'
 import { withExtractData } from '@shared/libraries/query'
+import { SearchPlaceCategory } from '@shared/types/Category'
 import { Pagination } from '@shared/types/Response'
 import { TravelDestination as TravelDestinationType } from '@shared/types/TravelDestination'
 
 import Place from './Place'
 import Recommended from './Recommended'
 
-const DEFAULT_CATEGORY = SearchPlaceCategory.CAFE
+const DEFAULT_CATEGORY: SearchPlaceCategory = 'cafe'
 
 type Response = Pagination<TravelDestinationType[]>
 const Places = () => {

@@ -6,8 +6,6 @@ import { useQuery } from 'react-query'
 
 import { hotPlaceApi } from '@shared/apis/hotPlace'
 import { Card, Img, Text } from '@shared/components'
-import { Size as CardSize, Direction } from '@shared/enums/Card'
-import { Size as TextSize } from '@shared/enums/Text'
 import useIntersectionObserver from '@shared/hooks/useIntersectionObserver'
 import { HotPlace } from '@shared/types/HotPlace'
 
@@ -41,18 +39,14 @@ export default function Festival() {
                 준비중
               </s.Status>
               <Card
-                size={CardSize.LARGE}
+                size="large"
                 imgSrc={place.img}
-                direction={Direction.COLUMN}
+                direction="column"
                 top={[
-                  <Text key="name" size={TextSize.SMALL}>
+                  <Text key="name" size="small">
                     {place.name}
                   </Text>,
-                  <Text
-                    key="festivName"
-                    size={TextSize.XX_LARGE}
-                    margin="8px 0 4px 0"
-                  >
+                  <Text key="festivName" size="xxlarge" margin="8px 0 4px 0">
                     {place.name}
                   </Text>,
                   <Text key="date" fontWeight="400">
@@ -66,12 +60,7 @@ export default function Festival() {
                       sideLength="15px"
                       containerCss={whiteImgStyle}
                     />
-                    <Text
-                      size={TextSize.SMALL}
-                      margin="0"
-                      padding="0"
-                      fontWeight="300"
-                    >
+                    <Text size="small" margin="0" padding="0" fontWeight="300">
                       {place.info}
                     </Text>
                   </s.Location>

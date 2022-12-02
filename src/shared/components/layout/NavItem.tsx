@@ -8,9 +8,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Img, Text } from '@shared/components'
-import { color } from '@shared/constants/color'
-import { Shape } from '@shared/enums/Shape'
-import { Size as TextSize } from '@shared/enums/Text'
+import { color } from '@shared/constants'
 import { combineQuery } from '@shared/libraries/query'
 import { routes } from '@shared/libraries/routes'
 
@@ -37,11 +35,8 @@ const Item = ({ item, idx }: ItemProps) => {
   return (
     <Link href={combineQuery(item.basePath, item.query)}>
       <SLi active={isActiveTab}>
-        <Img src={item.icon} shape={Shape.NORMAL} sideLength="24px" />
-        <Text
-          size={TextSize.X_SMALL}
-          color={isActiveTab ? color.main : color.gray01}
-        >
+        <Img src={item.icon} shape="normal" sideLength="24px" />
+        <Text size="xsmall" color={isActiveTab ? color.main : color.gray01}>
           {item.label}
         </Text>
       </SLi>

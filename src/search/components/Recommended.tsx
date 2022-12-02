@@ -9,14 +9,12 @@ import { useRouter } from 'next/router'
 
 import { hotPlaceApi } from '@shared/apis/hotPlace'
 import { Card, HeartIcon, Text } from '@shared/components'
-import { color } from '@shared/constants/color'
-import { SearchPlaceCategory } from '@shared/enums/Category'
-import { Size, Size as TextSize } from '@shared/enums/Text'
+import { color } from '@shared/constants'
 import { searchCategoryModels } from '@shared/models/category'
-import { Category } from '@shared/types/Category'
+import { Category, SearchPlaceCategory } from '@shared/types/Category'
 import { HotPlace } from '@shared/types/HotPlace'
 
-const DEFAULT_CATEGORY = SearchPlaceCategory.CAFE
+const DEFAULT_CATEGORY: SearchPlaceCategory = 'cafe'
 
 const Recommended = () => {
   const { query } = useRouter()
@@ -32,7 +30,7 @@ const Recommended = () => {
 
   return (
     <Container>
-      <Text size={TextSize.X_LARGE} margin="0 16px">
+      <Text size="xlarge" margin="0 16px">
         이번주 추천 {currentCategory.label}
       </Text>
 
@@ -43,12 +41,12 @@ const Recommended = () => {
             imgSrc={hotPlace.img}
             borderRadius="8px"
             bottom={[
-              <Text key="subName" size={Size.SMALL}>
+              <Text key="subName" size="small">
                 {hotPlace.subName}
               </Text>,
               <Text
                 key="description"
-                size={Size.X_SMALL}
+                size="xsmall"
                 css={descriptionStyle}
                 lineClamp={2}
               >

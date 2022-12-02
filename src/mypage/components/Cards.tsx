@@ -3,7 +3,6 @@ import * as s from './Cards.styled'
 import React, { forwardRef } from 'react'
 
 import { HeartIcon, Img } from '@shared/components'
-import { Shape } from '@shared/enums/Shape'
 
 interface Props {
   children: React.ReactNode
@@ -27,7 +26,7 @@ export function Card({ imgSrc, bottom }: CardProps) {
     <s.Card>
       <Img
         src={imgSrc}
-        shape={Shape.NORMAL}
+        shape="normal"
         sideLength="100%"
         containerCss={s.imgStyle}
         layout="fill"

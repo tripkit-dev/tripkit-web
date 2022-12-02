@@ -1,8 +1,7 @@
 import * as s from './Profile.styled'
 
 import { Img, Text } from '@shared/components'
-import { color } from '@shared/constants/color'
-import { Size as TextSize } from '@shared/enums/Text'
+import { color } from '@shared/constants'
 
 export default function Profile() {
   return (
@@ -17,10 +16,10 @@ export default function Profile() {
       />
 
       <s.TextBox>
-        <Text size={TextSize.SMALL} lineClamp={1} color={color.main}>
+        <Text size="small" lineClamp={1} color={color.main}>
           엄준시크님
         </Text>
-        <Text size={TextSize.X_SMALL} lineClamp={1}>
+        <Text size="xsmall" lineClamp={1}>
           이번 주 초대된 여행이 있습니다!
         </Text>
       </s.TextBox>

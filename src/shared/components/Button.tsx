@@ -4,13 +4,11 @@ import { css, Interpolation, Theme } from '@emotion/react'
 
 import type { HTMLAttributes, MouseEventHandler } from 'react'
 
-import { color } from '@shared/constants/color'
-import { Kind } from '@shared/enums/Button'
-import { Size } from '@shared/enums/Size'
+import { color } from '@shared/constants'
 
 interface SButtonProps {
-  kind?: Kind
-  size?: Size
+  kind?: 'primary' | 'secondary' | 'tertiary' | 'mustard'
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 }
 
 interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
@@ -23,8 +21,8 @@ interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<Props> = ({
-  kind = Kind.PRIMARY,
-  size = Size.MEDIUM,
+  kind = 'primary',
+  size = 'medium',
   backgroundColor,
   borderColor,
   color,
@@ -60,53 +58,53 @@ const SButton = styled.button<SButtonProps>`
 `
 
 const styles = {
-  [Kind.PRIMARY]: css`
+  primary: css`
     color: ${color.white};
     background-color: ${color.main};
   `,
-  [Kind.SECONDARY]: css`
+  secondary: css`
     color: ${color.main};
     background-color: transparent;
   `,
-  [Kind.TERTIARY]: css`
+  tertiary: css`
     color: ${color.white};
     border-color: ${color.white};
     background-color: ${color.gray01};
   `,
-  [Kind.MUSTARD]: css`
+  mustard: css`
     color: ${color.white};
     border-color: ${color.mustard};
     background-color: ${color.mustard};
   `,
-  [Size.X_SMALL]: css`
+  xsmall: css`
     width: 46px;
     height: 20px;
     font-size: 10px;
     font-weight: 400;
     border-radius: 10px;
   `,
-  [Size.SMALL]: css`
+  small: css`
     width: 76px;
     height: 26px;
     font-size: 14px;
     font-weight: 500;
     border-radius: 13px;
   `,
-  [Size.MEDIUM]: css`
+  medium: css`
     width: 68px;
     height: 40px;
     font-size: 16px;
     font-weight: 600;
     border-radius: 18px;
   `,
-  [Size.LARGE]: css`
+  large: css`
     width: 90px;
     height: 44px;
     font-size: 16px;
     font-weight: 500;
     border-radius: 24px;
   `,
-  [Size.X_LARGE]: css`
+  xlarge: css`
     width: 174px;
     height: 48px;
     font-size: 16px;

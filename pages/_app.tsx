@@ -9,7 +9,7 @@ import NextNProgress from 'nextjs-progressbar'
 
 import { ErrorBoundary } from '@shared/components'
 import { GlobalStyle, Layout } from '@shared/components'
-import { color } from /constants/color'
+import { color } from '@shared/constants'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode

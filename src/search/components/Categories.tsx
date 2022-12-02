@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 
 import { Button } from '@shared/components'
-import { Kind } from '@shared/enums/Button'
 import { combineQuery } from '@shared/libraries/query'
 import { searchCategoryModels } from '@shared/models/category'
 import { Category } from '@shared/types/Category'
@@ -26,11 +25,7 @@ export default function Categories({ currentCategory }: Props) {
       {searchCategoryModels.map((category) => (
         <Button
           key={category.key}
-          kind={
-            category.key === currentCategory?.key
-              ? Kind.PRIMARY
-              : Kind.SECONDARY
-          }
+          kind={category.key === currentCategory?.key ? 'primary' : 'secondary'}
           onClick={() => handleCategoryClick(category.key)}
         >
           {category.label}

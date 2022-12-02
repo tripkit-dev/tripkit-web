@@ -1,7 +1,6 @@
 import './header.css'
 
 import { Button } from '@shared/components'
-import { Size } from '@shared/enums/Size'
 
 type User = {
   name: string
@@ -52,16 +51,16 @@ export const Header = ({
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size={Size.SMALL} onClick={onLogout}>
+            <Button size="small" onClick={onLogout}>
               Log out
             </Button>
           </>
         ) : (
           <>
-            <Button size={Size.SMALL} onClick={onLogin}>
+            <Button size="small" onClick={onLogin}>
               Log in
             </Button>
-            <Button size={Size.SMALL} onClick={onCreateAccount}>
+            <Button size="small" onClick={onCreateAccount}>
               Sign up
             </Button>
           </>

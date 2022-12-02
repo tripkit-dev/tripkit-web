@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 
 import { searchState } from '@shared/atoms/search'
 import { Input, UnControlledForm } from '@shared/components'
-import { Shape } from '@shared/enums/Shape'
 import { combineQuery } from '@shared/libraries/query'
 
 const Form = () => {
@@ -24,11 +23,7 @@ const Form = () => {
     <Container>
       <UnControlledForm onSubmit={handleSubmit}>
         {({ ref }) => (
-          <Input
-            ref={ref}
-            shape={Shape.ROUND}
-            placeholder="찾는 장소가 있나요?"
-          />
+          <Input ref={ref} shape={'round'} placeholder="찾는 장소가 있나요?" />
         )}
       </UnControlledForm>
     </Container>

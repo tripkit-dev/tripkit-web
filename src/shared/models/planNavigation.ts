@@ -1,34 +1,40 @@
-import { TravelDestinationCategory } from '@shared/enums/Category'
 import { combineQuery } from '@shared/libraries/query'
-import { routes } from 'libraries/routes'
+import { routes } from '@shared/libraries/routes'
+import { TravelDestinationCategory } from '@shared/types/Category'
 
-export const planNavigationModels = [
+export const planNavigationModels: PlanNavigationModels[] = [
   {
-    key: TravelDestinationCategory.OWN,
+    key: 'own',
     label: '만든 여행지',
     path: combineQuery(routes.mypage.travelDestination.path, {
-      category: TravelDestinationCategory.OWN
+      category: 'own'
     })
   },
   {
-    key: TravelDestinationCategory.SHARE,
+    key: 'share',
     label: '공유한 여행지',
     path: combineQuery(routes.mypage.travelDestination.path, {
-      category: TravelDestinationCategory.SHARE
+      category: 'share'
     })
   },
   {
-    key: TravelDestinationCategory.INVITE,
+    key: 'invite',
     label: '초대된 여행지',
     path: combineQuery(routes.mypage.travelDestination.path, {
-      category: TravelDestinationCategory.INVITE
+      category: 'invite'
     })
   },
   {
-    key: TravelDestinationCategory.LIKE,
+    key: 'like',
     label: '좋아요한 여행지',
     path: combineQuery(routes.mypage.travelDestination.path, {
-      category: TravelDestinationCategory.LIKE
+      category: 'like'
     })
   }
 ]
+
+interface PlanNavigationModels {
+  key: TravelDestinationCategory
+  label: string
+  path: string
+}
