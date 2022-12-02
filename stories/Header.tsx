@@ -1,8 +1,7 @@
 import './header.css'
 
-import { Size } from '@enums/Size'
-
-import { Button } from '@components/common'
+import { Button } from '@shared/components'
+import { Size } from '@shared/enums/Size'
 
 type User = {
   name: string

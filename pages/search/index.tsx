@@ -4,16 +4,14 @@ import { useRecoilValue } from 'recoil'
 
 import type { GetServerSideProps, NextPage } from 'next'
 
-import { Category } from 'types/Category'
-import { HotPlace as HotPlaceType } from 'types/HotPlace'
-
-import { hotPlaceApi } from 'apis/hotPlace'
-import { searchState } from 'atoms/search'
-import { getQuery } from 'libraries/query'
-import { searchCategoryModels } from 'models/category'
-
-import { Header } from '@components/layout'
-import { Categories, Form, Places } from '@components/Search'
+import { Categories, Form, Places } from '@search/components'
+import { hotPlaceApi } from '@shared/apis/hotPlace'
+import { searchState } from '@shared/atoms/search'
+import { Header } from '@shared/components/layout'
+import { getQuery } from '@shared/libraries/query'
+import { searchCategoryModels } from '@shared/models/category'
+import { Category } from '@shared/types/Category'
+import { HotPlace as HotPlaceType } from '@shared/types/HotPlace'
 
 const DEFAULT_CATEGORY = searchCategoryModels[0]
 

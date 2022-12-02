@@ -1,6 +1,5 @@
+import { Img } from '@shared/components'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { Img } from '@components/common'
 
 const SAMPLE_IMG_PATH = '/images/img_profile_example.png'
 

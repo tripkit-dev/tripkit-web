@@ -3,25 +3,26 @@ import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 
 import type { GetServerSideProps, NextPage } from 'next'
 
-import { TravelDestinationCategory } from '@enums/Category'
-
-import { Pagination } from 'types/Response'
-import { TravelDestination as TravelDestinationType } from 'types/TravelDestination'
-
-import { travelDestinationApi } from 'apis/travelDestination'
-import { combineQuery, getQuery, withExtractData } from 'libraries/query'
-import { routes } from 'libraries/routes'
-import { planNavigationModels } from 'models/planNavigation'
-
-import InfiniteScroll from '@components/InfiniteScroll'
 import {
   InviteCardBottom,
+  Layout,
   LikeCardBottom,
   MyPageCard,
   MyPageCards,
-  MyPageLayout,
   OwnCardBottom
-} from '@components/MyPage'
+} from '@mypage/components'
+import { travelDestinationApi } from '@shared/apis/travelDestination'
+import InfiniteScroll from '@shared/components/InfiniteScroll'
+import { TravelDestinationCategory } from '@shared/enums/Category'
+import {
+  combineQuery,
+  getQuery,
+  withExtractData
+} from '@shared/libraries/query'
+import { routes } from '@shared/libraries/routes'
+import { planNavigationModels } from '@shared/models/planNavigation'
+import { Pagination } from '@shared/types/Response'
+import { TravelDestination as TravelDestinationType } from '@shared/types/TravelDestination'
 
 const DEFAULT_PAGE = 1
 const TRAVEL_DESTINATION_KEY = 'travelDestination/pagination'
@@ -73,7 +74,7 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
   )
 
   return (
-    <MyPageLayout
+    <Layout
       outer={
         <MyPageCards>
           {travelDestinations?.pages?.map(({ contents: destinations }) =>
@@ -90,7 +91,7 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
           )}
         </MyPageCards>
       }
-    ></MyPageLayout>
+    ></Layout>
   )
 }
 

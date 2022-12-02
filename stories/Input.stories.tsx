@@ -1,9 +1,7 @@
-import { Kind } from '@enums/Input'
-import { Shape } from '@enums/Shape'
-
+import { Input } from '@shared/components'
+import { Kind } from '@shared/enums/Input'
+import { Shape } from '@shared/enums/Shape'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { Input } from '@components/common'
 
 export default {
   title: 'Example/Input',

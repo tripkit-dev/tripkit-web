@@ -1,8 +1,6 @@
-import { Size } from '@enums/Card'
-
+import { Card } from '@shared/components'
+import { Size } from '@shared/enums/Card'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { Card } from '@components/common'
 
 const SAMPLE_IMG_PATH = '/images/sample/kyungju_01.png'
 

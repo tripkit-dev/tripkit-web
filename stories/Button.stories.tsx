@@ -1,9 +1,7 @@
-import { Kind } from '@enums/Button'
-import { Size } from '@enums/Size'
-
+import { Button } from '@shared/components'
+import { Kind } from '@shared/enums/Button'
+import { Size } from '@shared/enums/Size'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { Button } from '@components/common'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

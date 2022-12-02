@@ -1,10 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { Method } from '@enums/Http'
-
 import { Pagination } from 'types/Response'
-import { TravelDestination } from 'types/TravelDestination'
 
+import { Method } from '@shared/enums/Http'
+import { TravelDestination } from '@shared/types/TravelDestination'
 import { travelDestinationModels } from 'models/travelDestination'
 
 type Response = TravelDestination[] | Pagination<TravelDestination[]>

@@ -1,9 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { Method } from '@enums/Http'
-
 import { HotPlace } from 'types/HotPlace'
 
+import { Method } from '@shared/enums/Http'
 import { hotPlaceModels } from 'models/hotPlace'
 
 export default function hot_places(

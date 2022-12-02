@@ -1,8 +1,0 @@
-export { default as Button } from './Button'
-export { default as Input } from './Input'
-export { default as Img } from './Img'
-export { default as Text } from './Text'
-export { default as Card } from './Card'
-export * from './form'
-export * from './icon'
-export * from './error'
