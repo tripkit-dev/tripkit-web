@@ -1,8 +1,6 @@
 import { AxiosResponse } from 'axios'
 import qs from 'qs'
 
-type WithExtractData<T> = (data: any) => Promise<AxiosResponse<T> | any>
-
 export async function withExtractData<T>(
   asyncFunc: WithExtractData<T>,
   data?: any
@@ -38,3 +36,5 @@ export function combineQuery(path: string, query?: object): string {
     addQueryPrefix: true
   })}`
 }
+
+type WithExtractData<T> = (data: any) => Promise<AxiosResponse<T> | any>

@@ -8,12 +8,12 @@ import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 
 import { SearchPlaceCategory } from '@search/types'
-import { hotPlaceApi } from '@shared/apis/hotPlace'
+import { hotPlaceApi } from '@shared/apis'
 import { Card, HeartIcon, Text } from '@shared/components'
 import { color } from '@shared/constants'
 import { searchCategoryModels } from '@shared/models/category'
-import { Category } from '@shared/types/Category'
-import { HotPlace } from '@shared/types/HotPlace'
+import { HotPlace } from '@shared/types'
+import { Category } from '@shared/types'
 
 const DEFAULT_CATEGORY: SearchPlaceCategory = 'cafe'
 

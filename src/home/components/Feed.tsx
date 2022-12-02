@@ -1,5 +1,4 @@
 import * as s from './Feed.styled'
-import { whiteImgStyle } from '@shared/styles/common.styled'
 
 import React from 'react'
 import { useSetRecoilState } from 'recoil'
@@ -11,6 +10,7 @@ import { Img, UnControlledForm } from '@shared/components'
 import { Button, Input } from '@shared/components'
 import { color } from '@shared/constants'
 import { routes } from '@shared/libraries'
+import { whiteImgStyle } from '@shared/styles'
 
 export default function Feed() {
   const { push } = useRouter()

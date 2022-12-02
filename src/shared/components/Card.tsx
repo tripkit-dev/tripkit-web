@@ -8,19 +8,6 @@ import Img from './Img'
 
 const cardSpace = '36px'
 
-interface SCardProps {
-  size?: 'small' | 'medium' | 'large'
-  direction?: 'row' | 'column'
-}
-
-interface Props extends SCardProps {
-  imgSrc: string
-  top?: React.ReactNode | React.ReactNode[]
-  bottom?: React.ReactNode | React.ReactNode[]
-  bottomStyle?: Interpolation<Theme>
-  borderRadius?: string
-}
-
 export default function Card({
   imgSrc,
   size = 'medium',
@@ -118,4 +105,17 @@ const styles = {
     top: 0;
     left: 0;
   `
+}
+
+interface SCardProps {
+  size?: 'small' | 'medium' | 'large'
+  direction?: 'row' | 'column'
+}
+
+interface Props extends SCardProps {
+  imgSrc: string
+  top?: React.ReactNode | React.ReactNode[]
+  bottom?: React.ReactNode | React.ReactNode[]
+  bottomStyle?: Interpolation<Theme>
+  borderRadius?: string
 }

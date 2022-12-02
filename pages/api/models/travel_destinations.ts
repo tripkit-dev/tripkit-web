@@ -1,11 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { travelDestinationModels } from '@shared/models/travelDestination'
-import { Method } from '@shared/types/Http'
-import { Pagination } from '@shared/types/Response'
-import { TravelDestination } from '@shared/types/TravelDestination'
-
-type Response = TravelDestination[] | Pagination<TravelDestination[]>
+import { travelDestinationModels } from '@shared/models'
+import { Method } from '@shared/types'
+import { Pagination } from '@shared/types'
+import { TravelDestination } from '@shared/types'
 
 export default function hot_places(
   req: NextApiRequest,
@@ -33,3 +31,5 @@ const handler = {
     res.status(200).json(travelDestinationModels)
   }
 }
+
+type Response = TravelDestination[] | Pagination<TravelDestination[]>

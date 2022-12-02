@@ -4,17 +4,6 @@ import { css } from '@emotion/react'
 
 import type { FC, HTMLAttributes } from 'react'
 
-interface STextProps {
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
-  lineClamp?: number
-}
-
-interface Props extends HTMLAttributes<HTMLSpanElement>, STextProps {
-  fontWeight?: string
-  margin?: string
-  padding?: string
-}
-
 const Text: FC<Props> = ({
   size = 'medium',
   lineClamp,
@@ -90,4 +79,15 @@ const styles = {
     font-size: 32px;
     font-weight: bolder;
   `
+}
+
+interface STextProps {
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
+  lineClamp?: number
+}
+
+interface Props extends HTMLAttributes<HTMLSpanElement>, STextProps {
+  fontWeight?: string
+  margin?: string
+  padding?: string
 }

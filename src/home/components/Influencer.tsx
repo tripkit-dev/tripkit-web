@@ -1,11 +1,11 @@
 import * as s from './Influencer.styled'
-import { whiteImgStyle } from '@shared/styles/common.styled'
 
 import React from 'react'
 
 import { Button, Card, HeartIcon, Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
-import { HotPlace } from '@shared/types/HotPlace'
+import { whiteImgStyle } from '@shared/styles'
+import { HotPlace } from '@shared/types'
 
 interface Props {
   hotPlaces?: HotPlace[]

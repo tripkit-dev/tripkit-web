@@ -5,19 +5,15 @@ import { useRecoilValue } from 'recoil'
 import type { GetServerSideProps, NextPage } from 'next'
 
 import { Categories, Form, Places } from '@search/components'
-import { hotPlaceApi } from '@shared/apis/hotPlace'
+import { hotPlaceApi } from '@shared/apis'
 import { searchState } from '@shared/atoms/search'
 import { Header } from '@shared/components/layout'
-import { getQuery } from '@shared/libraries/query'
+import { getQuery } from '@shared/libraries'
 import { searchCategoryModels } from '@shared/models/category'
-import { Category } from '@shared/types/Category'
-import { HotPlace as HotPlaceType } from '@shared/types/HotPlace'
+import { HotPlace as HotPlaceType } from '@shared/types'
+import { Category } from '@shared/types'
 
 const DEFAULT_CATEGORY = searchCategoryModels[0]
-
-interface Props {
-  defaultCategoryKey: string
-}
 
 const Search: NextPage<Props> = ({ defaultCategoryKey }) => {
   const searchValue = useRecoilValue(searchState)
@@ -54,4 +50,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       defaultCategoryKey: category || DEFAULT_CATEGORY.key
     }
   }
+}
+
+interface Props {
+  defaultCategoryKey: string
 }

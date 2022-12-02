@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { hotPlaceModels } from '@shared/models/hotPlace'
-import { HotPlace } from '@shared/types/HotPlace'
-import { Method } from '@shared/types/Http'
+import { hotPlaceModels } from '@shared/models'
+import { HotPlace } from '@shared/types'
+import { Method } from '@shared/types'
 
 export default function hot_places(
   req: NextApiRequest,

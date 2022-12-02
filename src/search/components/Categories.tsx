@@ -3,13 +3,9 @@ import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 
 import { Button } from '@shared/components'
-import { combineQuery } from '@shared/libraries/query'
+import { combineQuery } from '@shared/libraries'
 import { searchCategoryModels } from '@shared/models/category'
-import { Category } from '@shared/types/Category'
-
-interface Props {
-  currentCategory: Category
-}
+import { Category } from '@shared/types'
 
 export default function Categories({ currentCategory }: Props) {
   const { push, pathname, query } = useRouter()
@@ -52,3 +48,7 @@ const Container = styled.section`
     }
   }
 `
+
+interface Props {
+  currentCategory: Category
+}

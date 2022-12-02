@@ -8,20 +8,6 @@ import NextImage, { ImageProps } from 'next/image'
 
 import { color } from '@shared/constants'
 
-interface SImageProps {
-  shape?: 'normal' | 'round'
-  hasNewIcon?: boolean
-  isIconLeft?: boolean
-  hasBorder?: boolean
-  sideLength?: string
-}
-
-interface Props extends SImageProps, ImageProps {
-  src: string
-  notSSR?: boolean
-  containerCss?: Interpolation<Theme>
-}
-
 const Img = ({
   shape = 'round',
   hasNewIcon,
@@ -127,4 +113,18 @@ const styles = {
     width: ${length};
     height: ${length};
   `
+}
+
+interface SImageProps {
+  shape?: 'normal' | 'round'
+  hasNewIcon?: boolean
+  isIconLeft?: boolean
+  hasBorder?: boolean
+  sideLength?: string
+}
+
+interface Props extends SImageProps, ImageProps {
+  src: string
+  notSSR?: boolean
+  containerCss?: Interpolation<Theme>
 }

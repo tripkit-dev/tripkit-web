@@ -1,13 +1,9 @@
 import React from 'react'
 
 import { Text } from '@shared/components'
-import { TravelDestination } from '@shared/types/TravelDestination'
+import { TravelDestination } from '@shared/types'
 
 import { People } from './Cards'
-
-interface Props {
-  destination: TravelDestination
-}
 
 export default function Invite({ destination }: Props) {
   return (
@@ -18,4 +14,8 @@ export default function Invite({ destination }: Props) {
       </Text>
     </>
   )
+}
+
+interface Props {
+  destination: TravelDestination
 }

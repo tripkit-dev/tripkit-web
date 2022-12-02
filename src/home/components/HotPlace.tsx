@@ -2,9 +2,9 @@ import * as s from './HotPlace.styled'
 
 import { useQuery } from 'react-query'
 
-import { hotPlaceApi } from '@shared/apis/hotPlace'
+import { hotPlaceApi } from '@shared/apis'
 import { Card, Text } from '@shared/components'
-import { HotPlace as HotPlaceType } from '@shared/types/HotPlace'
+import { HotPlace as HotPlaceType } from '@shared/types'
 
 import SectionTitle from './SectionTitle'
 

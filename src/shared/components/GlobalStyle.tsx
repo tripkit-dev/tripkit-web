@@ -2,10 +2,6 @@ import { css, Global } from '@emotion/react'
 
 import React from 'react'
 
-interface Props {
-  children: React.ReactNode
-}
-
 export default function GlobalStyle({ children }: Props) {
   return (
     <>
@@ -61,4 +57,8 @@ export default function GlobalStyle({ children }: Props) {
       {children}
     </>
   )
+}
+
+interface Props {
+  children: React.ReactNode
 }

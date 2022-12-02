@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 import { useQuery } from 'react-query'
 
-import { hotPlaceApi } from '@shared/apis/hotPlace'
+import { hotPlaceApi } from '@shared/apis'
 import { useIntersectionObserver } from '@shared/hooks'
-import { HotPlace as HotPlaceType } from '@shared/types/HotPlace'
+import { HotPlace as HotPlaceType } from '@shared/types'
 
 import Influencer from './Influencer'
 import SectionTitle from './SectionTitle'

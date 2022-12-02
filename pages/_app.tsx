@@ -11,14 +11,6 @@ import { ErrorBoundary } from '@shared/components'
 import { GlobalStyle, Layout } from '@shared/components'
 import { color } from '@shared/constants'
 
-type NextPageWithLayout = NextPage & {
-  getLayout?: (page: React.ReactElement) => React.ReactNode
-}
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
-
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const [queryClient] = useState(
     () =>
@@ -61,3 +53,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 }
 
 export default MyApp
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}

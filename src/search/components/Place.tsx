@@ -4,7 +4,7 @@ import React from 'react'
 
 import { HeartIcon, Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
-import { TravelDestination } from '@shared/types/TravelDestination'
+import { TravelDestination } from '@shared/types'
 
 interface Props {
   place: TravelDestination

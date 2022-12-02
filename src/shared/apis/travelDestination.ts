@@ -1,11 +1,6 @@
-import { travelDestinationModels } from '@shared/models/travelDestination'
+import { travelDestinationModels } from '@shared/models'
 
-interface GetRequest {
-  page?: number
-  size?: number
-}
-
-export const travelDestinationApi = {
+const travelDestinationApi = {
   get: ({ page = 1, size = 12 }: GetRequest = {}) => {
     return new Promise((res) => {
       setTimeout(() => {
@@ -24,4 +19,11 @@ export const travelDestinationApi = {
       }, 200)
     })
   }
+}
+
+export default travelDestinationApi
+
+interface GetRequest {
+  page?: number
+  size?: number
 }

@@ -3,12 +3,6 @@ import styled from '@emotion/styled'
 import { Text } from '@shared/components'
 import { color } from '@shared/constants'
 
-interface Props {
-  title: string
-  subTitle?: string
-  hasMore?: boolean
-}
-
 export default function SectionTitle({ title, subTitle, hasMore }: Props) {
   return (
     <Container>
@@ -49,3 +43,9 @@ const More = styled.button`
   outline: none;
   border: none;
 `
+
+interface Props {
+  title: string
+  subTitle?: string
+  hasMore?: boolean
+}

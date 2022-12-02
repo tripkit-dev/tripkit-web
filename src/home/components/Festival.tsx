@@ -1,13 +1,13 @@
 import * as s from './Festival.styled'
-import { whiteImgStyle } from '@shared/styles/common.styled'
 
 import { useRef } from 'react'
 import { useQuery } from 'react-query'
 
-import { hotPlaceApi } from '@shared/apis/hotPlace'
+import { hotPlaceApi } from '@shared/apis'
 import { Card, Img, Text } from '@shared/components'
 import { useIntersectionObserver } from '@shared/hooks'
-import { HotPlace } from '@shared/types/HotPlace'
+import { whiteImgStyle } from '@shared/styles'
+import { HotPlace } from '@shared/types'
 
 import SectionTitle from './SectionTitle'
 

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 import { searchState } from '@shared/atoms/search'
 import { Input, UnControlledForm } from '@shared/components'
-import { combineQuery } from '@shared/libraries/query'
+import { combineQuery } from '@shared/libraries'
 
 const Form = () => {
   const { push, pathname, query } = useRouter()

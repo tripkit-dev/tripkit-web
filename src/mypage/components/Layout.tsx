@@ -7,11 +7,6 @@ import { Header } from '@shared/components/layout'
 import Profile from './Profile'
 import TravelDestinationNavigation from './TravelDestinationNavigation'
 
-interface Props {
-  inner?: React.ReactNode
-  outer?: React.ReactNode
-}
-
 const Layout: React.FC<Props> = ({ inner, outer }) => {
   return (
     <>
@@ -32,3 +27,8 @@ const Container = styled.main`
   padding: 46px;
   padding-bottom: 30px;
 `
+
+interface Props {
+  inner?: React.ReactNode
+  outer?: React.ReactNode
+}

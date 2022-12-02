@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 import { Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
 import { routes } from '@shared/libraries'
-import { combineQuery } from '@shared/libraries/query'
+import { combineQuery } from '@shared/libraries'
 
 interface Item {
   icon: string

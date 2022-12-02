@@ -6,20 +6,6 @@ import type { HTMLAttributes, MouseEventHandler } from 'react'
 
 import { color } from '@shared/constants'
 
-interface SButtonProps {
-  kind?: 'primary' | 'secondary' | 'tertiary' | 'mustard'
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
-}
-
-interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
-  backgroundColor?: string
-  borderColor?: string
-  color?: string
-  margin?: string
-  cssStyle?: Interpolation<Theme>
-  onClick?: MouseEventHandler<HTMLButtonElement>
-}
-
 const Button: React.FC<Props> = ({
   kind = 'primary',
   size = 'medium',
@@ -111,4 +97,18 @@ const styles = {
     font-weight: 500;
     border-radius: 24px;
   `
+}
+
+interface SButtonProps {
+  kind?: 'primary' | 'secondary' | 'tertiary' | 'mustard'
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+}
+
+interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
+  backgroundColor?: string
+  borderColor?: string
+  color?: string
+  margin?: string
+  cssStyle?: Interpolation<Theme>
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }

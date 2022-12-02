@@ -16,26 +16,16 @@ import {
   ALL_TRAVEL_DESTINATION_CATEGORIES,
   TravelDestinationCategory
 } from '@mypage/types'
-import { travelDestinationApi } from '@shared/apis/travelDestination'
+import { travelDestinationApi } from '@shared/apis'
 import InfiniteScroll from '@shared/components/InfiniteScroll'
 import { routes } from '@shared/libraries'
-import {
-  combineQuery,
-  getQuery,
-  withExtractData
-} from '@shared/libraries/query'
-import { Pagination } from '@shared/types/Response'
-import { TravelDestination as TravelDestinationType } from '@shared/types/TravelDestination'
+import { combineQuery, getQuery, withExtractData } from '@shared/libraries'
+import { Pagination } from '@shared/types'
+import { TravelDestination as TravelDestinationType } from '@shared/types'
 
 const DEFAULT_PAGE = 1
 const TRAVEL_DESTINATION_KEY = 'travelDestination/pagination'
 const DEFAULT_CATEGORY = planNavigationModels[0].key
-
-type Response = Pagination<TravelDestinationType[]>
-
-interface Props {
-  defaultCategory: TravelDestinationCategory
-}
 
 const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
   const category =
@@ -141,4 +131,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       defaultCategory
     }
   }
+}
+
+type Response = Pagination<TravelDestinationType[]>
+
+interface Props {
+  defaultCategory: TravelDestinationCategory
 }

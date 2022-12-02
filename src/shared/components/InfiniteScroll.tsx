@@ -5,10 +5,6 @@ import { useEffect, useRef } from 'react'
 import { color } from '@shared/constants'
 import { useIntersectionObserver } from '@shared/hooks'
 
-interface Props {
-  fetch: (options?: any) => Promise<any>
-}
-
 export default function InfiniteScroll({ fetch }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const { entry } = useIntersectionObserver(ref, { freezeOnceVisible: false })
@@ -30,3 +26,7 @@ const SContainer = styled.div`
   height: 60px;
   color: ${color.gray02};
 `
+
+interface Props {
+  fetch: (options?: any) => Promise<any>
+}

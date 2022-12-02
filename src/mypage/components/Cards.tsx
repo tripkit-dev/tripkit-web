@@ -4,10 +4,6 @@ import React, { forwardRef } from 'react'
 
 import { HeartIcon, Img } from '@shared/components'
 
-interface Props {
-  children: React.ReactNode
-}
-
 const Cards = forwardRef<HTMLElement, Props>(function Cards({ children }, ref) {
   return (
     <s.Container ref={ref}>
@@ -15,11 +11,6 @@ const Cards = forwardRef<HTMLElement, Props>(function Cards({ children }, ref) {
     </s.Container>
   )
 })
-
-interface CardProps {
-  imgSrc: string
-  bottom?: React.ReactElement
-}
 
 export function Card({ imgSrc, bottom }: CardProps) {
   return (
@@ -37,11 +28,6 @@ export function Card({ imgSrc, bottom }: CardProps) {
   )
 }
 
-interface HeartProps {
-  count?: number
-  sideLength?: string
-}
-
 export function Heart({ count, sideLength }: HeartProps) {
   return (
     <s.Heart key="heart">
@@ -49,10 +35,6 @@ export function Heart({ count, sideLength }: HeartProps) {
       {count}
     </s.Heart>
   )
-}
-
-interface PeopleProps {
-  srcs: string[]
 }
 
 export function People({ srcs }: PeopleProps) {
@@ -72,3 +54,21 @@ export function People({ srcs }: PeopleProps) {
 }
 
 export default Cards
+
+interface Props {
+  children: React.ReactNode
+}
+
+interface CardProps {
+  imgSrc: string
+  bottom?: React.ReactElement
+}
+
+interface HeartProps {
+  count?: number
+  sideLength?: string
+}
+
+interface PeopleProps {
+  srcs: string[]
+}

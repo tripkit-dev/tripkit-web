@@ -1,6 +1,6 @@
-import { hotPlaceModels } from '@shared/models/hotPlace'
+import { hotPlaceModels } from '@shared/models'
 
-export const hotPlaceApi = {
+const hotPlaceApi = {
   get: () => {
     return new Promise((res) => {
       setTimeout(() => {
@@ -9,3 +9,5 @@ export const hotPlaceApi = {
     })
   }
 }
+
+export default hotPlaceApi

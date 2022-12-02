@@ -6,15 +6,6 @@ import { forwardRef, HTMLAttributes } from 'react'
 
 import { color } from '@shared/constants'
 
-interface SInputProps {
-  shape?: 'normal' | 'round'
-  kind?: 'primary' | 'secondary' | 'tertiary'
-}
-
-interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
-  cssStyle?: Interpolation<Theme>
-}
-
 const Input = forwardRef<HTMLInputElement, InputProps>(function input(
   { shape = 'normal', kind = 'primary', cssStyle, ...props },
   ref
@@ -82,4 +73,13 @@ const styles = {
       outline: none;
     }
   `
+}
+
+interface SInputProps {
+  shape?: 'normal' | 'round'
+  kind?: 'primary' | 'secondary' | 'tertiary'
+}
+
+interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
+  cssStyle?: Interpolation<Theme>
 }

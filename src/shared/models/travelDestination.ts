@@ -1,4 +1,4 @@
-import { TravelDestination } from '@shared/types/TravelDestination'
+import { TravelDestination } from '@shared/types'
 
 export const travelDestinationModels: TravelDestination[] = [
   {
