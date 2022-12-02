@@ -1,4 +1,4 @@
-import { HotPlace } from 'types/HotPlace'
+import { HotPlace } from '@shared/types/HotPlace'
 
 import { categoryModels } from './category'
 

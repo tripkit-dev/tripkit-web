@@ -3,7 +3,7 @@ export interface Category {
   label: string
 }
 
-const ALL_TRAVEL_DESTINATION_CATEGORIES = [
+export const ALL_TRAVEL_DESTINATION_CATEGORIES = [
   'own',
   'share',
   'invite',
@@ -12,7 +12,7 @@ const ALL_TRAVEL_DESTINATION_CATEGORIES = [
 type TravelDestinationCategoryTuple = typeof ALL_TRAVEL_DESTINATION_CATEGORIES
 export type TravelDestinationCategory = TravelDestinationCategoryTuple[number]
 
-const ALL_SEARCH_PLACE_CATEGORIES = [
+export const ALL_SEARCH_PLACE_CATEGORIES = [
   'cafe',
   'restaurant',
   'walk',
