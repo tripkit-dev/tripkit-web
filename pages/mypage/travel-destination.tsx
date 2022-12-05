@@ -17,7 +17,7 @@ import {
   TravelDestinationCategory
 } from '@mypage/types'
 import { travelDestinationApi } from '@shared/apis'
-import InfiniteScroll from '@shared/components/InfiniteScroll'
+import { InfiniteScroll } from '@shared/components'
 import { routes } from '@shared/libraries'
 import { combineQuery, getQuery, withExtractData } from '@shared/libraries'
 import { Pagination } from '@shared/types'

@@ -15,7 +15,9 @@ export default function Card({
   top,
   bottom,
   bottomStyle,
-  borderRadius
+  borderRadius,
+  film,
+  notSSR
 }: Props) {
   return (
     <SCard size={size} direction={direction} style={{ borderRadius }}>
@@ -26,9 +28,11 @@ export default function Card({
         containerCss={styles.img}
         layout="fill"
         objectFit="cover"
+        notSSR={notSSR}
       />
       <STopArea>{top}</STopArea>
       <SBottomArea css={bottomStyle}>{bottom}</SBottomArea>
+      {!film && <SFilm />}
     </SCard>
   )
 }
@@ -60,12 +64,28 @@ export const STopArea = styled.div`
   position: absolute;
   width: calc(100% - ${cardSpace});
   top: 21px;
+  z-index: 1;
 `
 
 export const SBottomArea = styled.div`
   position: absolute;
   bottom: 21px;
   width: calc(100% - ${cardSpace});
+  z-index: 1;
+`
+
+const SFilm = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 0) 71%
+  );
 `
 
 const styles = {
@@ -118,4 +138,6 @@ interface Props extends SCardProps {
   bottom?: React.ReactNode | React.ReactNode[]
   bottomStyle?: Interpolation<Theme>
   borderRadius?: string
+  film?: boolean
+  notSSR?: boolean
 }
