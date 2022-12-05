@@ -7,8 +7,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
 
-import { ErrorBoundary } from '@shared/components'
-import { GlobalStyle, Layout } from '@shared/components'
+import { ErrorBoundary, GlobalStyle, Layout } from '@shared/components'
 import { color } from '@shared/constants'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {

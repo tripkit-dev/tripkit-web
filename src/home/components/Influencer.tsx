@@ -56,7 +56,7 @@ export default function Influencer({ hotPlaces }: Props) {
                 {hotPlace.description}
               </Text>,
               <s.Heart key="heart">
-                <HeartIcon />
+                <HeartIcon containerCss={whiteImgStyle} />
               </s.Heart>
             ]}
           />
@@ -104,12 +104,7 @@ export default function Influencer({ hotPlaces }: Props) {
                 {hotPlace.description}
               </Text>,
               <s.Heart key="heart">
-                <Img
-                  src="/images/sample/heart.svg"
-                  shape="normal"
-                  sideLength="24px"
-                  containerCss={whiteImgStyle}
-                />
+                <HeartIcon containerCss={whiteImgStyle} />
               </s.Heart>
             ]}
           />

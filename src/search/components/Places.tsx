@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 import { SearchPlaceCategory } from '@search/types'
 import { travelDestinationApi } from '@shared/apis'
-import InfiniteScroll from '@shared/components/InfiniteScroll'
+import { InfiniteScroll } from '@shared/components'
 import { useVirtualList } from '@shared/hooks'
 import { withExtractData } from '@shared/libraries'
 import { Pagination } from '@shared/types'
