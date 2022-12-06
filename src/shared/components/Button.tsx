@@ -58,8 +58,8 @@ const styles = {
     background-color: ${color.gray01};
   `,
   quaternary: css`
-    color: ${color.gray01};
-    border-color: ${color.gray01};
+    color: ${color.gray02};
+    border-color: ${color.gray02};
     background-color: ${color.white};
   `,
   mustard: css`
