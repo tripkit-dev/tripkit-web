@@ -22,10 +22,13 @@ export default function Categories({ currentCategory }: Props) {
       {searchCategoryModels.map((category) => (
         <Button
           key={category.key}
-          kind={category.key === currentCategory?.key ? 'primary' : 'secondary'}
+          kind={
+            category.key === currentCategory?.key ? 'primary' : 'quaternary'
+          }
+          size="small"
           onClick={() => handleCategoryClick(category.key)}
         >
-          {category.label}
+          {category.emoji + '  ' + category.label}
         </Button>
       ))}
     </Container>
@@ -33,7 +36,7 @@ export default function Categories({ currentCategory }: Props) {
 }
 
 const Container = styled.section`
-  height: 40px;
+  height: 26px;
   padding: 0 32px;
   margin-top: 18px;
   padding-bottom: 18px;

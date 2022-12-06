@@ -6,12 +6,13 @@ export const categoryModels = {
 }
 
 export const searchCategoryModels: SearchCategoryModels[] = [
-  { key: 'cafe', label: '카페' },
-  { key: 'restaurant', label: '맛집' },
-  { key: 'walk', label: '산책' },
-  { key: 'shopping', label: '쇼핑' }
+  { key: 'cafe', label: '카페', emoji: '☕️' },
+  { key: 'restaurant', label: '맛집', emoji: '🍽' },
+  { key: 'walk', label: '산책', emoji: '🌲' },
+  { key: 'shopping', label: '쇼핑', emoji: '💸' }
 ]
 
 interface SearchCategoryModels extends Category {
   key: SearchPlaceCategory
+  emoji: string
 }

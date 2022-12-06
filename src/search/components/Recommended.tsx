@@ -9,6 +9,7 @@ import { useQuery } from 'react-query'
 import { hotPlaceApi } from '@shared/apis'
 import { Card, HeartIcon, Text } from '@shared/components'
 import { color } from '@shared/constants'
+import { whiteImgStyle } from '@shared/styles'
 import { HotPlace } from '@shared/types'
 
 import { searchCategoryModels } from '@search/models'
@@ -52,7 +53,13 @@ const Recommended = () => {
               >
                 {hotPlace.description}
               </Text>,
-              <HeartIcon key="heart" containerCss={heartIconStyle} />
+              <HeartIcon
+                key="heart"
+                containerCss={css`
+                  ${whiteImgStyle};
+                  ${heartIconStyle};
+                `}
+              />
             ]}
           />
         ))}
@@ -64,7 +71,7 @@ const Recommended = () => {
 export default React.memo(Recommended)
 
 const Container = styled.article`
-  margin-top: 18px;
+  margin-top: 6px;
 `
 
 const Cards = styled.ul`
