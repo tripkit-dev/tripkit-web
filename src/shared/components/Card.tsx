@@ -16,7 +16,6 @@ export default function Card({
   bottom,
   bottomStyle,
   borderRadius,
-  film,
   notSSR
 }: Props) {
   return (
@@ -32,7 +31,7 @@ export default function Card({
       />
       <STopArea>{top}</STopArea>
       <SBottomArea css={bottomStyle}>{bottom}</SBottomArea>
-      {!film && <SFilm />}
+      <SFilm />
     </SCard>
   )
 }
@@ -138,6 +137,5 @@ interface Props extends SCardProps {
   bottom?: React.ReactNode | React.ReactNode[]
   bottomStyle?: Interpolation<Theme>
   borderRadius?: string
-  film?: boolean
   notSSR?: boolean
 }

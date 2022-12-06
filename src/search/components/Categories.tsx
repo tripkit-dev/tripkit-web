@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 
 import { Button } from '@shared/components'
 import { combineQuery } from '@shared/libraries'
-import { searchCategoryModels } from '@shared/models/category'
-import { Category } from '@shared/types'
+
+import { searchCategoryModels } from '@search/models'
+import { Category } from '@search/types'
 
 export default function Categories({ currentCategory }: Props) {
   const { push, pathname, query } = useRouter()

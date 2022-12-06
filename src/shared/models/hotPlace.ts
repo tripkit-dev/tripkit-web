@@ -1,6 +1,6 @@
 import { HotPlace } from '@shared/types'
 
-import { categoryModels } from './category'
+import { categoryModels } from '@search/models'
 
 export const hotPlaceModels: HotPlace[] = [
   {

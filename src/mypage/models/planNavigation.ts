@@ -1,6 +1,7 @@
-import { TravelDestinationCategory } from '@mypage/types'
 import { routes } from '@shared/libraries'
 import { combineQuery } from '@shared/libraries'
+
+import { TravelDestinationCategory } from '@mypage/types'
 
 const planNavigationModels: PlanNavigationModels[] = [
   {

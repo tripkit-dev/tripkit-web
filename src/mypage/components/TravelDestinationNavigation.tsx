@@ -3,8 +3,9 @@ import * as s from './TravelDestinationNavigation.styled'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { planNavigationModels } from '@mypage/models'
 import { Img, Text } from '@shared/components'
+
+import { planNavigationModels } from '@mypage/models'
 
 export default function Navigation() {
   const { query } = useRouter()

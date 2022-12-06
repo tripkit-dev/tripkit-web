@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
-import { RecoilRoot } from 'recoil'
-
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
+import React, { useState } from 'react'
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
+import { RecoilRoot } from 'recoil'
 
 import { ErrorBoundary, GlobalStyle, Layout } from '@shared/components'
 import { color } from '@shared/constants'

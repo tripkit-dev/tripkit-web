@@ -1,17 +1,19 @@
 import styled from '@emotion/styled'
 
+import { useRouter } from 'next/router'
 import { useEffect, useMemo } from 'react'
 import { useInfiniteQuery } from 'react-query'
 
-import { useRouter } from 'next/router'
-
-import { SearchPlaceCategory } from '@search/types'
 import { travelDestinationApi } from '@shared/apis'
 import { InfiniteScroll } from '@shared/components'
 import { useVirtualList } from '@shared/hooks'
 import { withExtractData } from '@shared/libraries'
-import { Pagination } from '@shared/types'
-import { TravelDestination as TravelDestinationType } from '@shared/types'
+import {
+  Pagination,
+  TravelDestination as TravelDestinationType
+} from '@shared/types'
+
+import { SearchPlaceCategory } from '@search/types'
 
 import Place from './Place'
 import Recommended from './Recommended'

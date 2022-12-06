@@ -1,17 +1,17 @@
+import type { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
 import { dehydrate, QueryClient } from 'react-query'
 import { useRecoilValue } from 'recoil'
 
-import type { GetServerSideProps, NextPage } from 'next'
-
-import { Categories, Form, Places } from '@search/components'
 import { hotPlaceApi } from '@shared/apis'
 import { searchState } from '@shared/atoms/search'
 import { Header } from '@shared/components/layout'
 import { getQuery } from '@shared/libraries'
-import { searchCategoryModels } from '@shared/models/category'
-import { HotPlace as HotPlaceType } from '@shared/types'
-import { Category } from '@shared/types'
+import { HotPlace } from '@shared/types'
+
+import { Categories, Form, Places } from '@search/components'
+import { searchCategoryModels } from '@search/models'
+import { Category } from '@search/types'
 
 const DEFAULT_CATEGORY = searchCategoryModels[0]
 
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   await queryClient.prefetchQuery(
     ['hotPlace/get', category || DEFAULT_CATEGORY.key],
-    () => hotPlaceApi.get() as Promise<HotPlaceType[]>
+    () => hotPlaceApi.get() as Promise<HotPlace[]>
   )
 
   return {
