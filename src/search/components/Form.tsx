@@ -1,8 +1,7 @@
 import styled from '@emotion/styled'
 
-import { useSetRecoilState } from 'recoil'
-
 import { useRouter } from 'next/router'
+import { useSetRecoilState } from 'recoil'
 
 import { searchState } from '@shared/atoms/search'
 import { Input, UnControlledForm } from '@shared/components'

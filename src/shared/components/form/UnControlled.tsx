@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 
-import React, { useRef } from 'react'
-
 import type { Interpolation, Theme } from '@emotion/react'
+
+import React, { useRef } from 'react'
 
 interface ChildrenProps {
   ref: React.RefObject<HTMLInputElement>

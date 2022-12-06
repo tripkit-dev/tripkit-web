@@ -2,10 +2,9 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
-import React from 'react'
-
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React from 'react'
 
 import { Img, Text } from '@shared/components'
 import { color } from '@shared/constants'

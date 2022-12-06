@@ -17,17 +17,10 @@
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./src",
     "paths": {
-      "@apis/*": ["apis/*"],
-      "@atoms/*": ["atoms/*"],
-      "@constants/*": ["constants/*"],
-      "@enums/*": ["enums/*"],
-      "@hooks/*": ["hooks/*"],
-      "@libraries/*": ["libraries/*"],
-      "@models/*": ["models/*"],
-      "@shared/*": ["shared/*"],
       "@home/*": ["home/*"],
       "@mypage/*": ["mypage/*"],
-      "@search/*": ["search/*"]
+      "@search/*": ["search/*"],
+      "@shared/*": ["shared/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

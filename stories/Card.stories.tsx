@@ -1,4 +1,5 @@
 import { Card } from '@shared/components'
+
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 const SAMPLE_IMG_PATH = '/images/sample/kangneung_01.png'

@@ -1,7 +1,19 @@
+import type { GetServerSideProps, NextPage } from 'next'
 import { useCallback } from 'react'
 import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 
-import type { GetServerSideProps, NextPage } from 'next'
+import { travelDestinationApi } from '@shared/apis'
+import { InfiniteScroll } from '@shared/components'
+import {
+  combineQuery,
+  getQuery,
+  routes,
+  withExtractData
+} from '@shared/libraries'
+import {
+  Pagination,
+  TravelDestination as TravelDestinationType
+} from '@shared/types'
 
 import {
   InviteCardBottom,
@@ -16,12 +28,6 @@ import {
   ALL_TRAVEL_DESTINATION_CATEGORIES,
   TravelDestinationCategory
 } from '@mypage/types'
-import { travelDestinationApi } from '@shared/apis'
-import { InfiniteScroll } from '@shared/components'
-import { routes } from '@shared/libraries'
-import { combineQuery, getQuery, withExtractData } from '@shared/libraries'
-import { Pagination } from '@shared/types'
-import { TravelDestination as TravelDestinationType } from '@shared/types'
 
 const DEFAULT_PAGE = 1
 const TRAVEL_DESTINATION_KEY = 'travelDestination/pagination'

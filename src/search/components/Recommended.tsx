@@ -2,18 +2,18 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useQuery } from 'react-query'
 
-import { useRouter } from 'next/router'
-
-import { SearchPlaceCategory } from '@search/types'
 import { hotPlaceApi } from '@shared/apis'
 import { Card, HeartIcon, Text } from '@shared/components'
 import { color } from '@shared/constants'
-import { searchCategoryModels } from '@shared/models/category'
+import { whiteImgStyle } from '@shared/styles'
 import { HotPlace } from '@shared/types'
-import { Category } from '@shared/types'
+
+import { searchCategoryModels } from '@search/models'
+import { Category, SearchPlaceCategory } from '@search/types'
 
 const DEFAULT_CATEGORY: SearchPlaceCategory = 'cafe'
 
@@ -53,7 +53,13 @@ const Recommended = () => {
               >
                 {hotPlace.description}
               </Text>,
-              <HeartIcon key="heart" containerCss={heartIconStyle} />
+              <HeartIcon
+                key="heart"
+                containerCss={css`
+                  ${whiteImgStyle};
+                  ${heartIconStyle};
+                `}
+              />
             ]}
           />
         ))}
@@ -65,7 +71,7 @@ const Recommended = () => {
 export default React.memo(Recommended)
 
 const Container = styled.article`
-  margin-top: 18px;
+  margin-top: 6px;
 `
 
 const Cards = styled.ul`

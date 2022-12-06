@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 
 import { Button } from '@shared/components'
 import { combineQuery } from '@shared/libraries'
-import { searchCategoryModels } from '@shared/models/category'
-import { Category } from '@shared/types'
+
+import { searchCategoryModels } from '@search/models'
+import { Category } from '@search/types'
 
 export default function Categories({ currentCategory }: Props) {
   const { push, pathname, query } = useRouter()
@@ -21,10 +22,13 @@ export default function Categories({ currentCategory }: Props) {
       {searchCategoryModels.map((category) => (
         <Button
           key={category.key}
-          kind={category.key === currentCategory?.key ? 'primary' : 'secondary'}
+          kind={
+            category.key === currentCategory?.key ? 'primary' : 'quaternary'
+          }
+          size="small"
           onClick={() => handleCategoryClick(category.key)}
         >
-          {category.label}
+          {category.emoji + '  ' + category.label}
         </Button>
       ))}
     </Container>
@@ -32,7 +36,7 @@ export default function Categories({ currentCategory }: Props) {
 }
 
 const Container = styled.section`
-  height: 40px;
+  height: 26px;
   padding: 0 32px;
   margin-top: 18px;
   padding-bottom: 18px;

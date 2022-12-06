@@ -2,9 +2,8 @@ import styled from '@emotion/styled'
 
 import { css, Interpolation, Theme } from '@emotion/react'
 
-import { useState } from 'react'
-
 import NextImage, { ImageProps } from 'next/image'
+import { useState } from 'react'
 
 import { color } from '@shared/constants'
 

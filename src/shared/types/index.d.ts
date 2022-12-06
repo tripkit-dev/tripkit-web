@@ -1,4 +1,3 @@
-export * from './Category'
 export * from './HotPlace'
 export * from './Http'
 export * from './Response'

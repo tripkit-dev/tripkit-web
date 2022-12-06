@@ -57,6 +57,11 @@ const styles = {
     border-color: ${color.white};
     background-color: ${color.gray01};
   `,
+  quaternary: css`
+    color: ${color.gray01};
+    border-color: ${color.gray01};
+    background-color: ${color.white};
+  `,
   mustard: css`
     color: ${color.white};
     border-color: ${color.mustard};
@@ -100,7 +105,7 @@ const styles = {
 }
 
 interface SButtonProps {
-  kind?: 'primary' | 'secondary' | 'tertiary' | 'mustard'
+  kind?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'mustard'
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 }
 
