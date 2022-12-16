@@ -79,7 +79,7 @@ const Cards = styled.ul`
   height: 228px;
   margin-top: 6px;
   padding: 12px 0;
-  background-color: ${color.gray04};
+  background-color: ${color.gray08};
   overflow-y: hidden;
   overflow-x: auto;
 

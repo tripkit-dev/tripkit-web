@@ -50,6 +50,6 @@ const STitle = styled.h2`
 
 const SDescription = styled.h3`
   font-size: 12px;
-  color: ${color.gray02};
+  color: ${color.gray06};
   ${margin};
 `

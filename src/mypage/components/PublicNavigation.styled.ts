@@ -18,9 +18,9 @@ export const Menu = styled.li`
   justify-content: space-between;
   margin: 12px 0;
   padding: 14.5px 0;
-  border-bottom: 2px solid ${color.gray04};
+  border-bottom: 2px solid ${color.gray08};
 
-  color: ${color.gray01};
+  color: ${color.gray05};
 
   &:hover {
     cursor: pointer;

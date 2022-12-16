@@ -9,10 +9,11 @@ export const searchCategoryModels: SearchCategoryModels[] = [
   { key: 'cafe', label: '카페', emoji: '☕️' },
   { key: 'restaurant', label: '맛집', emoji: '🍽' },
   { key: 'walk', label: '산책', emoji: '🌲' },
-  { key: 'shopping', label: '쇼핑', emoji: '💸' }
+  { key: 'shopping', label: '쇼핑', emoji: '💸' },
+  { key: 'culture', label: '문화생활', emoji: '🌟' }
 ]
 
-interface SearchCategoryModels extends Category {
+export interface SearchCategoryModels extends Category {
   key: SearchPlaceCategory
   emoji: string
 }

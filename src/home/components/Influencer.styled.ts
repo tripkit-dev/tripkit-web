@@ -18,7 +18,7 @@ export const Influencer = styled.div`
     top: 0;
     left: 0;
     z-index: -1;
-    background-color: ${color.gray04};
+    background-color: ${color.gray08};
   }
 
   p {

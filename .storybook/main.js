@@ -24,7 +24,8 @@ module.exports = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@shared': path.resolve(__dirname, '../src/shared')
+      '@shared': path.resolve(__dirname, '../src/shared'),
+      '@search': path.resolve(__dirname, '../src/search')
     }
 
     return config

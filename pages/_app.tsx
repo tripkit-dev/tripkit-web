@@ -6,7 +6,12 @@ import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { RecoilRoot } from 'recoil'
 
-import { ErrorBoundary, GlobalStyle, Layout } from '@shared/components'
+import {
+  ErrorBoundary,
+  GlobalStyle,
+  Layout,
+  ModalProvider
+} from '@shared/components'
 import { color } from '@shared/constants'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
@@ -29,22 +34,24 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <ErrorBoundary>
-          <GlobalStyle>
-            <RecoilRoot>
-              <Head>
-                <title>Tripkit</title>
-              </Head>
-              <NextNProgress
-                color={color.mainPlaceholder}
-                height={2}
-                stopDelayMs={100}
-                options={{ showSpinner: false }}
-              />
-              {getLayout(<Component {...pageProps} />)}
-            </RecoilRoot>
-          </GlobalStyle>
-        </ErrorBoundary>
+        <ModalProvider>
+          <ErrorBoundary>
+            <GlobalStyle>
+              <RecoilRoot>
+                <Head>
+                  <title>Tripkit</title>
+                </Head>
+                <NextNProgress
+                  color={color.mainPlaceholder}
+                  height={2}
+                  stopDelayMs={100}
+                  options={{ showSpinner: false }}
+                />
+                {getLayout(<Component {...pageProps} />)}
+              </RecoilRoot>
+            </GlobalStyle>
+          </ErrorBoundary>
+        </ModalProvider>
       </Hydrate>
     </QueryClientProvider>
   )

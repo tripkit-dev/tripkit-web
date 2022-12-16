@@ -14,6 +14,12 @@ const routes = {
     path: '/search'
   },
 
+  places: {
+    enroll: {
+      path: '/places/enroll'
+    }
+  },
+
   admin: {
     path: '/admin'
   }
