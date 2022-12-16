@@ -7,7 +7,7 @@ export default function SectionTitle({ title, subTitle, hasMore }: Props) {
   return (
     <Container>
       {subTitle && (
-        <Text size="small" color={color.gray02}>
+        <Text size="small" color={color.gray06}>
           {subTitle}
         </Text>
       )}

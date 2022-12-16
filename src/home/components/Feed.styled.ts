@@ -10,7 +10,7 @@ export const Container = styled.section`
   max-height: 633px;
   padding: 26px;
 
-  background: ${color.gray02} url(/images/bg_feed.png) no-repeat;
+  background: ${color.gray06} url(/images/bg_feed.png) no-repeat;
   background-size: cover;
 `
 

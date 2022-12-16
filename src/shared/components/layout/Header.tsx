@@ -1,22 +1,29 @@
 import styled from '@emotion/styled'
 
 import { useRouter } from 'next/router'
+import { memo } from 'react'
 
 interface Props {
   left?: React.ReactNode
   center?: React.ReactNode
   right?: React.ReactNode
+  backgroundColor?: string
 }
 
-export default function Header({ left, center, right }: Props) {
+export default memo(function Header({
+  left,
+  center,
+  right,
+  backgroundColor
+}: Props) {
   return (
-    <Container>
+    <Container style={{ backgroundColor }}>
       <Left>{left ?? <Back />}</Left>
       <Center>{center}</Center>
       <Right>{right}</Right>
     </Container>
   )
-}
+})
 
 const Back = () => {
   const { back } = useRouter()

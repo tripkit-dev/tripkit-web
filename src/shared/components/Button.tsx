@@ -6,9 +6,27 @@ import type { HTMLAttributes, MouseEventHandler } from 'react'
 
 import { color } from '@shared/constants'
 
-const Button: React.FC<Props> = ({
+interface SButtonProps {
+  kind?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'mustard'
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+  shape?: 'normal' | 'semi-round'
+}
+
+export interface ButtonProps
+  extends SButtonProps,
+    HTMLAttributes<HTMLButtonElement> {
+  backgroundColor?: string
+  borderColor?: string
+  color?: string
+  margin?: string
+  cssStyle?: Interpolation<Theme>
+  onClick?: MouseEventHandler<HTMLButtonElement>
+}
+
+const Button: React.FC<ButtonProps> = ({
   kind = 'primary',
   size = 'medium',
+  shape = 'normal',
   backgroundColor,
   borderColor,
   color,
@@ -21,6 +39,7 @@ const Button: React.FC<Props> = ({
     <SButton
       kind={kind}
       size={size}
+      shape={shape}
       style={{ backgroundColor, color, borderColor, margin }}
       css={cssStyle}
       {...props}
@@ -38,9 +57,12 @@ const SButton = styled.button<SButtonProps>`
   border: 1px solid ${color.main};
   cursor: pointer;
   display: inline-block;
+  word-break: keep-all;
+  white-space: pre;
 
   ${({ kind }) => styles[kind!]}
   ${({ size }) => styles[size!]}
+  ${({ shape }) => styles[shape!]}
 `
 
 const styles = {
@@ -55,11 +77,11 @@ const styles = {
   tertiary: css`
     color: ${color.white};
     border-color: ${color.white};
-    background-color: ${color.gray01};
+    background-color: ${color.gray05};
   `,
   quaternary: css`
-    color: ${color.gray02};
-    border-color: ${color.gray02};
+    color: ${color.gray06};
+    border-color: ${color.gray06};
     background-color: ${color.white};
   `,
   mustard: css`
@@ -101,19 +123,9 @@ const styles = {
     font-size: 16px;
     font-weight: 500;
     border-radius: 24px;
+  `,
+  normal: css``,
+  'semi-round': css`
+    border-radius: 9px;
   `
-}
-
-interface SButtonProps {
-  kind?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'mustard'
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
-}
-
-interface Props extends SButtonProps, HTMLAttributes<HTMLButtonElement> {
-  backgroundColor?: string
-  borderColor?: string
-  color?: string
-  margin?: string
-  cssStyle?: Interpolation<Theme>
-  onClick?: MouseEventHandler<HTMLButtonElement>
 }

@@ -24,7 +24,7 @@ const SContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 60px;
-  color: ${color.gray02};
+  color: ${color.gray06};
 `
 
 interface Props {

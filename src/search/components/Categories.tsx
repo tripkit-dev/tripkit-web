@@ -1,36 +1,52 @@
 import styled from '@emotion/styled'
 
 import { useRouter } from 'next/router'
+import { useEffect, useRef } from 'react'
 
-import { Button } from '@shared/components'
+import { Select } from '@shared/components'
 import { combineQuery } from '@shared/libraries'
 
-import { searchCategoryModels } from '@search/models'
-import { Category } from '@search/types'
+import { SearchCategoryModels, searchCategoryModels } from '@search/models'
+
+interface Props {
+  currentCategory?: SearchCategoryModels
+}
 
 export default function Categories({ currentCategory }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null)
   const { push, pathname, query } = useRouter()
 
-  const handleCategoryClick = (category: string) => {
+  const handleCategoryChange = (category: string) => {
     push(combineQuery(pathname, { ...query, category }), undefined, {
       shallow: true
     })
   }
 
+  useEffect(() => {
+    if (!currentCategory) {
+      return
+    }
+
+    const target = document.querySelector(
+      `#${currentCategory.key}`
+    ) as HTMLElement
+
+    containerRef.current?.scrollTo({
+      left: target?.offsetLeft - window.innerWidth / 2,
+      behavior: 'smooth'
+    })
+  }, [currentCategory])
+
   return (
-    <Container>
-      {searchCategoryModels.map((category) => (
-        <Button
-          key={category.key}
-          kind={
-            category.key === currentCategory?.key ? 'primary' : 'quaternary'
-          }
-          size="small"
-          onClick={() => handleCategoryClick(category.key)}
-        >
-          {category.emoji + '  ' + category.label}
-        </Button>
-      ))}
+    <Container ref={containerRef}>
+      <Select
+        list={searchCategoryModels.map((category) => ({
+          ...category,
+          label: category.emoji + '  ' + category.label
+        }))}
+        value={currentCategory?.key}
+        onChange={handleCategoryChange}
+      />
     </Container>
   )
 }
@@ -52,7 +68,3 @@ const Container = styled.section`
     }
   }
 `
-
-interface Props {
-  currentCategory: Category
-}

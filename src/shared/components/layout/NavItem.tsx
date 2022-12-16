@@ -35,7 +35,7 @@ const Item = ({ item, idx }: ItemProps) => {
     <Link href={combineQuery(item.basePath, item.query)}>
       <SLi active={isActiveTab}>
         <Img src={item.icon} shape="normal" sideLength="24px" />
-        <Text size="xsmall" color={isActiveTab ? color.main : color.gray01}>
+        <Text size="xsmall" color={isActiveTab ? color.main : color.gray05}>
           {item.label}
         </Text>
       </SLi>

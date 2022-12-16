@@ -1,13 +1,16 @@
 import styled from '@emotion/styled'
 
+import { css } from '@emotion/react'
+
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useInfiniteQuery } from 'react-query'
 
 import { travelDestinationApi } from '@shared/apis'
-import { InfiniteScroll } from '@shared/components'
+import { Button, InfiniteScroll, NotFound } from '@shared/components'
 import { useVirtualList } from '@shared/hooks'
-import { withExtractData } from '@shared/libraries'
+import { routes, withExtractData } from '@shared/libraries'
 import {
   Pagination,
   TravelDestination as TravelDestinationType
@@ -20,12 +23,11 @@ import Recommended from './Recommended'
 
 const DEFAULT_CATEGORY: SearchPlaceCategory = 'cafe'
 
-type Response = Pagination<TravelDestinationType[]>
-const Places = () => {
+export default function Places() {
   const { query } = useRouter()
 
   const category = (query.category as SearchPlaceCategory) || DEFAULT_CATEGORY
-  const keyword = query.keyword || ''
+  const keyword = (query.keyword as string) || ''
 
   const {
     data: totalPlaces,
@@ -48,10 +50,11 @@ const Places = () => {
       }
     }
   )
+  const rd = useMemo(() => Math.random(), [category])
 
   const mergedList = useMemo(
-    () => mergePagesToArray(totalPlaces?.pages),
-    [totalPlaces]
+    () => (rd > 0.5 ? mergePagesToArray(totalPlaces?.pages) : []),
+    [totalPlaces, rd]
   )
 
   const { ref, list, totalHeight, offsetY, onFetchSuccess, onScrollTop } =
@@ -64,24 +67,45 @@ const Places = () => {
   }, [keyword, category, onScrollTop])
 
   return (
-    <VirtualList ref={ref}>
-      <Recommended />
+    <>
+      {mergedList.length > 0 ? (
+        <VirtualList ref={ref}>
+          <Recommended />
 
-      <Container height={totalHeight}>
-        <SPlaces offsetY={offsetY}>
-          {list.map((place) => (
-            <Place key={place.id} place={place} />
-          ))}
-          {totalPlaces?.pages && hasNextPage && (
-            <InfiniteScroll fetch={fetchNextPage} />
-          )}
-        </SPlaces>
-      </Container>
-    </VirtualList>
+          <Container height={totalHeight}>
+            <SPlaces offsetY={offsetY}>
+              {list.map((place) => (
+                <Place key={place.id} place={place} />
+              ))}
+              {totalPlaces?.pages && hasNextPage && (
+                <InfiniteScroll fetch={fetchNextPage} />
+              )}
+            </SPlaces>
+          </Container>
+        </VirtualList>
+      ) : (
+        <NotFound
+          value={keyword}
+          title="찾으시는 장소가 없어요"
+          description="더 많은 장소를 알려주세요!"
+          bottom={
+            <Link href={routes.places.enroll.path}>
+              <a>
+                <Button
+                  cssStyle={css`
+                    width: 150px;
+                  `}
+                >
+                  장소 알리기
+                </Button>
+              </a>
+            </Link>
+          }
+        />
+      )}
+    </>
   )
 }
-
-export default Places
 
 function mergePagesToArray(pages?: Response[]) {
   if (!pages?.length) return []
@@ -115,3 +139,5 @@ const SPlaces = styled.ul<{ offsetY: number }>`
   margin-top: 4px;
   transform: translateY(${(props) => props.offsetY}px);
 `
+
+type Response = Pagination<TravelDestinationType[]>

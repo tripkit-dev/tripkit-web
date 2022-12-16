@@ -106,7 +106,7 @@ const styles = {
     border: 1px solid ${color.main};
   `,
   placeholder: css`
-    background-color: ${color.gray02};
+    background-color: ${color.gray06};
   `,
   sideLength: (length: string) => css`
     width: ${length};

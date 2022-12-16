@@ -49,7 +49,7 @@ const SPlace = styled.li`
     right: 0;
     bottom: 0;
     width: calc(100% - 20px);
-    border-bottom: 1px solid ${color.gray02};
+    border-bottom: 1px solid ${color.gray06};
   }
 `
 

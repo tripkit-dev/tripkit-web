@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetServerSideProps } from 'next'
 import React from 'react'
 import { dehydrate, QueryClient } from 'react-query'
 import { useRecoilValue } from 'recoil'
@@ -11,17 +11,20 @@ import { HotPlace } from '@shared/types'
 
 import { Categories, Form, Places } from '@search/components'
 import { searchCategoryModels } from '@search/models'
-import { Category } from '@search/types'
 
 const DEFAULT_CATEGORY = searchCategoryModels[0]
 
-const Search: NextPage<Props> = ({ defaultCategoryKey }) => {
+interface Props {
+  defaultCategoryKey: string
+}
+
+export default function Search({ defaultCategoryKey }: Props) {
   const searchValue = useRecoilValue(searchState)
 
   const currentCategoryKey = getQuery('category', defaultCategoryKey)
   const currentCategory = searchCategoryModels.find(
     (category) => category.key === currentCategoryKey
-  ) as Category
+  )
 
   return (
     <>
@@ -32,8 +35,6 @@ const Search: NextPage<Props> = ({ defaultCategoryKey }) => {
     </>
   )
 }
-
-export default Search
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const queryClient = new QueryClient()
@@ -50,8 +51,4 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       defaultCategoryKey: category || DEFAULT_CATEGORY.key
     }
   }
-}
-
-interface Props {
-  defaultCategoryKey: string
 }

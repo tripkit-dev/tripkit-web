@@ -7,7 +7,7 @@ import { forwardRef, HTMLAttributes } from 'react'
 import { color } from '@shared/constants'
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function input(
-  { shape = 'normal', kind = 'primary', cssStyle, ...props },
+  { shape = 'normal', kind = 'primary', cssStyle, value, ...props },
   ref
 ) {
   return (
@@ -17,6 +17,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function input(
       shape={shape}
       kind={kind}
       css={cssStyle}
+      value={value}
       {...props}
     />
   )
@@ -50,6 +51,10 @@ const styles = {
     height: 42px;
     border-radius: 22px;
   `,
+  'semi-round': css`
+    height: 42px;
+    border-radius: 10px;
+  `,
   primary: css`
     color: ${color.lightBlack};
     border-color: ${color.main};
@@ -60,10 +65,10 @@ const styles = {
   `,
   secondary: css`
     color: ${color.lightBlack};
-    border-color: ${color.gray02};
+    border-color: ${color.gray06};
 
     &::placeholder {
-      color: ${color.gray02};
+      color: ${color.gray06};
     }
   `,
   tertiary: css`
@@ -76,10 +81,11 @@ const styles = {
 }
 
 interface SInputProps {
-  shape?: 'normal' | 'round'
+  shape?: 'normal' | 'round' | 'semi-round'
   kind?: 'primary' | 'secondary' | 'tertiary'
 }
 
 interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
   cssStyle?: Interpolation<Theme>
+  value?: string
 }

@@ -29,7 +29,7 @@ export const Navigation = styled.ul`
     bottom: 0;
     width: 102%;
     height: 1px;
-    border-bottom: 2px solid ${color.gray04};
+    border-bottom: 2px solid ${color.gray08};
   }
 
   @media screen and (min-width: 550px) {
