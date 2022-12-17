@@ -1,26 +1,27 @@
-import { css } from '@emotion/react'
-
 import React, { useCallback, useState } from 'react'
 
-import { Button, Header } from '@shared/components'
-import { TimePickerType } from '@shared/components/form/TimePicker'
+import { Header, TimePickerType } from '@shared/components'
 import { color } from '@shared/constants'
+import { Image } from '@shared/types'
 
 import {
+  AnswerType,
   BusinessDays,
   BusinessHours,
   FileUploader,
   FormRow,
+  ImagePreviews,
   PlaceName,
   Required,
-  SelectCategory
+  SelectCategory,
+  Submit
 } from '@places/enroll'
 import { BusinessTimeType } from '@places/enroll/components/BusinessHours'
 
 export default function Enroll() {
-  const [answers, setAnswers] = useState<Answer>({})
+  const [answers, setAnswers] = useState<AnswerType>({})
 
-  function handleAnswer(answer: Answer) {
+  function handleAnswer(answer: AnswerType) {
     setAnswers((prev) => ({ ...prev, ...answer }))
   }
 
@@ -29,8 +30,13 @@ export default function Enroll() {
     []
   )
 
+  const handlePlacName = useCallback(
+    (placeName: string) => handleAnswer({ placeName }),
+    []
+  )
+
   const handleFiles = useCallback(
-    (images: File[]) => handleAnswer({ images }),
+    (images: Image[]) => handleAnswer({ images }),
     []
   )
 
@@ -56,7 +62,7 @@ export default function Enroll() {
           description: '다중 선택 가능합니다',
           element: (
             <SelectCategory
-              value={answers.categories}
+              values={answers.categories as string[]}
               onChange={handleCategories}
             />
           )
@@ -71,8 +77,8 @@ export default function Enroll() {
           description: '정확한 장소명을 알려주셔야 정보 확인이 가능합니다',
           element: (
             <PlaceName
-              value={answers.placeName}
-              onChange={(placeName) => handleAnswer({ placeName })}
+              value={answers.placeName as string}
+              onChange={handlePlacName}
             />
           )
         }}
@@ -80,7 +86,22 @@ export default function Enroll() {
       <FormRow
         top={{
           title: '사진이 있다면 더욱 좋아요!',
-          right: <FileUploader onChange={handleFiles} />
+          right:
+            answers.images === undefined ? (
+              <FileUploader
+                images={answers.images as Image[] | undefined}
+                onChange={handleFiles}
+              />
+            ) : null
+        }}
+        middle={{
+          element:
+            answers.images !== undefined ? (
+              <ImagePreviews
+                images={answers.images as Image[]}
+                onChange={handleFiles}
+              />
+            ) : null
         }}
       />
       <FormRow
@@ -103,29 +124,7 @@ export default function Enroll() {
           element: <BusinessDays onChange={handleBusinessDays} />
         }}
       />
-      <section
-        css={css`
-          margin: 24px auto;
-          text-align: center;
-        `}
-      >
-        <Button
-          size="large"
-          kind="secondary"
-          shape="semi-round"
-          onClick={() => alert(JSON.stringify(answers))}
-          cssStyle={css`
-            width: 80vw;
-            max-width: 320px;
-          `}
-        >
-          장소 알리기
-        </Button>
-      </section>
+      <Submit answers={answers} />
     </>
   )
-}
-
-interface Answer {
-  [key: string]: any
 }

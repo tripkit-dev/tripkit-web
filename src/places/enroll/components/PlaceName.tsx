@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 
-import { Input } from '@shared/components'
+import { css } from '@emotion/react'
+
+import { FormEvent, useCallback } from 'react'
+
+import { ControlledInput } from '@shared/components'
 import { color } from '@shared/constants'
 
 interface Props {
@@ -9,20 +13,35 @@ interface Props {
 }
 
 export default function PlaceName({ value, onChange }: Props) {
+  const handleChange = useCallback(
+    (value: string | FormEvent<HTMLInputElement>) =>
+      onChange?.(value as string),
+    [onChange]
+  )
+
   return (
-    <SContainer>
+    <SContainer hasValue={!!value}>
       <SInput
         kind="secondary"
         shape="semi-round"
         placeholder="장소(가게) 이름"
-        onChange={(e) => onChange?.((e.target as HTMLInputElement).value)}
+        onChange={handleChange}
         value={value}
+        css={
+          value
+            ? css`
+                background-color: ${color.main};
+                text-align: center;
+                color: ${color.white};
+              `
+            : ''
+        }
       />
     </SContainer>
   )
 }
 
-const SContainer = styled.div`
+const SContainer = styled.div<{ hasValue: boolean }>`
   position: relative;
 
   &::before {
@@ -35,10 +54,17 @@ const SContainer = styled.div`
     left: 26px;
     transform: translateY(-50%);
     z-index: 1;
+
+    ${({ hasValue }) =>
+      hasValue
+        ? css`
+            display: none;
+          `
+        : ''};
   }
 `
 
-const SInput = styled(Input)`
+const SInput = styled(ControlledInput)`
   position: relative;
   width: calc(100% - 76px);
   padding: 0 38px;

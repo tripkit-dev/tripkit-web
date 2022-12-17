@@ -1,7 +1,9 @@
 import { ChangeEvent, useState } from 'react'
 
-export default function useFileUpload() {
-  const [fileList, setFileList] = useState<File[]>([])
+import { Image } from '@shared/types'
+
+export default function useFileUpload(initialValue: Image[] = []) {
+  const [fileList, setFileList] = useState<Image[]>(initialValue)
 
   const handleFileChange = ({
     target: { files }
@@ -10,7 +12,11 @@ export default function useFileUpload() {
       return
     }
 
-    const newFiles = Array.from(files)
+    const newFiles = Array.from(files).map((file: Image) => {
+      file.src = URL.createObjectURL(file)
+
+      return file
+    })
 
     setFileList((prev) => [...prev, ...newFiles])
   }

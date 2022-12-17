@@ -1,13 +1,15 @@
-import { Input } from '@shared/components'
+import { UncontrolledInput } from '@shared/components'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 export default {
   title: 'Example/Input',
-  component: Input
-} as ComponentMeta<typeof Input>
+  component: UncontrolledInput
+} as ComponentMeta<typeof UncontrolledInput>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof UncontrolledInput> = (args) => (
+  <UncontrolledInput {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {

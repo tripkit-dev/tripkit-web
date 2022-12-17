@@ -2,28 +2,64 @@ import styled from '@emotion/styled'
 
 import { css, Interpolation, Theme } from '@emotion/react'
 
-import { forwardRef, HTMLAttributes } from 'react'
+import { forwardRef, HTMLAttributes, useEffect, useState } from 'react'
 
 import { color } from '@shared/constants'
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function input(
-  { shape = 'normal', kind = 'primary', cssStyle, value, ...props },
-  ref
-) {
+export const UncontrolledInput = forwardRef<HTMLInputElement, InputProps>(
+  function Input(
+    {
+      shape = 'normal',
+      kind = 'primary',
+      cssStyle,
+      value: initialValue,
+      ...props
+    },
+    ref
+  ) {
+    const [value, setValue] = useState<string>(initialValue || '')
+
+    return (
+      <SInput
+        ref={ref}
+        type="text"
+        shape={shape}
+        kind={kind}
+        css={cssStyle}
+        value={value}
+        onChange={({ target: { value } }) => setValue(value)}
+        {...props}
+      />
+    )
+  }
+)
+
+export const ControlledInput = ({
+  shape = 'normal',
+  kind = 'primary',
+  cssStyle,
+  value: initialValue,
+  onChange,
+  ...props
+}: ControlledInputProps & HTMLAttributes<HTMLInputElement>) => {
+  const [value, setValue] = useState<string>(initialValue || '')
+
+  useEffect(() => {
+    onChange?.(value)
+  }, [value, onChange])
+
   return (
     <SInput
-      ref={ref}
       type="text"
       shape={shape}
       kind={kind}
       css={cssStyle}
       value={value}
+      onChange={({ target: { value } }) => setValue(value)}
       {...props}
     />
   )
-})
-
-export default Input
+}
 
 const SInput = styled.input<SInputProps>`
   display: inline-block;
@@ -37,6 +73,10 @@ const SInput = styled.input<SInputProps>`
 
   font-weight: 400;
   font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
 
   ${({ shape }) => styles[shape!]}
   ${({ kind }) => styles[kind!]}
@@ -88,4 +128,10 @@ interface SInputProps {
 interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
   cssStyle?: Interpolation<Theme>
   value?: string
+}
+
+interface ControlledInputProps extends SInputProps {
+  cssStyle?: Interpolation<Theme>
+  value?: string
+  onChange?(value: string): void
 }

@@ -7,18 +7,14 @@ import { Select as CommonSelect } from '@shared/components'
 import { searchCategoryModels } from '@search/models'
 
 interface Props {
-  value?: string
+  values?: string[]
   onChange?(value: string[]): void
 }
 
-export default function SelectCategory({ value, onChange }: Props) {
+export default function SelectCategory({ values: _values, onChange }: Props) {
   const [values, setValues] = useState<string[]>([])
 
   useEffect(() => {
-    if (values.length <= 0) {
-      return
-    }
-
     onChange?.(values)
   }, [onChange, values])
 
@@ -28,7 +24,7 @@ export default function SelectCategory({ value, onChange }: Props) {
         ...category,
         label: category.emoji + '  ' + category.label
       }))}
-      value={value}
+      value={_values}
       onChange={(newValue) => {
         setValues((prev) => {
           if (prev.includes(newValue)) {
