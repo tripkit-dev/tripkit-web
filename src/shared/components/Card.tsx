@@ -2,8 +2,14 @@ import styled from '@emotion/styled'
 
 import { css, Interpolation, Theme } from '@emotion/react'
 
+import Link from 'next/link'
+import { Fragment } from 'react'
+
+import { Url } from 'url'
+
 import { color } from '@shared/constants'
 
+import { GradationFilm } from './Film'
 import Img from './Img'
 
 const cardSpace = '36px'
@@ -13,13 +19,14 @@ export default function Card({
   size = 'medium',
   direction = 'row',
   top,
+  linkProps,
   bottom,
   bottomStyle,
   borderRadius,
   notSSR
 }: Props) {
-  return (
-    <SCard size={size} direction={direction} style={{ borderRadius }}>
+  const content = (
+    <Fragment>
       <Img
         src={imgSrc}
         shape="normal"
@@ -31,7 +38,19 @@ export default function Card({
       />
       <STopArea>{top}</STopArea>
       <SBottomArea css={bottomStyle}>{bottom}</SBottomArea>
-      <SFilm />
+      <GradationFilm />
+    </Fragment>
+  )
+
+  return (
+    <SCard size={size} direction={direction} style={{ borderRadius }}>
+      {linkProps ? (
+        <Link {...linkProps}>
+          <a>{content}</a>
+        </Link>
+      ) : (
+        content
+      )}
     </SCard>
   )
 }
@@ -71,20 +90,6 @@ export const SBottomArea = styled.div`
   bottom: 21px;
   width: calc(100% - ${cardSpace});
   z-index: 1;
-`
-
-const SFilm = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(255, 255, 255, 0) 71%
-  );
 `
 
 const styles = {
@@ -138,4 +143,10 @@ interface Props extends SCardProps {
   bottomStyle?: Interpolation<Theme>
   borderRadius?: string
   notSSR?: boolean
+  linkProps?: LinkProps
+}
+
+interface LinkProps {
+  href: Url | string
+  as?: string
 }

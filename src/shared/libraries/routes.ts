@@ -13,6 +13,10 @@ const routes = {
   places: {
     path: '/places',
 
+    place: {
+      path: '/places/[id]'
+    },
+
     enroll: {
       path: '/places/enroll'
     }

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import { Fragment, useCallback, useState } from 'react'
 
 import { Header, TimePickerType } from '@shared/components'
 import { color } from '@shared/constants'
@@ -51,7 +51,7 @@ export default function Enroll() {
   )
 
   return (
-    <>
+    <Fragment>
       <Header backgroundColor={color.gray08} />
       <FormRow
         top={{
@@ -125,6 +125,6 @@ export default function Enroll() {
         }}
       />
       <Submit answers={answers} />
-    </>
+    </Fragment>
   )
 }

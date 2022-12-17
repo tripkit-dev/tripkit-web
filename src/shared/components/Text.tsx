@@ -75,14 +75,25 @@ const styles = {
     font-size: 26px;
     font-weight: bolder;
   `,
-  xxlarge: css`
+  '2xlarge': css`
     font-size: 32px;
     font-weight: bolder;
+  `,
+  '3xlarge': css`
+    font-size: 42px;
+    font-weight: 500;
   `
 }
 
 interface STextProps {
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
+  size?:
+    | 'xsmall'
+    | 'small'
+    | 'medium'
+    | 'large'
+    | 'xlarge'
+    | '2xlarge'
+    | '3xlarge'
   lineClamp?: number
 }
 

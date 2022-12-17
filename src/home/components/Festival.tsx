@@ -46,7 +46,7 @@ export default function Festival() {
                   <Text key="name" size="small">
                     {place.name}
                   </Text>,
-                  <Text key="festivName" size="xxlarge" margin="8px 0 4px 0">
+                  <Text key="festivName" size="2xlarge" margin="8px 0 4px 0">
                     {place.name}
                   </Text>,
                   <Text key="date" fontWeight="400">
