@@ -17,6 +17,6 @@ export default function Layout({ children }: Props) {
   )
 }
 
-const Container = styled.div`
+const Container = styled.article`
   padding-bottom: 90px;
 `

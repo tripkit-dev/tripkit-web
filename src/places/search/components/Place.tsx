@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
 
+import Link from 'next/link'
 import React from 'react'
 
 import { HeartIcon, Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
+import { routes } from '@shared/libraries'
 import { TravelDestination } from '@shared/types'
 
 interface Props {
@@ -13,23 +15,30 @@ interface Props {
 const Place = ({ place }: Props) => {
   return (
     <SPlace key={place.id}>
-      <SImg>
-        <Img src={place.src} shape="normal" sideLength="110px" />
-      </SImg>
-      <SContent>
-        <STitle>
-          <Text>곳</Text>
-          <Text size="xsmall" lineClamp={1} margin="0 0 0 14px">
-            베이커리
-          </Text>
-        </STitle>
-        <Text size="xsmall" lineClamp={1}>
-          사천해변 걷다가 하늘계단 오르는 강릉카페
-        </Text>
-        <SHeart>
-          <HeartIcon />
-        </SHeart>
-      </SContent>
+      <Link
+        href={routes.places.place.path}
+        as={`${routes.places.path}/${place.id}`}
+      >
+        <SLink>
+          <SImg>
+            <Img src={place.src} shape="normal" sideLength="110px" />
+          </SImg>
+          <SContent>
+            <STitle>
+              <Text>곳</Text>
+              <Text size="xsmall" lineClamp={1} margin="0 0 0 14px">
+                베이커리
+              </Text>
+            </STitle>
+            <Text size="xsmall" lineClamp={1}>
+              사천해변 걷다가 하늘계단 오르는 강릉카페
+            </Text>
+            <SHeart>
+              <HeartIcon />
+            </SHeart>
+          </SContent>
+        </SLink>
+      </Link>
     </SPlace>
   )
 }
@@ -38,10 +47,6 @@ export default React.memo(Place)
 
 const SPlace = styled.li`
   position: relative;
-  display: flex;
-  height: 110px;
-  padding: 10px 38px;
-  overflow: hidden;
 
   &::after {
     content: ' ';
@@ -51,6 +56,13 @@ const SPlace = styled.li`
     width: calc(100% - 20px);
     border-bottom: 1px solid ${color.gray06};
   }
+`
+
+const SLink = styled.a`
+  display: flex;
+  height: 110px;
+  padding: 10px 38px;
+  overflow: hidden;
 `
 
 const SImg = styled.div`

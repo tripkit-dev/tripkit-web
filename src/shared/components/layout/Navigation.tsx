@@ -30,7 +30,7 @@ export default function Navigation() {
       },
       {
         icon: '/images/sample/heart.svg',
-        basePath: routes.search.path,
+        basePath: routes.places.path,
         query: {
           keyword: searchValue
         },

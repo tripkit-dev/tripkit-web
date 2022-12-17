@@ -9,5 +9,7 @@ export const color = {
   gray07: '#D2D2D2',
   gray08: '#F6F6F6',
   graySkeleton: '#EEE',
-  red05: '#FF0000'
+  red05: '#FF0000',
+  transparent: '#FFFFFF00',
+  transparentWhite30: '#FFFFFF4B'
 }

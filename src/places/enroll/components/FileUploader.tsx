@@ -25,7 +25,12 @@ export default function FileUploader({ images, onChange }: Props) {
   return (
     <SButton kind="quaternary" size="xsmall" shape="semi-round">
       업로드 하기
-      <SUploader type="file" onChange={handleFileChange} multiple />
+      <SUploader
+        type="file"
+        onChange={handleFileChange}
+        multiple
+        accept="image/*"
+      />
     </SButton>
   )
 }

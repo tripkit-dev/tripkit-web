@@ -9,6 +9,7 @@ import { useQuery } from 'react-query'
 import { hotPlaceApi } from '@shared/apis'
 import { Card, HeartIcon, Text } from '@shared/components'
 import { color } from '@shared/constants'
+import { routes } from '@shared/libraries'
 import { whiteImgStyle } from '@shared/styles'
 import { HotPlace } from '@shared/types'
 
@@ -41,6 +42,10 @@ const Recommended = () => {
             key={hotPlace.id}
             imgSrc={hotPlace.img}
             borderRadius="8px"
+            linkProps={{
+              href: routes.places.place.path,
+              as: `${routes.places.path}/${hotPlace.id}`
+            }}
             bottom={[
               <Text key="subName" size="small">
                 {hotPlace.subName}

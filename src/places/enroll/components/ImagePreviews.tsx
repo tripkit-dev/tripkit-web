@@ -45,7 +45,12 @@ export default function ImagePreviews({ images, onChange }: Props) {
             />
           </SButtonLabel>
         </SButton>
-        <SUploader type="file" onChange={handleFileChange} multiple />
+        <SUploader
+          type="file"
+          onChange={handleFileChange}
+          multiple
+          accept="image/*"
+        />
       </SButtonContainer>
     </SContainer>
   )

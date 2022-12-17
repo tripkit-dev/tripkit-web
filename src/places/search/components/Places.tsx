@@ -1,7 +1,5 @@
 import styled from '@emotion/styled'
 
-import { css } from '@emotion/react'
-
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useMemo } from 'react'
@@ -91,13 +89,7 @@ export default function Places() {
           bottom={
             <Link href={routes.places.enroll.path}>
               <a>
-                <Button
-                  cssStyle={css`
-                    width: 150px;
-                  `}
-                >
-                  장소 알리기
-                </Button>
+                <SEnrollButton>장소 알리기</SEnrollButton>
               </a>
             </Link>
           }
@@ -138,6 +130,10 @@ const Container = styled.div<{ height: number }>`
 const SPlaces = styled.ul<{ offsetY: number }>`
   margin-top: 4px;
   transform: translateY(${(props) => props.offsetY}px);
+`
+
+const SEnrollButton = styled(Button)`
+  width: 150px;
 `
 
 type Response = Pagination<TravelDestinationType[]>

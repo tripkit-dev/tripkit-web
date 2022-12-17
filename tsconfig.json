@@ -19,10 +19,13 @@
     "paths": {
       "@home/*": ["home/*"],
       "@mypage/*": ["mypage/*"],
-      "@search/*": ["search/*"],
       "@places/*": ["places/*"],
+      "@enroll/*": ["places/enroll/*"],
+      "@search/*": ["places/search/*"],
+      "@place/*": ["places/place/*"],
       "@shared/*": ["shared/*"]
-    }
+    },
+    "types": ["kakao.maps.d.ts"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
