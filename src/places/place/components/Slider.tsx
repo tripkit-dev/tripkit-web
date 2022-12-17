@@ -14,11 +14,12 @@ export default function Slider() {
     '/images/sample/kyungju_02.png'
   ]
   return (
-    <section>
+    <s.Slider>
       <Carousel
         infiniteLoop
         showArrows={false}
         showStatus={false}
+        showThumbs={false}
         renderIndicator={(handler, isSelected) => (
           <s.Indicator onClick={handler} selected={isSelected} />
         )}
@@ -58,6 +59,6 @@ export default function Slider() {
           </s.BackgroundImage>
         ))}
       </Carousel>
-    </section>
+    </s.Slider>
   )
 }

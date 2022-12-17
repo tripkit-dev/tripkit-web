@@ -1,12 +1,16 @@
 import { GetServerSideProps } from 'next'
-import { Fragment } from 'react'
+import { useRouter } from 'next/router'
+import { Fragment, ReactElement } from 'react'
 
-import { Header, HeartIcon } from '@shared/components'
+import { Header, HeartIcon, Navigation } from '@shared/components'
+import { color } from '@shared/constants'
 import { whiteImgStyle } from '@shared/styles'
 
-import { PageTitle, Slider } from '@places/place'
+import { Location, PageTitle, Slider, Tabs } from '@place/components'
 
 export default function Place() {
+  const { query } = useRouter()
+
   return (
     <Fragment>
       <Header
@@ -16,6 +20,20 @@ export default function Place() {
         whiteBack
       />
       <Slider />
+      <Tabs />
+
+      {(() => {
+        switch (query.tab) {
+          case 'menu':
+            return null
+          case 'info':
+            return (
+              <Fragment>
+                <Location />
+              </Fragment>
+            )
+        }
+      })()}
     </Fragment>
   )
 }
@@ -31,3 +49,18 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     }
   }
 }
+
+Place.getLayout = (page: ReactElement) => (
+  <Fragment>
+    <article
+      style={{
+        backgroundColor: color.gray08,
+        minHeight: '100vh',
+        paddingBottom: 76
+      }}
+    >
+      {page}
+    </article>
+    <Navigation />
+  </Fragment>
+)

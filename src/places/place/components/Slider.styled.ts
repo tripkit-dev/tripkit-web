@@ -6,6 +6,11 @@ import { Text } from '@shared/components'
 import { color } from '@shared/constants'
 import { whiteImgStyle } from '@shared/styles'
 
+export const Slider = styled.section`
+  height: 60vh;
+  max-height: 500px;
+`
+
 export const BackgroundImage = styled.div`
   position: relative;
   height: 60vh;
