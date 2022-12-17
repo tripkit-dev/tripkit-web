@@ -11,8 +11,6 @@ interface Props {
 }
 
 export default function TimePicker({ onChange, value }: Props) {
-  console.log(value)
-
   const [time, setTime] = useState<TimePickerType>(value || initialTime)
 
   const handleChange = (key: string, value: string) => {

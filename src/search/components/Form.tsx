@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useSetRecoilState } from 'recoil'
 
 import { searchState } from '@shared/atoms/search'
-import { Input, UnControlledForm } from '@shared/components'
+import { UnControlledForm, UncontrolledInput } from '@shared/components'
 import { combineQuery } from '@shared/libraries'
 
 const Form = () => {
@@ -22,7 +22,11 @@ const Form = () => {
     <Container>
       <UnControlledForm onSubmit={handleSubmit}>
         {({ ref }) => (
-          <Input ref={ref} shape={'round'} placeholder="찾는 장소가 있나요?" />
+          <UncontrolledInput
+            ref={ref}
+            shape={'round'}
+            placeholder="찾는 장소가 있나요?"
+          />
         )}
       </UnControlledForm>
     </Container>

@@ -4,13 +4,15 @@ import { useEffect } from 'react'
 
 import { Button } from '@shared/components'
 import { useFileUpload } from '@shared/hooks'
+import { Image } from '@shared/types'
 
 interface Props {
-  onChange?(fileList: File[]): void
+  images?: Image[]
+  onChange?(fileList: Image[]): void
 }
 
-export default function FileUploader({ onChange }: Props) {
-  const { fileList, handleFileChange } = useFileUpload()
+export default function FileUploader({ images, onChange }: Props) {
+  const { fileList, handleFileChange } = useFileUpload(images)
 
   useEffect(() => {
     if (fileList.length <= 0) {

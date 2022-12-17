@@ -5,7 +5,12 @@ import React from 'react'
 import { useSetRecoilState } from 'recoil'
 
 import { searchState } from '@shared/atoms/search'
-import { Button, Img, Input, UnControlledForm } from '@shared/components'
+import {
+  Button,
+  Img,
+  UnControlledForm,
+  UncontrolledInput
+} from '@shared/components'
 import { color } from '@shared/constants'
 import { routes } from '@shared/libraries'
 import { whiteImgStyle } from '@shared/styles'
@@ -51,7 +56,7 @@ export default function Feed() {
         <UnControlledForm onSubmit={handleSubmit} cssStyle={s.formStyle}>
           {({ ref, handleSubmit }) => (
             <>
-              <Input
+              <UncontrolledInput
                 ref={ref}
                 kind="tertiary"
                 shape={'round'}
