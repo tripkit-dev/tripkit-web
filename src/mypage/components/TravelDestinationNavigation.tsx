@@ -18,7 +18,7 @@ export default function Navigation() {
           const isActive = key === currentCategory
 
           return (
-            <Link key={key} href={path} shallow>
+            <Link key={key} href={path} shallow replace>
               <s.Menu active={isActive}>
                 <Text size="small">{label}</Text>
                 <Img

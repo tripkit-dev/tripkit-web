@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
 
 import { Select } from '@shared/components'
-import { combineQuery } from '@shared/libraries'
 
 import { SearchCategoryModels, searchCategoryModels } from '@search/models'
 
@@ -14,12 +13,19 @@ interface Props {
 
 export default function Categories({ currentCategory }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const { push, pathname, query } = useRouter()
+  const { replace, pathname, query } = useRouter()
 
   const handleCategoryChange = (category: string) => {
-    push(combineQuery(pathname, { ...query, category }), undefined, {
-      shallow: true
-    })
+    replace(
+      {
+        pathname,
+        query: { ...query, category }
+      },
+      undefined,
+      {
+        shallow: true
+      }
+    )
   }
 
   useEffect(() => {

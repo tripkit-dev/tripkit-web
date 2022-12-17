@@ -29,6 +29,8 @@ export default function Tabs() {
               tab: tab.id
             }
           }}
+          replace
+          shallow
         >
           <SLink type={tab.id === currentTab ? 'primary' : 'secondary'}>
             {tab.label}
