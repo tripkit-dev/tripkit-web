@@ -22,7 +22,7 @@ export default function Feed() {
   const handleSubmit = (value: string) => {
     setSearchValue(value)
     push({
-      pathname: routes.search.path,
+      pathname: routes.places.path,
       query: {
         place: value
       }

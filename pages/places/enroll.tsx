@@ -8,6 +8,7 @@ import {
   AnswerType,
   BusinessDays,
   BusinessHours,
+  BusinessTimeType,
   FileUploader,
   FormRow,
   ImagePreviews,
@@ -15,8 +16,7 @@ import {
   Required,
   SelectCategory,
   Submit
-} from '@places/enroll'
-import { BusinessTimeType } from '@places/enroll/components/BusinessHours'
+} from '@enroll/components'
 
 export default function Enroll() {
   const [answers, setAnswers] = useState<AnswerType>({})

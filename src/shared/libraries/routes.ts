@@ -10,11 +10,9 @@ const routes = {
     }
   },
 
-  search: {
-    path: '/search'
-  },
-
   places: {
+    path: '/places',
+
     enroll: {
       path: '/places/enroll'
     }

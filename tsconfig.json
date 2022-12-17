@@ -19,8 +19,9 @@
     "paths": {
       "@home/*": ["home/*"],
       "@mypage/*": ["mypage/*"],
-      "@search/*": ["search/*"],
       "@places/*": ["places/*"],
+      "@enroll/*": ["places/enroll/*"],
+      "@search/*": ["places/search/*"],
       "@shared/*": ["shared/*"]
     }
   },
