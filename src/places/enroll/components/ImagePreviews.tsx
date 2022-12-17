@@ -37,7 +37,13 @@ export default function ImagePreviews({ images, onChange }: Props) {
       ))}
       <SButtonContainer>
         <SButton kind="secondary">
-          <SButtonLabel>+</SButtonLabel>
+          <SButtonLabel>
+            <Img
+              src="/images/icons/plus.svg"
+              sideLength="12px"
+              style={{ filter: 'invert(100%)' }}
+            />
+          </SButtonLabel>
         </SButton>
         <SUploader type="file" onChange={handleFileChange} multiple />
       </SButtonContainer>
@@ -75,14 +81,15 @@ const SButton = styled(Button)`
 `
 
 const SButtonLabel = styled.div`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
   background-color: ${color.main};
   border-radius: 50%;
+  font-size: 12px;
   color: ${color.white};
-  text-align: center;
-  line-height: 16px;
 `
 
 const SUploader = styled.input`
