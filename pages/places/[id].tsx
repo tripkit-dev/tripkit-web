@@ -6,10 +6,19 @@ import { Header, HeartIcon, Navigation } from '@shared/components'
 import { color } from '@shared/constants'
 import { whiteImgStyle } from '@shared/styles'
 
-import { Location, PageTitle, Slider, Tabs } from '@place/components'
+import {
+  BusinessTime,
+  Call,
+  Location,
+  PageTitle,
+  Slider,
+  Tabs
+} from '@place/components'
 
 export default function Place() {
   const { query } = useRouter()
+
+  const tab = query.tab || 'menu'
 
   return (
     <Fragment>
@@ -23,13 +32,15 @@ export default function Place() {
       <Tabs />
 
       {(() => {
-        switch (query.tab) {
+        switch (tab) {
           case 'menu':
             return null
           case 'info':
             return (
               <Fragment>
                 <Location />
+                <BusinessTime />
+                <Call />
               </Fragment>
             )
         }
@@ -38,10 +49,23 @@ export default function Place() {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  query,
+  resolvedUrl
+}) => {
   const id = query.id
+  const tab = query.tab
 
   console.log(id)
+
+  if (!tab) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: `${resolvedUrl}?tab=menu`
+      }
+    }
+  }
 
   return {
     props: {

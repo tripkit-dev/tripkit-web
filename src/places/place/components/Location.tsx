@@ -2,9 +2,10 @@ import styled from '@emotion/styled'
 
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk'
 
-import { Button, Img, Text } from '@shared/components'
-import { color } from '@shared/constants'
+import { Button } from '@shared/components'
 import { useCopy2Clipboard } from '@shared/hooks'
+
+import InfoRow from './InfoRow'
 
 export default function Location() {
   const copy = useCopy2Clipboard()
@@ -15,17 +16,19 @@ export default function Location() {
 
   return (
     <SContainer>
-      <SAddress>
-        <Img src="/images/icons/bold-marker.png" sideLength="32px" notSSR />
-        <SAddressText fontWeight="400">강원도 강릉시 창해로 245</SAddressText>
-        <SCopyButton
-          kind="quaternary"
-          size="small"
-          onClick={() => copy(address)}
-        >
-          복사
-        </SCopyButton>
-      </SAddress>
+      <InfoRow
+        iconSrc="/images/icons/bold-marker.png"
+        text="강원도 강릉시 창해로 245"
+        right={
+          <SCopyButton
+            kind="quaternary"
+            size="small"
+            onClick={() => copy(address)}
+          >
+            복사
+          </SCopyButton>
+        }
+      />
 
       <SMap>
         <Map
@@ -68,20 +71,6 @@ const SContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-`
-
-const SAddress = styled.div`
-  height: 58px;
-  padding: 4px 16px 4px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: ${color.white};
-`
-
-const SAddressText = styled(Text)`
-  width: calc(100% - 114px);
-  padding: 0 12px;
 `
 
 const SCopyButton = styled(Button)`

@@ -4,12 +4,8 @@ import { dehydrate, QueryClient, useInfiniteQuery } from 'react-query'
 
 import { travelDestinationApi } from '@shared/apis'
 import { InfiniteScroll } from '@shared/components'
-import {
-  combineQuery,
-  getQuery,
-  routes,
-  withExtractData
-} from '@shared/libraries'
+import useQueryParams from '@shared/hooks/useQueryParams'
+import { combineQuery, routes, withExtractData } from '@shared/libraries'
 import {
   Pagination,
   TravelDestination as TravelDestinationType
@@ -34,8 +30,10 @@ const TRAVEL_DESTINATION_KEY = 'travelDestination/pagination'
 const DEFAULT_CATEGORY = planNavigationModels[0].key
 
 const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
-  const category =
-    getQuery<TravelDestinationCategory>('category') || defaultCategory
+  const queryParams = useQueryParams<QueryParams>({
+    category: defaultCategory
+  })
+  const category = queryParams.category
 
   const {
     data: travelDestinations,
@@ -143,4 +141,8 @@ type Response = Pagination<TravelDestinationType[]>
 
 interface Props {
   defaultCategory: TravelDestinationCategory
+}
+
+type QueryParams = {
+  category: TravelDestinationCategory
 }
