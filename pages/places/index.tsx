@@ -21,7 +21,6 @@ interface Props {
 export default function Search({ defaultCategoryKey }: Props) {
   const searchValue = useRecoilValue(searchState)
 
-  // const currentCategoryKey = getQuery('category', defaultCategoryKey)
   const queryParams = useQueryParams<QueryParams>({
     category: defaultCategoryKey
   })

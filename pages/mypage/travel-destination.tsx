@@ -33,8 +33,6 @@ const TravelDestination: NextPage<Props> = ({ defaultCategory }) => {
   const queryParams = useQueryParams<QueryParams>({
     category: defaultCategory
   })
-  // const category =
-  //   getQuery<TravelDestinationCategory>('category') || defaultCategory
   const category = queryParams.category
 
   const {
