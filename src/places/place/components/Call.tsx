@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 import { Button } from '@shared/components'
-import { color } from '@shared/constants'
 
 import InfoRow from './InfoRow'
 
