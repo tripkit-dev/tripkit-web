@@ -14,11 +14,19 @@ export default function Navigation() {
   return (
     <s.Container>
       <s.Navigation>
-        {planNavigationModels.map(({ key, label, path }) => {
+        {planNavigationModels.map(({ key, label, path, query }) => {
           const isActive = key === currentCategory
 
           return (
-            <Link key={key} href={path} shallow replace>
+            <Link
+              key={key}
+              href={{
+                pathname: path,
+                query: query
+              }}
+              shallow
+              replace
+            >
               <s.Menu active={isActive}>
                 <Text size="small">{label}</Text>
                 <Img

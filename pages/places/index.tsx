@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil'
 import { hotPlaceApi } from '@shared/apis'
 import { searchState } from '@shared/atoms/search'
 import { Header } from '@shared/components/layout'
-import { getQuery } from '@shared/libraries'
+import { useQueryParams } from '@shared/hooks'
 import { HotPlace } from '@shared/types'
 
 import { Categories, Form, Places } from '@search/components'
@@ -21,7 +21,11 @@ interface Props {
 export default function Search({ defaultCategoryKey }: Props) {
   const searchValue = useRecoilValue(searchState)
 
-  const currentCategoryKey = getQuery('category', defaultCategoryKey)
+  // const currentCategoryKey = getQuery('category', defaultCategoryKey)
+  const queryParams = useQueryParams<QueryParams>({
+    category: defaultCategoryKey
+  })
+  const currentCategoryKey = queryParams.category
   const currentCategory = searchCategoryModels.find(
     (category) => category.key === currentCategoryKey
   )
@@ -51,4 +55,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       defaultCategoryKey: category || DEFAULT_CATEGORY.key
     }
   }
+}
+
+type QueryParams = {
+  category: string
 }
