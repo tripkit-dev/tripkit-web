@@ -24,6 +24,20 @@ const routes = {
 
   admin: {
     path: '/admin'
+  },
+
+  plan: {
+    path: '/plan',
+
+    guide: {
+      path: '/plan/guide'
+    },
+    waiting: {
+      path: '/plan/waiting'
+    },
+    list: {
+      path: '/plan/list'
+    }
   }
 }
 

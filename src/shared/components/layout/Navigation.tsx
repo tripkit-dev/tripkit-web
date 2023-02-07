@@ -38,7 +38,7 @@ export default function Navigation() {
       },
       {
         icon: '/images/sample/heart.svg',
-        basePath: '/plan/guide',
+        basePath: routes.plan.path,
         label: '계획하기'
       }
     ],

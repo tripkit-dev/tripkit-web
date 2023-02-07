@@ -3,27 +3,23 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 import { GradationFilm, HeartIcon, Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
 import { useWindowSize } from '@shared/hooks'
+import { routes } from '@shared/libraries'
 import { whiteImgStyle } from '@shared/styles'
 
 const Third = () => {
   const { width } = useWindowSize()
-  const [selected, setSelected] = useState<CATEGORY_TYPE[]>([])
+  const [selected, setSelected] = useState<CATEGORY_TYPE>()
 
-  const isSelected = selected.length > 0
+  const isSelected = !!selected
 
   const handleSelect = (category: CATEGORY_TYPE) => {
-    setSelected((prev) => {
-      if (prev.includes(category)) {
-        return prev.filter((_category) => _category !== category)
-      }
-
-      return [...prev, category]
-    })
+    setSelected(category)
   }
 
   return (
@@ -48,7 +44,7 @@ const Third = () => {
             <Li
               key={CATEGORY}
               onClick={() => handleSelect(CATEGORY)}
-              selected={selected.includes(CATEGORY)}
+              selected={selected === CATEGORY}
             >
               <Text size="small" lineClamp={1}>
                 {CATEGORY}
@@ -62,16 +58,25 @@ const Third = () => {
           <Summary size="small" fontWeight="300">
             이제 가고 싶은 곳을 선택해볼까요?
           </Summary>
-          <Submit>
-            <HeartIcon
-              containerCss={css`
-                ${whiteImgStyle};
-                margin-right: 12px;
-              `}
-              sideLength="18px"
-            />
-            불러오기
-          </Submit>
+          <Link
+            href={{
+              pathname: routes.plan.waiting.path,
+              query: {
+                region: selected
+              }
+            }}
+          >
+            <Submit>
+              <HeartIcon
+                containerCss={css`
+                  ${whiteImgStyle};
+                  margin-right: 12px;
+                `}
+                sideLength="18px"
+              />
+              불러오기
+            </Submit>
+          </Link>
         </>
       )}
     </XControlDiv>
