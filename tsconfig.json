@@ -23,6 +23,7 @@
       "@enroll/*": ["places/enroll/*"],
       "@search/*": ["places/search/*"],
       "@place/*": ["places/place/*"],
+      "@guide/*": ["plan/guide/*"],
       "@shared/*": ["shared/*"]
     },
     "types": ["kakao.maps.d.ts"]

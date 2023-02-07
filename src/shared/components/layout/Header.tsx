@@ -15,6 +15,7 @@ interface Props {
   backgroundColor?: string
   float?: boolean
   whiteBack?: boolean
+  transparentBack?: boolean
 }
 
 export default memo(function Header({
@@ -23,21 +24,46 @@ export default memo(function Header({
   right,
   backgroundColor,
   float,
-  whiteBack
+  whiteBack,
+  transparentBack
 }: Props) {
   return (
     <Container style={{ backgroundColor }} float={float}>
-      <Left>{left ?? <Back white={whiteBack} />}</Left>
+      <Left>
+        {left ?? <Back white={whiteBack} transparent={transparentBack} />}
+      </Left>
       <Center>{center}</Center>
       <Right>{right}</Right>
     </Container>
   )
 })
 
-const Back = ({ white }: { white?: boolean }) => {
+export const Back = ({
+  white,
+  transparent,
+  customBack
+}: {
+  white?: boolean
+  transparent?: boolean
+  customBack?(): void
+}) => {
   const { back } = useRouter()
 
-  return <SBack onClick={back} title="뒤로가기" white={white}></SBack>
+  return (
+    <SBack
+      onClick={() => {
+        if (customBack) {
+          customBack()
+          return
+        }
+
+        back()
+      }}
+      title="뒤로가기"
+      white={white}
+      transparent={transparent}
+    />
+  )
 }
 
 const Container = styled.header<{ float?: boolean }>`
@@ -90,7 +116,7 @@ const Right = styled.div`
   justify-content: center;
 `
 
-const SBack = styled.button<{ white?: boolean }>`
+const SBack = styled.button<{ white?: boolean; transparent?: boolean }>`
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -104,6 +130,13 @@ const SBack = styled.button<{ white?: boolean }>`
       ? css`
           ${whiteImgStyle};
           background-color: ${color.transparentWhite30};
+        `
+      : ''};
+
+  ${({ transparent }) =>
+    transparent
+      ? css`
+          background-color: transparent;
         `
       : ''}
 `

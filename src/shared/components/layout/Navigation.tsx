@@ -36,7 +36,11 @@ export default function Navigation() {
         },
         label: '탐색'
       },
-      { icon: '/images/sample/heart.svg', basePath: '/plan', label: '계획하기' }
+      {
+        icon: '/images/sample/heart.svg',
+        basePath: '/plan/guide',
+        label: '계획하기'
+      }
     ],
     [searchValue]
   )
