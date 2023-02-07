@@ -1,9 +1,7 @@
 import type { NextPage } from 'next'
 
-import { Layout, PublicNavigation } from '@mypage/components'
-
 const MyPage: NextPage = () => {
-  return <Layout inner={<PublicNavigation />} />
+  return <div>hi</div>
 }
 
 export default MyPage
