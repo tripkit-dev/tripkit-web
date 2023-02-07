@@ -11,5 +11,8 @@ export const color = {
   graySkeleton: '#EEE',
   red05: '#FF0000',
   transparent: '#FFFFFF00',
-  transparentWhite30: '#FFFFFF4B'
+  transparentWhite20: '#FFFFFF30',
+  transparentWhite30: '#FFFFFF4B',
+  transparentWhite40: '#FFFFFF60',
+  transparentWhite50: '#FFFFFF80'
 }
