@@ -39,7 +39,13 @@ const Img = ({
       {notSSR ? (
         <picture>
           <source srcSet={src} type="image/webp" />
-          <img src={src} alt={src} width={_sideLength} height={_sideLength} />
+          <img
+            src={src}
+            alt={src}
+            width={_sideLength}
+            height={_sideLength}
+            style={{ objectFit: 'cover' }}
+          />
         </picture>
       ) : (
         <NextImage
