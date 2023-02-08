@@ -7,7 +7,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 import { GradationFilm, HeartIcon, Img, Text } from '@shared/components'
-import { color } from '@shared/constants'
+import { box, color } from '@shared/constants'
 import { useWindowSize } from '@shared/hooks'
 import { routes } from '@shared/libraries'
 import { whiteImgStyle } from '@shared/styles'
@@ -123,7 +123,7 @@ const Summary = styled(WhiteText)`
   left: 50%;
   bottom: 140px;
   transform: translateX(-50%);
-  max-width: 600px;
+  max-width: ${box.CONTENT_MAX_WIDTH};
   width: calc(78vw - 24px);
   text-align: center;
 `

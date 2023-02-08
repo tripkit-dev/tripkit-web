@@ -11,7 +11,7 @@ interface Props {
   onChange?(value: string[]): void
 }
 
-export default function SelectCategory({ values: _values, onChange }: Props) {
+export default function CategorySelector({ values: _values, onChange }: Props) {
   const [values, setValues] = useState<string[]>([])
 
   useEffect(() => {

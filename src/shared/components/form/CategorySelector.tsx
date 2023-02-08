@@ -5,15 +5,13 @@ import { useEffect, useRef } from 'react'
 
 import { Select } from '@shared/components'
 
-import { SearchCategoryModels, searchCategoryModels } from '@search/models'
+import { searchCategoryModels } from '@search/models'
 
-interface Props {
-  currentCategory?: SearchCategoryModels
-}
-
-export default function Categories({ currentCategory }: Props) {
+export default function CategorySelector() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { replace, pathname, query } = useRouter()
+
+  const currentCategory = query.category
 
   const handleCategoryChange = (category: string) => {
     replace(
@@ -33,9 +31,7 @@ export default function Categories({ currentCategory }: Props) {
       return
     }
 
-    const target = document.querySelector(
-      `#${currentCategory.key}`
-    ) as HTMLElement
+    const target = document.querySelector(`#${currentCategory}`) as HTMLElement
 
     containerRef.current?.scrollTo({
       left: target?.offsetLeft - window.innerWidth / 2,
@@ -50,7 +46,7 @@ export default function Categories({ currentCategory }: Props) {
           ...category,
           label: category.emoji + '  ' + category.label
         }))}
-        value={currentCategory?.key}
+        value={currentCategory}
         onChange={handleCategoryChange}
       />
     </Container>

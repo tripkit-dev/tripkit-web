@@ -9,12 +9,12 @@ import {
   BusinessDays,
   BusinessHours,
   BusinessTimeType,
+  CategorySelector,
   FileUploader,
   FormRow,
   ImagePreviews,
   PlaceName,
   Required,
-  SelectCategory,
   Submit
 } from '@enroll/components'
 
@@ -61,7 +61,7 @@ export default function Enroll() {
         middle={{
           description: '다중 선택 가능합니다',
           element: (
-            <SelectCategory
+            <CategorySelector
               values={answers.categories as string[]}
               onChange={handleCategories}
             />

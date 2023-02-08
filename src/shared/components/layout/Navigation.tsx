@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { searchState } from '@shared/atoms/search'
-import { color } from '@shared/constants'
+import { box, color } from '@shared/constants'
 import { routes } from '@shared/libraries'
 
 import NavItem from './NavItem'
@@ -64,7 +64,7 @@ const Container = styled.footer`
 `
 
 const SUl = styled.ul`
-  max-width: 500px;
+  max-width: ${box.CONTENT_MAX_WIDTH};
   display: flex;
   align-items: stretch;
   justify-content: space-evenly;
