@@ -1,4 +1,4 @@
-export { default as SelectCategory } from './SelectCategory'
+export { default as CategorySelector } from './CategorySelector'
 export { default as Required } from './Required'
 export { default as FormRow } from './FormRow'
 export { default as PlaceName } from './PlaceName'

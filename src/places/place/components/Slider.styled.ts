@@ -3,18 +3,18 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
 import { Text } from '@shared/components'
-import { color } from '@shared/constants'
+import { box, color } from '@shared/constants'
 import { whiteImgStyle } from '@shared/styles'
 
 export const Slider = styled.section`
   height: 60vh;
-  max-height: 500px;
+  max-height: ${box.CONTENT_MAX_WIDTH};
 `
 
 export const BackgroundImage = styled.div`
   position: relative;
   height: 60vh;
-  max-height: 500px;
+  max-height: ${box.CONTENT_MAX_WIDTH};
   overflow: hidden;
 `
 
@@ -40,7 +40,7 @@ export const SummaryContainer = styled.div`
   left: 50%;
   bottom: 70px;
   width: 100vw;
-  max-width: 500px;
+  max-width: ${box.CONTENT_MAX_WIDTH};
   transform: translateX(-50%);
 `
 

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
 import { Button, Text } from '@shared/components'
-import { color } from '@shared/constants'
+import { box, color } from '@shared/constants'
 
 export const XControlDiv = styled.div<{ x: number }>`
   position: absolute;
@@ -21,7 +21,7 @@ export const Content = styled.div<{ isTop?: boolean }>`
   left: 50%;
   transform: translateX(-50%);
   width: 76vw;
-  max-width: 600px;
+  max-width: ${box.CONTENT_MAX_WIDTH};
   bottom: 320px;
 
   p {
@@ -66,7 +66,7 @@ export const Submit = styled(Button)`
   width: 78vw;
   height: 60px;
   transform: translateX(-50%);
-  max-width: 600px;
+  max-width: ${box.CONTENT_MAX_WIDTH};
   bottom: 64px;
   font-size: 17px;
   font-weight: 400;

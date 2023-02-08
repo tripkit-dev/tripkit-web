@@ -48,8 +48,9 @@ Guide.getLayout = (page: ReactElement) => <>{page}</>
 const MAX_STEP = 3
 
 const Container = styled.section<{ x?: number }>`
-  width: 100vw;
+  width: 300vw;
   height: 100vh;
+  overflow: hidden;
 
   ${({ x }) => css`
     transform: translateX(-${x}px);
