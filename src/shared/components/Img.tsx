@@ -71,6 +71,7 @@ const Container = styled.span<SImageProps & { isError: boolean }>`
   width: 58px;
   height: 58px;
   position: relative;
+  overflow: hidden;
 
   ${({ shape }) => styles[shape!]}
   ${({ hasNewIcon }) => (hasNewIcon ? styles.new : '')}

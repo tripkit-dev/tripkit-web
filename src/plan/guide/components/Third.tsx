@@ -97,9 +97,9 @@ const Ul = styled.ul`
 
 const Li = styled.li<{ selected?: boolean }>`
   min-width: 60px;
-  width: calc(20% - 2px);
+  width: calc(19% - 2px);
   height: 38px;
-  margin: 2.5%;
+  margin: 2%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
