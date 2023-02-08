@@ -10,7 +10,7 @@ interface Props {
 
 const First = ({ next }: Props) => {
   return (
-    <XControlDiv x={0}>
+    <XControlDiv x={0} z={3}>
       <Img
         src="/images/sample/room_01.png"
         shape="normal"

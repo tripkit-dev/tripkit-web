@@ -23,7 +23,7 @@ const Third = () => {
   }
 
   return (
-    <XControlDiv x={(width || 0) * 2}>
+    <XControlDiv x={(width || 0) * 2} z={1}>
       <Img
         src="/images/sample/jamsil_01.png"
         shape="normal"

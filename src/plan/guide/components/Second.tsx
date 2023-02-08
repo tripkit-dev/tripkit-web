@@ -13,7 +13,7 @@ const Second = ({ next }: Props) => {
   const { width } = useWindowSize()
 
   return (
-    <XControlDiv x={width || 0}>
+    <XControlDiv x={width || 0} z={2}>
       <Img
         src="/images/sample/kangneung_01.png"
         shape="normal"

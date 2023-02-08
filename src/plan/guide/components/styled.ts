@@ -5,14 +5,19 @@ import { css } from '@emotion/react'
 import { Button, Text } from '@shared/components'
 import { box, color } from '@shared/constants'
 
-export const XControlDiv = styled.div<{ x: number }>`
+export const XControlDiv = styled.div<{ x: number; z: number }>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: ${color.gray08};
+
   ${({ x }) => css`
     transform: translateX(${x}px);
+  `};
+  ${({ z }) => css`
+    z-index: ${z};
   `};
 `
 
