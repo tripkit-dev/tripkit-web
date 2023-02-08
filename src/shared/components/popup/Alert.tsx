@@ -5,7 +5,7 @@ import { css } from '@emotion/react'
 import { useCallback, useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { alertState } from '@shared/atoms'
+import { alertState, AlertType } from '@shared/atoms'
 import { color, 초 } from '@shared/constants'
 
 import Img from '../Img'
@@ -60,7 +60,7 @@ export default function Alert() {
 
   return (
     <Container isActive={isActive}>
-      <Img src="/images/icons/info.svg" sideLength="18px" />
+      <Img src={getIconUrlByType(current?.type)} sideLength="18px" />
       <Message
         size="small"
         color={color.gray05}
@@ -74,6 +74,24 @@ export default function Alert() {
       </Close>
     </Container>
   )
+}
+
+const getIconUrlByType = (type?: AlertType) => {
+  switch (type) {
+    case 'success': {
+      return '/images/icons/check.svg'
+    }
+    case 'error': {
+      return '/images/icons/cancel.svg'
+    }
+    case 'warn': {
+      return '/images/icons/warn.png'
+    }
+    case 'normal':
+    default: {
+      return '/images/icons/info_blue.svg'
+    }
+  }
 }
 
 const WAITING_OUT_TIME = 0.2 * 초

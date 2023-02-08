@@ -19,4 +19,4 @@ type Alert = {
   type: AlertType
 }
 
-export type AlertType = 'normal' | 'warn' | 'error'
+export type AlertType = 'normal' | 'warn' | 'error' | 'success'
