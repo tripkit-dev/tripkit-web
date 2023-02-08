@@ -13,8 +13,11 @@ import {
   ModalProvider
 } from '@shared/components'
 import { color } from '@shared/constants'
+import { useAlert } from '@shared/hooks'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const alert = useAlert()
+
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -23,7 +26,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             retry: 0,
             refetchOnWindowFocus: false,
             refetchOnMount: false,
-            select: (data: any) => data.data || data
+            select: (data: any) => data.data || data,
+            onError: (err) => {
+              console.error(err)
+              alert('데이터를 불러오는데 실패하였습니다', 'error')
+            }
           }
         }
       })
@@ -37,18 +44,16 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <ModalProvider>
           <ErrorBoundary>
             <GlobalStyle>
-              <RecoilRoot>
-                <Head>
-                  <title>Tripkit</title>
-                </Head>
-                <NextNProgress
-                  color={color.mainPlaceholder}
-                  height={2}
-                  stopDelayMs={100}
-                  options={{ showSpinner: false }}
-                />
-                {getLayout(<Component {...pageProps} />)}
-              </RecoilRoot>
+              <Head>
+                <title>Tripkit</title>
+              </Head>
+              <NextNProgress
+                color={color.mainPlaceholder}
+                height={2}
+                stopDelayMs={100}
+                options={{ showSpinner: false }}
+              />
+              {getLayout(<Component {...pageProps} />)}
             </GlobalStyle>
           </ErrorBoundary>
         </ModalProvider>
@@ -57,7 +62,13 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   )
 }
 
-export default MyApp
+export default function TripKit(props: AppPropsWithLayout) {
+  return (
+    <RecoilRoot>
+      <MyApp {...props} />
+    </RecoilRoot>
+  )
+}
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode

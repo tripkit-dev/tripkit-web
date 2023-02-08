@@ -54,6 +54,8 @@ const Img = ({
           onError={() => {
             setIsError(true)
           }}
+          placeholder="blur"
+          blurDataURL="/images/placeholder_ddd.png"
           {...imgAdditionalProps}
           {...props}
         />
