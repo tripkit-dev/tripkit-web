@@ -17,7 +17,7 @@ export default function Waiting({ region }: Props) {
   const router = useRouter()
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       router.push({
         pathname: routes.plan.list.path,
         query: {
@@ -25,6 +25,10 @@ export default function Waiting({ region }: Props) {
         }
       })
     }, 1500)
+
+    return () => {
+      clearTimeout(timer)
+    }
   }, [router, region])
 
   return (

@@ -1,8 +1,6 @@
 import styled from '@emotion/styled'
 
-import { css } from '@emotion/react'
-
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { searchState } from '@shared/atoms/search'
@@ -13,8 +11,6 @@ import NavItem from './NavItem'
 
 export default function Navigation() {
   const searchValue = useRecoilValue(searchState)
-  const scrollTopRef = useRef<number>(0)
-  const [isVisible, setIsVisible] = useState<boolean>(true)
 
   const list = useMemo(
     () => [
@@ -45,28 +41,8 @@ export default function Navigation() {
     [searchValue]
   )
 
-  useEffect(() => {
-    const detectScroll = () => {
-      const st = window.pageYOffset || document.documentElement.scrollTop
-
-      if (st > scrollTopRef.current) {
-        setIsVisible(false)
-      } else {
-        setIsVisible(true)
-      }
-
-      scrollTopRef.current = st <= 0 ? 0 : st
-    }
-
-    document.addEventListener('scroll', detectScroll)
-
-    return () => {
-      document.removeEventListener('scroll', detectScroll)
-    }
-  }, [])
-
   return (
-    <Container visible={isVisible}>
+    <Container>
       <SUl>
         {list.map((item, idx) => (
           <NavItem key={item.basePath} item={item} idx={idx} />
@@ -76,11 +52,7 @@ export default function Navigation() {
   )
 }
 
-interface ContainerProps {
-  visible: boolean
-}
-
-const Container = styled.footer<ContainerProps>`
+const Container = styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -89,15 +61,6 @@ const Container = styled.footer<ContainerProps>`
   background-color: ${color.white};
 
   z-index: 99;
-
-  transition: transform 0.5s;
-
-  ${({ visible }) =>
-    visible
-      ? ''
-      : css`
-          transform: translateY(88px);
-        `}
 `
 
 const SUl = styled.ul`
