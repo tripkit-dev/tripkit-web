@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 
-import { css } from '@emotion/react'
-
 import { GetServerSideProps } from 'next'
-import React, { useState } from 'react'
+import React from 'react'
+
+import { Place } from '@list/components'
 
 import {
   Button,
@@ -22,18 +22,6 @@ interface Props {
 }
 
 export default function List({ region }: Props) {
-  const [selectedIds, setSelectedIds] = useState<number[]>([])
-
-  const handleSelect = (_id: number) => {
-    setSelectedIds((prev) => {
-      if (prev.includes(_id)) {
-        return prev.filter((id) => id !== _id)
-      }
-
-      return [...prev, _id]
-    })
-  }
-
   return (
     <>
       <Header center={region} right={<HeartIcon sideLength="18px" />} />
@@ -43,12 +31,10 @@ export default function List({ region }: Props) {
           가고싶은 장소를 선택해주세요!
         </CentralText>
         {hotPlaceModels.map((place) => (
-          <Item
+          <Place
             key={place.id}
-            selected={selectedIds.includes(place.id)}
-            onClick={() => handleSelect(place.id)}
-          >
-            <Thumbnail>
+            place={place}
+            left={
               <Img
                 src={place.img}
                 shape="normal"
@@ -56,29 +42,27 @@ export default function List({ region }: Props) {
                 layout="fill"
                 objectFit="cover"
               />
-            </Thumbnail>
-
-            <Summary>
-              <Text lineClamp={1} fontWeight="500">
-                {place.name}
-              </Text>
-              <Text
-                size="xsmall"
-                lineClamp={1}
-                fontWeight="300"
-                margin="0 0 17px 0"
-              >
-                {place.subName}
-              </Text>
-              <Text size="xsmall" lineClamp={1} fontWeight="300">
-                {place.info}
-              </Text>
-            </Summary>
-
-            <CategoryIcon>
-              <HeartIcon sideLength="24px" />
-            </CategoryIcon>
-          </Item>
+            }
+            center={
+              <>
+                <Text lineClamp={1} fontWeight="500">
+                  {place.name}
+                </Text>
+                <Text
+                  size="xsmall"
+                  lineClamp={1}
+                  fontWeight="300"
+                  margin="0 0 17px 0"
+                >
+                  {place.subName}
+                </Text>
+                <Text size="xsmall" lineClamp={1} fontWeight="300">
+                  {place.info}
+                </Text>
+              </>
+            }
+            right={<HeartIcon sideLength="24px" />}
+          />
         ))}
         <Submit size="xlarge">완료</Submit>
       </Container>
@@ -113,50 +97,6 @@ const CentralText = styled(Text)`
   width: 100%;
   text-align: center;
   margin-bottom: 12px;
-`
-
-const Item = styled.div<{ selected: boolean }>`
-  position: relative;
-  width: calc(100% - 66px);
-  padding: 16px;
-  margin: 8px 16px;
-  border-radius: 16px;
-  border: 1px solid ${color.mainPlaceholder};
-
-  transition: border 0.15s;
-
-  ${({ selected }) =>
-    selected
-      ? css`
-          border: 2px solid ${color.main};
-        `
-      : ''}
-`
-
-const Thumbnail = styled.div`
-  display: inline-block;
-  width: 62px;
-  height: 70px;
-  margin-right: 12px;
-  border-radius: 4px;
-  overflow: hidden;
-`
-
-const Summary = styled.div`
-  display: inline-block;
-  width: calc(100% - 74px - 48px);
-
-  p {
-    display: block;
-  }
-`
-
-const CategoryIcon = styled.div`
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 24px;
-  height: 24px;
 `
 
 const Submit = styled(Button)`
