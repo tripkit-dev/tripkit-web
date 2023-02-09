@@ -6,8 +6,10 @@ import { Draggable } from 'react-beautiful-dnd'
 
 import { HeartIcon, Text } from '@shared/components'
 import { color } from '@shared/constants'
+import { usePopup } from '@shared/hooks'
 
 import { Plan } from '../types/Plan'
+import PlaceSelector from './PlaceSelector'
 
 interface Props {
   plan: Plan
@@ -15,6 +17,7 @@ interface Props {
 }
 
 export default function DailyPlan({ plan, day }: Props) {
+  const [, handler] = usePopup()
   console.log(plan)
 
   return (
@@ -42,7 +45,15 @@ export default function DailyPlan({ plan, day }: Props) {
               >
                 장소를 넣어봐요 &gt;&gt;
               </Text>
-              <HeartIcon sideLength="18px" />
+              <AddButton
+                onClick={() => {
+                  handler.open({
+                    content: <PlaceSelector />
+                  })
+                }}
+              >
+                <HeartIcon sideLength="18px" />
+              </AddButton>
             </TopRight>
           </Top>
         </SPlan>
@@ -81,4 +92,10 @@ const TopRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+`
+
+const AddButton = styled.span`
+  height: 18px;
+  width: 18px;
+  overflow: hidden;
 `

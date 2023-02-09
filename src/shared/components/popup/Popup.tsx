@@ -6,7 +6,7 @@ import { color } from '@shared/constants'
 import { usePopup } from '@shared/hooks'
 
 export default function Popup() {
-  const [popup] = usePopup()
+  const [popup, handler] = usePopup()
 
   useEffect(() => {
     if (!popup.content) return
@@ -24,7 +24,7 @@ export default function Popup() {
 
   return (
     <SPopup>
-      {popup.options?.isDimmed && <Dimmed />}
+      {popup.options?.isDimmed && <Dimmed onClick={handler.close} />}
       {popup.content}
     </SPopup>
   )
