@@ -13,10 +13,12 @@ export default function Popup() {
 
     document.body.classList.add('popupActive')
     document.querySelector('#__next')?.classList.add('overflowHidden')
+    document.querySelector('html')?.classList.add('overflowHidden')
 
     return () => {
       document.body.classList.remove('popupActive')
       document.querySelector('#__next')?.classList.remove('overflowHidden')
+      document.querySelector('html')?.classList.remove('overflowHidden')
     }
   }, [popup])
 

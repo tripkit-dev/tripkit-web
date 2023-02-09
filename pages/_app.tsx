@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { RecoilRoot } from 'recoil'
 
@@ -14,10 +14,11 @@ import {
 } from '@shared/components'
 import { Alert, Popup } from '@shared/components/popup'
 import { color } from '@shared/constants'
-import { useAlert } from '@shared/hooks'
+import { useAlert, usePopup } from '@shared/hooks'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const alert = useAlert()
+  const [, { close }] = usePopup()
 
   const [queryClient] = useState(
     () =>
@@ -38,6 +39,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   )
 
   const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>)
+
+  useEffect(() => {
+    return () => {
+      close()
+    }
+  }, [Component, close])
 
   return (
     <QueryClientProvider client={queryClient}>
