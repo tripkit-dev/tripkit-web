@@ -30,7 +30,7 @@ export default function DailyPlan({ plan, day }: Props) {
           <Top>
             <TopLeft>
               <Text size="2xlarge">✏️</Text>
-              <Text size="large" margin="0 8px" fontWeight="500">
+              <Text margin="0 8px" fontWeight="500">
                 {day}일차
               </Text>
             </TopLeft>

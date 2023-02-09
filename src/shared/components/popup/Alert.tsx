@@ -66,12 +66,7 @@ export default function AlertPopup() {
         src={getIconUrlByType(current?.type || prevAlertRef.current?.type)}
         sideLength="18px"
       />
-      <Message
-        size="small"
-        color={color.gray05}
-        fontWeight="400"
-        margin="0 0 0 10px"
-      >
+      <Message color={color.gray05} fontWeight="400" margin="0 0 0 10px">
         {current?.message || prevAlertRef.current?.message}
       </Message>
       <Close onClick={close}>
@@ -134,6 +129,7 @@ const Container = styled.div<{ isActive: boolean }>`
 
 const Message = styled(Text)`
   max-width: calc(100% - 40px - 50px);
+  font-size: 14px;
 `
 
 const Close = styled.div`

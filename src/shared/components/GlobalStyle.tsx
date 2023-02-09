@@ -21,6 +21,8 @@ export default function GlobalStyle({ children }: Props) {
           }
 
           #__next {
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
             overflow-y: auto;
           }
