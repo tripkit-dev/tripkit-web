@@ -12,6 +12,7 @@ import {
   Layout,
   ModalProvider
 } from '@shared/components'
+import { Alert, Popup } from '@shared/components/popup'
 import { color } from '@shared/constants'
 import { useAlert } from '@shared/hooks'
 
@@ -29,7 +30,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             select: (data: any) => data.data || data,
             onError: (err) => {
               console.error(err)
-              alert('데이터를 불러오는데 실패하였습니다', 'error')
+              alert.error('데이터를 불러오는데 실패하였습니다')
             }
           }
         }
@@ -53,6 +54,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
                 stopDelayMs={100}
                 options={{ showSpinner: false }}
               />
+              <Alert />
+              <Popup />
               {getLayout(<Component {...pageProps} />)}
             </GlobalStyle>
           </ErrorBoundary>

@@ -21,6 +21,8 @@ export default function GlobalStyle({ children }: Props) {
           }
 
           #__next {
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
             overflow-y: auto;
           }
@@ -60,6 +62,11 @@ export default function GlobalStyle({ children }: Props) {
             outline: none;
             border: none;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          }
+
+          .popupActive {
+            position: relative;
+            overflow: hidden;
           }
         `}
       />

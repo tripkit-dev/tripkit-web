@@ -24,6 +24,7 @@
       "@search/*": ["places/search/*"],
       "@place/*": ["places/place/*"],
       "@guide/*": ["plan/guide/*"],
+      "@list/*": ["plan/list/*"],
       "@shared/*": ["shared/*"]
     },
     "types": ["kakao.maps.d.ts"]

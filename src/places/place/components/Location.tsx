@@ -1,8 +1,6 @@
 import styled from '@emotion/styled'
 
-import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk'
-
-import { Button } from '@shared/components'
+import { Button, Map } from '@shared/components'
 import { useCopy2Clipboard } from '@shared/hooks'
 
 import InfoRow from './InfoRow'
@@ -32,32 +30,9 @@ export default function Location() {
 
       <SMap>
         <Map
-          center={marker}
-          style={{ width: '100%', height: '300px' }}
-          draggable={false}
-        >
-          <MapMarker
-            position={marker}
-            image={{
-              src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png',
-              size: {
-                width: 64,
-                height: 69
-              }
-            }}
-          />
-          <CustomOverlayMap position={marker} yAnchor={1}>
-            <SMarkerDescription>
-              <a
-                href="https://map.kakao.com/link/map/11394059"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span className="title">{placeName}</span>
-              </a>
-            </SMarkerDescription>
-          </CustomOverlayMap>
-        </Map>
+          centerPosition={marker}
+          markers={[{ name: placeName, position: marker }]}
+        />
 
         <SWannabe kind="mustard" size="small">
           가고싶은 곳
@@ -89,9 +64,4 @@ const SWannabe = styled(Button)`
   right: 16px;
   width: 100px;
   z-index: 9;
-`
-
-const SMarkerDescription = styled.div`
-  width: 120px;
-  transform: translate(72px, -32px);
 `
