@@ -13,7 +13,7 @@ type AlertContainer = {
   current?: Alert
 }
 
-type Alert = {
+export type Alert = {
   id: number
   message: string
   type: AlertType

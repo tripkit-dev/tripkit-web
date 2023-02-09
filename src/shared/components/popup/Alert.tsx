@@ -5,14 +5,15 @@ import { css } from '@emotion/react'
 import { useCallback, useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { alertState, AlertType } from '@shared/atoms'
+import { Alert, alertState, AlertType } from '@shared/atoms'
 import { color, 초 } from '@shared/constants'
 
 import Img from '../Img'
 import Text from '../Text'
 
-export default function Alert() {
+export default function AlertPopup() {
   const timerRef = useRef<NodeJS.Timeout>()
+  const prevAlertRef = useRef<Alert>()
   const [{ current, queue }, setAlert] = useRecoilState(alertState)
 
   const isActive = !!current
@@ -36,6 +37,7 @@ export default function Alert() {
 
       const [next, ...nextQueue] = prev.queue
 
+      prevAlertRef.current = next
       return {
         current: next,
         queue: nextQueue
@@ -60,14 +62,17 @@ export default function Alert() {
 
   return (
     <Container isActive={isActive}>
-      <Img src={getIconUrlByType(current?.type)} sideLength="18px" />
+      <Img
+        src={getIconUrlByType(current?.type || prevAlertRef.current?.type)}
+        sideLength="18px"
+      />
       <Message
         size="small"
         color={color.gray05}
         fontWeight="400"
         margin="0 0 0 10px"
       >
-        {current?.message}
+        {current?.message || prevAlertRef.current?.message}
       </Message>
       <Close onClick={close}>
         <Img src="/images/icons/plus.svg" sideLength="18px" />
@@ -94,7 +99,7 @@ const getIconUrlByType = (type?: AlertType) => {
   }
 }
 
-const WAITING_OUT_TIME = 0.2 * 초
+const WAITING_OUT_TIME = 0.3 * 초
 const DISPLAYING_TIME = 1.8 * 초
 
 const Container = styled.div<{ isActive: boolean }>`
@@ -117,7 +122,7 @@ const Container = styled.div<{ isActive: boolean }>`
   -moz-box-shadow: 0px 5px 8px 0px rgba(100, 100, 100, 0.48);
   z-index: 9;
 
-  transition: transform 0.15s;
+  transition: transform 0.25s;
 
   ${({ isActive }) =>
     isActive
