@@ -61,6 +61,11 @@ export default function GlobalStyle({ children }: Props) {
             border: none;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
           }
+
+          .popupActive {
+            position: relative;
+            overflow: hidden;
+          }
         `}
       />
       {children}

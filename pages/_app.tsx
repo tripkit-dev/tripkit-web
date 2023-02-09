@@ -12,7 +12,7 @@ import {
   Layout,
   ModalProvider
 } from '@shared/components'
-import { Alert } from '@shared/components/popup'
+import { Alert, Popup } from '@shared/components/popup'
 import { color } from '@shared/constants'
 import { useAlert } from '@shared/hooks'
 
@@ -55,6 +55,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
                 options={{ showSpinner: false }}
               />
               <Alert />
+              <Popup />
               {getLayout(<Component {...pageProps} />)}
             </GlobalStyle>
           </ErrorBoundary>

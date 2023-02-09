@@ -14,5 +14,6 @@ export const color = {
   transparentWhite20: '#FFFFFF30',
   transparentWhite30: '#FFFFFF4B',
   transparentWhite40: '#FFFFFF60',
-  transparentWhite50: '#FFFFFF80'
+  transparentWhite50: '#FFFFFF80',
+  transparentBlack30: '#00000033'
 }

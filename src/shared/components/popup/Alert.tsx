@@ -120,7 +120,7 @@ const Container = styled.div<{ isActive: boolean }>`
   box-shadow: 0px 5px 8px 0px rgba(100, 100, 100, 0.48);
   -webkit-box-shadow: 0px 5px 8px 0px rgba(100, 100, 100, 0.48);
   -moz-box-shadow: 0px 5px 8px 0px rgba(100, 100, 100, 0.48);
-  z-index: 9;
+  z-index: 9999;
 
   transition: transform 0.25s;
 
