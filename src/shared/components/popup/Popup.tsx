@@ -37,6 +37,7 @@ const SPopup = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 999;
+  overflow: hidden;
 `
 
 const Dimmed = styled.div`
