@@ -53,10 +53,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   query,
   resolvedUrl
 }) => {
-  const id = query.id
   const tab = query.tab
-
-  console.log(id)
 
   if (!tab) {
     return {
@@ -80,7 +77,7 @@ Place.getLayout = (page: ReactElement) => (
       style={{
         backgroundColor: color.gray08,
         minHeight: '100vh',
-        paddingBottom: 76
+        paddingBottom: 90
       }}
     >
       {page}

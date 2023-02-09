@@ -41,7 +41,7 @@ export const ControlledInput = ({
   value: initialValue,
   onChange,
   ...props
-}: ControlledInputProps & HTMLAttributes<HTMLInputElement>) => {
+}: ControlledInputProps) => {
   const [value, setValue] = useState<string>(initialValue || '')
 
   useEffect(() => {
@@ -130,7 +130,9 @@ interface InputProps extends SInputProps, HTMLAttributes<HTMLInputElement> {
   value?: string
 }
 
-interface ControlledInputProps extends SInputProps {
+interface ControlledInputProps
+  extends SInputProps,
+    Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> {
   cssStyle?: Interpolation<Theme>
   value?: string
   onChange?(value: string): void
