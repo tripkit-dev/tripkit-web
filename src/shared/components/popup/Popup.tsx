@@ -12,9 +12,11 @@ export default function Popup() {
     if (!popup.content) return
 
     document.body.classList.add('popupActive')
+    document.querySelector('#__next')?.classList.add('overflowHidden')
 
     return () => {
       document.body.classList.remove('popupActive')
+      document.querySelector('#__next')?.classList.remove('overflowHidden')
     }
   }, [popup])
 
@@ -38,6 +40,7 @@ const SPopup = styled.div`
   height: 100vh;
   z-index: 999;
   overflow: hidden;
+  scroll
 `
 
 const Dimmed = styled.div`

@@ -68,6 +68,10 @@ export default function GlobalStyle({ children }: Props) {
             position: relative;
             overflow: hidden;
           }
+
+          .overflowHidden {
+            overflow: hidden;
+          }
         `}
       />
       {children}
