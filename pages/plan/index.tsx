@@ -3,8 +3,10 @@ import styled from '@emotion/styled'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import React, { useCallback, useEffect, useState } from 'react'
+import { resetServerContext } from 'react-beautiful-dnd'
 import { useRecoilValue } from 'recoil'
 
+import { DailyPlan, TravelPlan } from 'plan/index/components'
 import { selectedPlacesState } from 'plan/shared/atoms'
 
 import { Header, Img, Map, Text } from '@shared/components'
@@ -24,6 +26,8 @@ export default function List({ region }: Props) {
   const [form, setForm] = useState<Form>({
     title: ''
   })
+
+  console.log(form, region)
 
   const handleTitle = useCallback(
     (v: string) => setForm((prev) => ({ ...prev, title: v })),
@@ -68,12 +72,26 @@ export default function List({ region }: Props) {
           </ImgLi>
         ))}
       </XScrollUl>
+      <CentralText size="xsmall" color={color.gray05}>
+        꾹 누르면 드래그 이동이 가능해요!
+      </CentralText>
+      <TravelPlan>
+        {({ plans }) => (
+          <>
+            {plans.map((plan, index) => (
+              <DailyPlan key={index} plan={plan} day={index + 1} />
+            ))}
+          </>
+        )}
+      </TravelPlan>
     </>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const region = query.region
+
+  resetServerContext()
 
   if (!region) {
     return {
@@ -115,4 +133,10 @@ const XScrollUl = styled.ul`
 const ImgLi = styled.li`
   margin: 0 8px;
   display: inline-block;
+`
+
+const CentralText = styled(Text)`
+  display: block;
+  text-align: center;
+  margin-top: 24px;
 `
