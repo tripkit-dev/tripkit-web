@@ -2,7 +2,10 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
-import React, { useState } from 'react'
+import React from 'react'
+import { useRecoilState } from 'recoil'
+
+import { selectedPlacesState } from 'plan/shared/atoms'
 
 import { color } from '@shared/constants'
 import { HotPlace } from '@shared/types'
@@ -15,23 +18,23 @@ interface Props {
 }
 
 export default function Place({ place, left, center, right }: Props) {
-  const [selectedIds, setSelectedIds] = useState<number[]>([])
+  const [selectedList, setSelectedList] = useRecoilState(selectedPlacesState)
 
-  const handleSelect = (_id: number) => {
-    setSelectedIds((prev) => {
-      if (prev.includes(_id)) {
-        return prev.filter((id) => id !== _id)
+  const handleSelect = (_place: HotPlace) => {
+    setSelectedList((prev) => {
+      if (prev.includes(_place)) {
+        return prev.filter((place) => place.id !== _place.id)
       }
 
-      return [...prev, _id]
+      return [...prev, _place]
     })
   }
 
   return (
     <Item
       key={place.id}
-      selected={selectedIds.includes(place.id)}
-      onClick={() => handleSelect(place.id)}
+      selected={selectedList.includes(place)}
+      onClick={() => handleSelect(place)}
     >
       <Left>{left}</Left>
       <Center>{center}</Center>
