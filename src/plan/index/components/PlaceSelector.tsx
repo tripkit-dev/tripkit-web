@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 
 import { Fragment, useMemo } from 'react'
 
-import { Img, Text } from '@shared/components'
+import { Button, Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
 import { usePopup, useSwipe } from '@shared/hooks'
 import { hotPlaceModels } from '@shared/models'
@@ -50,6 +50,14 @@ export default function PlaceSelector() {
             ))}
           </Fragment>
         ))}
+
+        <SButton size="xlarge" kind="quaternary">
+          <span>🏠</span>
+          숙소 등록하기
+        </SButton>
+        <SButton size="xlarge" kind="quaternary">
+          다른 장소 찾기
+        </SButton>
       </YScroll>
     </SPlaceSelector>
   )
@@ -147,4 +155,15 @@ const Place = styled.span<{ isActive: boolean }>`
           border-color: ${color.main};
         `
       : ''}
+`
+
+const SButton = styled(Button)`
+  display: block;
+  width: 70%;
+  border-color: ${color.gray08};
+  color: ${color.black};
+  box-shadow: 0px 2px 4px -3px rgba(0, 0, 0, 0.42);
+  -webkit-box-shadow: 0px 2px 4px -3px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: 0px 2px 4px -3px rgba(0, 0, 0, 0.42);
+  margin: 16px auto;
 `

@@ -3,6 +3,7 @@ export const color = {
   mainPlaceholder: '#0800FF70',
   white: '#fff',
   mustard: '#FF9900',
+  black: '#000',
   lightBlack: '#222',
   gray05: '#6B6B6B',
   gray06: '#ACACAC',
