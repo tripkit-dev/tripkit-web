@@ -148,6 +148,7 @@ const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 16px;
 `
 
 const TopLeft = styled.div`
@@ -172,7 +173,6 @@ const ArriveAt = styled(Text)`
   position: relative;
   display: block;
   width: calc(100% - 24px);
-  margin-top: 16px;
   margin-bottom: 22px;
   padding: 12px;
   border-radius: 16px;

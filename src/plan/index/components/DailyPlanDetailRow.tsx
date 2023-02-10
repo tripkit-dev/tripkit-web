@@ -56,7 +56,7 @@ export default function DailyPlanDetailRow({
 
       {index + 1 < total && (
         <Transportations>
-          <Img src="/images/icons/arrow_right.png" sideLength="16px" />
+          <Arrow src="/images/icons/arrow_right.png" sideLength="16px" />
           {detail.transportation || '🚌'}
           <HeartIcon sideLength="16px" onClick={handleRemove} />
         </Transportations>
@@ -112,4 +112,8 @@ const Transportations = styled.div`
   margin-bottom: 8px;
   border: 1px solid ${color.main};
   border-radius: 10px;
+`
+
+const Arrow = styled(Img)`
+  transform: rotate(90deg);
 `
