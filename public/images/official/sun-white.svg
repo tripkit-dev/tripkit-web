@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58.687" height="54.144" viewBox="0 0 58.687 54.144">
+  <defs>
+    <filter id="타원_24" x="10.359" y="10.855" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.18"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_268" data-name="그룹 268" transform="translate(-165.641 -47.145)">
+    <g id="그룹_130" data-name="그룹 130">
+      <g transform="matrix(1, 0, 0, 1, 165.64, 47.14)" filter="url(#타원_24)">
+        <circle id="타원_24-2" data-name="타원 24" cx="10" cy="10" r="10" transform="translate(19.36 16.86)" fill="#fff"/>
+      </g>
+      <path id="패스_276" data-name="패스 276" d="M638,2974.533s-5.667,3.067,0,4.533,0,4.8,0,4.8" transform="translate(-443 -2886)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_277" data-name="패스 277" d="M638,2974.533s-5.667,3.067,0,4.533,0,4.8,0,4.8" transform="translate(-443 -2924)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_278" data-name="패스 278" d="M638,2974.533s-5.667,3.067,0,4.533,0,4.8,0,4.8" transform="translate(1865.559 -2495.547) rotate(45)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_282" data-name="패스 282" d="M638,2974.533s-5.667,3.067,0,4.533,0,4.8,0,4.8" transform="matrix(-0.259, 0.966, -0.966, -0.259, 3258.053, 228.813)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_283" data-name="패스 283" d="M638,2974.533s-5.667,3.067,0,4.533,0,4.8,0,4.8" transform="matrix(-0.259, 0.966, -0.966, -0.259, 3217.572, 228.813)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_280" data-name="패스 280" d="M2.519,9.333s-5.667-3.067,0-4.533,0-4.8,0-4.8" transform="translate(185 63.719) rotate(135)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_281" data-name="패스 281" d="M2.519,9.333s-5.667-3.067,0-4.533,0-4.8,0-4.8" transform="translate(215.161 89.638) rotate(135)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      <path id="패스_279" data-name="패스 279" d="M638,2974.533s-5.667,3.067,0,4.533,0,4.8,0,4.8" transform="translate(1835.397 -2469.213) rotate(45)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+    </g>
+    <circle id="타원_25" data-name="타원 25" cx="1" cy="1" r="1" transform="translate(189 71)" fill="#0800ff"/>
+    <circle id="타원_26" data-name="타원 26" cx="1" cy="1" r="1" transform="translate(192 71)" fill="#0800ff"/>
+    <path id="패스_284" data-name="패스 284" d="M631.05,2959.738c.2.6,3.733,5.15,6.958,0" transform="translate(-443.033 -2886)" fill="none" stroke="#0800ff" stroke-linecap="round" stroke-width="1"/>
+  </g>
+</svg>

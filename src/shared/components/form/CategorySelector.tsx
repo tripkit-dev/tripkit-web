@@ -42,10 +42,7 @@ export default function CategorySelector() {
   return (
     <Container ref={containerRef}>
       <Select
-        list={searchCategoryModels.map((category) => ({
-          ...category,
-          label: category.emoji + '  ' + category.label
-        }))}
+        list={searchCategoryModels}
         value={currentCategory}
         onChange={handleCategoryChange}
       />

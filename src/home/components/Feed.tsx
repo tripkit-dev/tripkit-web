@@ -13,7 +13,6 @@ import {
 } from '@shared/components'
 import { color } from '@shared/constants'
 import { routes } from '@shared/libraries'
-import { whiteImgStyle } from '@shared/styles'
 
 export default function Feed() {
   const { push } = useRouter()
@@ -42,12 +41,7 @@ export default function Feed() {
         </s.Profile>
 
         <s.Weather>
-          <Img
-            src="/images/sample/weather_windy_sun.png"
-            priority
-            alt="날씨아이콘"
-            css={whiteImgStyle}
-          />
+          <Img src="/images/official/sun-white.svg" priority alt="날씨아이콘" />
           <s.Description>
             오늘의 날씨 :<s.Status>맑음</s.Status>
           </s.Description>

@@ -25,7 +25,10 @@ const First = ({ next }: Props) => {
           여행은
         </WhiteText>
         <WhiteText size="2xlarge" fontWeight="500" margin="0 0 12px 0">
-          역시 계획부터죠! <Rotate>👍🏻</Rotate>
+          역시 계획부터죠!
+          <Rotate>
+            <Img src="/images/official/thumb.svg" />
+          </Rotate>
         </WhiteText>
         <WhiteText size="small" fontWeight="300">
           빠르고 손쉽게 여행 계획을 짜볼까요?

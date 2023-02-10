@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 
-import { Header, Text } from '@shared/components'
+import { Header, Img, Text } from '@shared/components'
 import { EllipsisLoading } from '@shared/components/loading'
 import { color } from '@shared/constants'
 import { routes } from '@shared/libraries'
@@ -36,7 +36,9 @@ export default function Waiting({ region }: Props) {
       <Header transparentBack />
       <Wrapper>
         <EllipsisLoading />
-        <Emoji>🧐</Emoji>
+        <Emoji>
+          <Img src="/images/official/emoji-research.svg" />
+        </Emoji>
         <Text color={color.main} fontWeight="400" margin="24px 0 12px 0">
           &apos;{region}&apos; 목록을 불러오고 있어요!
         </Text>

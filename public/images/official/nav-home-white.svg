@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="38" viewBox="0 0 28 38">
+  <g id="그룹_257" data-name="그룹 257" transform="translate(-49 -771)">
+    <g id="home-7-fill" transform="translate(49 771)">
+      <path id="패스_932" data-name="패스 932" d="M0,0H28V28H0Z" fill="none"/>
+      <path id="패스_933" data-name="패스 933" d="M22.455,23.8A1.193,1.193,0,0,1,21.273,25H4.727a1.193,1.193,0,0,1-1.182-1.2V12.964H0l12.2-11.3a1.166,1.166,0,0,1,1.591,0L26,12.964H22.455ZM13,17.779a3.009,3.009,0,1,0-2.955-3.009A2.982,2.982,0,0,0,13,17.779Z" transform="translate(1 0.824)" fill="#fff"/>
+    </g>
+    <text id="홈" transform="translate(63 807)" fill="#fff" font-size="8" font-family="NanumSquareR, NanumSquare"><tspan x="-3.64" y="0">홈</tspan></text>
+  </g>
+</svg>

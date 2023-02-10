@@ -2,10 +2,11 @@ import styled from '@emotion/styled'
 
 import React from 'react'
 
-import { Button, HeartIcon, Img, Text } from '@shared/components'
+import { Button, Img, Text } from '@shared/components'
 import { Confirm } from '@shared/components/popup'
 import { color } from '@shared/constants'
 import { useAlert, usePopup } from '@shared/hooks'
+import { mainColorFilterStyle } from '@shared/styles'
 
 import { PlanDetail } from '../types/Plan'
 
@@ -57,8 +58,17 @@ export default function DailyPlanDetailRow({
       {index + 1 < total && (
         <Transportations>
           <Arrow src="/images/icons/arrow_right.png" sideLength="16px" />
-          {detail.transportation || '🚌'}
-          <HeartIcon sideLength="16px" onClick={handleRemove} />
+          <Img
+            src="/images/official/bus.svg"
+            shape="normal"
+            sideLength="16px"
+          />
+          <Img
+            src="/images/official/plus-white.svg"
+            sideLength="16px"
+            onClick={handleRemove}
+            containerCss={mainColorFilterStyle}
+          />
         </Transportations>
       )}
     </>

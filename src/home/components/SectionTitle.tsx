@@ -37,6 +37,9 @@ const More = styled.button`
   width: 44px;
   height: 44px;
   background-color: #f4f3ff;
+  background-image: url(/images/official/more.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 50%;
   color: transparent;
 

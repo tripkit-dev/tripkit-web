@@ -34,7 +34,10 @@ const Third = () => {
       <GradationFilm />
       <Content isTop>
         <WhiteText size="xlarge" fontWeight="500" margin="0 0 32px 0">
-          어디로 여행가세요? <Big>💬</Big>
+          어디로 여행가세요?
+          <Big>
+            <Img src="/images/official/speech-bubble.svg" />
+          </Big>
         </WhiteText>
         <WhiteText fontWeight="400">
           &apos;좋아요&apos;한 지역을 가져왔어요!

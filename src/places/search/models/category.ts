@@ -6,11 +6,11 @@ export const categoryModels = {
 }
 
 export const searchCategoryModels: SearchCategoryModels[] = [
-  { key: 'cafe', label: '카페', emoji: '☕️' },
-  { key: 'restaurant', label: '맛집', emoji: '🍽' },
-  { key: 'walk', label: '산책', emoji: '🌲' },
-  { key: 'shopping', label: '쇼핑', emoji: '💸' },
-  { key: 'culture', label: '문화생활', emoji: '🌟' }
+  { key: 'cafe', label: '카페', emoji: 'coffee.svg' },
+  { key: 'restaurant', label: '맛집', emoji: 'plate.svg' },
+  { key: 'walk', label: '산책', emoji: 'tree.svg' },
+  { key: 'shopping', label: '쇼핑', emoji: 'money.svg' },
+  { key: 'culture', label: '문화생활', emoji: 'star.svg' }
 ]
 
 export interface SearchCategoryModels extends Category {
