@@ -1,0 +1,10 @@
+<svg id="구성_요소_31_1" data-name="구성 요소 31 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_128" data-name="사각형 128" width="24" height="24" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_139" data-name="그룹 139" clip-path="url(#clip-path)">
+    <path id="패스_887" data-name="패스 887" d="M20.243,4.757a6,6,0,0,1,.236,8.236L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529a6,6,0,0,1,8.242.228M5.172,6.172a4,4,0,0,0-.192,5.451L12,18.654l7.02-7.03a4,4,0,0,0-5.646-5.64l-4.2,4.2L7.757,8.773l2.825-2.827L10.5,5.877a4,4,0,0,0-5.328.3" fill="#fff"/>
+  </g>
+</svg>
