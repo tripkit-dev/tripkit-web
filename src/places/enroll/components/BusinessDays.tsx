@@ -43,6 +43,7 @@ export default function BusinessDays({ onChange }: Props) {
             width: 32px;
             height: 32px;
             margin: 0 8px !important;
+            padding-left: 10px;
           `
         }}
       />
