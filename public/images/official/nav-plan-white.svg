@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="37" viewBox="0 0 30 37">
+  <g id="그룹_255" data-name="그룹 255" transform="translate(-312 -772)">
+    <g id="draft-fill" transform="translate(313 772)">
+      <path id="패스_922" data-name="패스 922" d="M0,0H28V28H0Z" fill="none"/>
+      <path id="패스_923" data-name="패스 923" d="M23.368,2a1.2,1.2,0,0,1,1.2,1.2V7.708l-10.782,10.8-.007,5.086,5.087.007,5.7-5.711V24.8a1.2,1.2,0,0,1-1.2,1.2H4.2A1.2,1.2,0,0,1,3,24.8V3.2A1.2,1.2,0,0,1,4.2,2Zm2.13,8.17,1.694,1.7L17.873,21.2l-1.7,0,0-1.694L25.5,10.17ZM13.783,14H7.792v2.4h5.99Zm3.594-4.8H7.792v2.4h9.585Z" transform="translate(0)" fill="#fff"/>
+    </g>
+    <text id="계획하기" transform="translate(327 807)" fill="#fff" font-size="8" font-family="NanumSquareR, NanumSquare"><tspan x="-14.56" y="0">계획하기</tspan></text>
+  </g>
+</svg>
