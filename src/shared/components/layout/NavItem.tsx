@@ -6,10 +6,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import { Img, Text } from '@shared/components'
-import { color } from '@shared/constants'
+import { Img } from '@shared/components'
 import { routes } from '@shared/libraries'
-import { combineQuery } from '@shared/libraries'
+import { mainColorFilterStyle } from '@shared/styles'
 
 interface Item {
   icon: string
@@ -32,12 +31,16 @@ const Item = ({ item, idx }: ItemProps) => {
     idx > 0 ? !isActiveHome && regExp.test(pathname) : isActiveHome
 
   return (
-    <Link href={combineQuery(item.basePath, item.query)}>
-      <SLi active={isActiveTab}>
-        <Img src={item.icon} shape="normal" sideLength="24px" />
-        <Text size="xsmall" color={isActiveTab ? color.main : color.gray05}>
-          {item.label}
-        </Text>
+    <Link
+      href={{
+        pathname: item.basePath,
+        query: {
+          ...item.query
+        }
+      }}
+    >
+      <SLi active={isActiveTab} logo={item.icon}>
+        <Img src={item.icon} shape="normal" sideLength="40px" />
       </SLi>
     </Link>
   )
@@ -47,38 +50,21 @@ export default React.memo(Item)
 
 interface SLiProps {
   active: boolean
+  logo: string
 }
 
 const SLi = styled.li<SLiProps>`
-  position: relative;
   flex: 1;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  cursor: pointer;
-
-  p {
-    margin-top: 8px;
-  }
-
   ${({ active }) =>
     active
-      ? css`
-          &::before {
-            content: ' ';
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            width: 14px;
-            height: 14px;
-            transform: translateX(-50%);
-
-            background-color: ${color.main};
-            border: 1px solid ${color.white};
-            border-radius: 50%;
-          }
-        `
-      : ''}
+      ? mainColorFilterStyle
+      : css`
+          filter: invert(44%) sepia(8%) saturate(14%) hue-rotate(342deg)
+            brightness(92%) contrast(92%);
+        `}
 `
