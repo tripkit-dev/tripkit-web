@@ -56,7 +56,7 @@ export default function Festival() {
                 bottom={
                   <s.Location isReady={isReady}>
                     <Img
-                      src="/images/sample/map_marker.png"
+                      src="/images/official/marker-fill.png"
                       sideLength="15px"
                       containerCss={whiteImgStyle}
                     />

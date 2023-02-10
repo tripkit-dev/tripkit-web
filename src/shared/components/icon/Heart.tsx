@@ -17,7 +17,7 @@ export default function Heart({
 }: Props) {
   return (
     <Img
-      src="/images/sample/heart.svg"
+      src="/images/official/heart-white.svg"
       shape="normal"
       sideLength={sideLength}
       containerCss={containerCss}
