@@ -15,17 +15,17 @@ export default function Navigation() {
   const list = useMemo(
     () => [
       {
-        icon: '/images/sample/heart.svg',
+        icon: '/images/official/nav-home-white.svg',
         basePath: routes.main.path,
         label: '홈'
       },
       {
-        icon: '/images/sample/heart.svg',
+        icon: '/images/official/nav-mypage-white.svg',
         basePath: routes.mypage.path,
         label: '마이페이지'
       },
       {
-        icon: '/images/sample/heart.svg',
+        icon: '/images/official/nav-search-white.svg',
         basePath: routes.places.path,
         query: {
           keyword: searchValue
@@ -33,7 +33,7 @@ export default function Navigation() {
         label: '탐색'
       },
       {
-        icon: '/images/sample/heart.svg',
+        icon: '/images/official/nav-plan-white.svg',
         basePath: routes.plan.path,
         label: '계획하기'
       }

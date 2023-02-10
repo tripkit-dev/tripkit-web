@@ -53,13 +53,13 @@ export const WhiteText = styled(Text)`
 
 export const Rotate = styled.span`
   position: absolute;
-  transform: rotate(-25deg) translate(10px, -2px);
+  transform: translate(-4px, -20px);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.32);
 `
 
 export const Big = styled.span`
-  font-size: 48px;
-  margin-left: 8px;
+  position: absolute;
+  transform: translate(2px, -10px);
 `
 
 export const Submit = styled(Button)`

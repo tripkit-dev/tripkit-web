@@ -20,10 +20,7 @@ export default function CategorySelector({ values: _values, onChange }: Props) {
 
   return (
     <CommonSelect
-      list={searchCategoryModels.map((category) => ({
-        ...category,
-        label: category.emoji + '  ' + category.label
-      }))}
+      list={searchCategoryModels}
       value={_values}
       onChange={(newValue) => {
         setValues((prev) => {
@@ -40,8 +37,6 @@ export default function CategorySelector({ values: _values, onChange }: Props) {
           margin-right: 12px;
           margin-bottom: 12px;
           width: min-content;
-          padding-left: 14px;
-          padding-right: 14px;
         `
       }}
     />

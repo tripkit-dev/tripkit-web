@@ -5,9 +5,10 @@ import { css } from '@emotion/react'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
-import { HeartIcon, Text } from '@shared/components'
+import { Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
 import { usePopup, useQueryParams } from '@shared/hooks'
+import { mainColorFilterStyle } from '@shared/styles'
 
 import { Plan, PlanDetail } from '../types/Plan'
 import DailyPlanDetailRow from './DailyPlanDetailRow'
@@ -66,7 +67,11 @@ const DailyPlan = memo(function DailyPlan({
         >
           <Top>
             <TopLeft>
-              <Text size="2xlarge">✏️</Text>
+              <Img
+                shape="normal"
+                src="/images/official/pencil.svg"
+                sideLength="32px"
+              />
               <Text margin="0 0 0 8px" fontWeight="500">
                 {day}일차
               </Text>
@@ -90,8 +95,9 @@ const DailyPlan = memo(function DailyPlan({
                     )
                   })
                 }}
+                css={mainColorFilterStyle}
               >
-                <HeartIcon sideLength="18px" />
+                <Img src="/images/official/plus-white.svg" sideLength="18px" />
               </AddButton>
             </TopRight>
           </Top>
