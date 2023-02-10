@@ -20,6 +20,7 @@ import { box, color } from '@shared/constants'
 import { useQueryParams } from '@shared/hooks'
 import { routes } from '@shared/libraries'
 import { hotPlaceModels } from '@shared/models'
+import { mainColorFilterStyle } from '@shared/styles'
 
 interface Props {
   region: string
@@ -73,7 +74,14 @@ export default function List({ region }: Props) {
                   </Text>
                 </>
               }
-              right={<HeartIcon sideLength="24px" />}
+              right={
+                <Img
+                  shape="normal"
+                  src="/images/official/dog.svg"
+                  sideLength="24px"
+                  containerCss={mainColorFilterStyle}
+                />
+              }
             />
           ))}
         {selectedList.length > 0 && (

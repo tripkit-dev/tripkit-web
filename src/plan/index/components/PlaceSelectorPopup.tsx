@@ -50,11 +50,23 @@ export default function PlaceSelectorPopup({
         ))}
 
         <SButton size="xlarge" kind="quaternary">
-          <span>🏠</span>
+          <Img
+            shape="normal"
+            src="/images/official/house.svg"
+            sideLength="28px"
+          />
           숙소 등록하기
         </SButton>
         <SButton size="xlarge" kind="quaternary">
           다른 장소 찾기
+        </SButton>
+        <SButton size="xlarge" kind="quaternary">
+          <Img
+            shape="normal"
+            src="/images/official/house.svg"
+            sideLength="28px"
+          />
+          집으로
         </SButton>
       </YScroll>
     </WithDragging>
