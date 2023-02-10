@@ -7,22 +7,22 @@ import { resetServerContext } from 'react-beautiful-dnd'
 import { useRecoilValue } from 'recoil'
 
 import { DailyPlan, TravelPlan } from 'plan/index/components'
+import { useLeavePageConfirm } from 'plan/index/hooks'
 import { selectedPlacesState } from 'plan/shared/atoms'
 
 import { Header, Img, Map, Text } from '@shared/components'
 import { ControlledInput } from '@shared/components'
 import { box, color } from '@shared/constants'
-import { useAlert, usePopup } from '@shared/hooks'
+import { useAlert } from '@shared/hooks'
 import { routes } from '@shared/libraries'
 
 interface Props {
   region: string
 }
 
-export default function List({ region }: Props) {
+export default function Plan({ region }: Props) {
   const router = useRouter()
   const alert = useAlert()
-  const [, handler] = usePopup()
   const selectedPlaces = useRecoilValue(selectedPlacesState)
   const [form, setForm] = useState<Form>({
     title: ''
@@ -35,24 +35,14 @@ export default function List({ region }: Props) {
     [setForm]
   )
 
+  useLeavePageConfirm(selectedPlaces.length > 0)
+
   useEffect(() => {
     if (selectedPlaces.length === 0) {
       alert.error('선택된 장소가 없어요')
       router.replace(routes.plan.guide.path)
     }
   }, [alert, router, selectedPlaces])
-
-  useEffect(() => {
-    const onBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault()
-      e.returnValue = '정말?'
-    }
-
-    window.addEventListener('beforeunload', onBeforeUnload)
-    return () => {
-      window.removeEventListener('beforeunload', onBeforeUnload)
-    }
-  }, [handler])
 
   return (
     <>
