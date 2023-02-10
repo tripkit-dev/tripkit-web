@@ -7,52 +7,53 @@ import { resetServerContext } from 'react-beautiful-dnd'
 import { useRecoilValue } from 'recoil'
 
 import { DailyPlan, TravelPlan } from 'plan/index/components'
+import { useLeavePageConfirm } from 'plan/index/hooks'
+import { Plan as PlanType } from 'plan/index/types/Plan'
 import { selectedPlacesState } from 'plan/shared/atoms'
 
 import { Header, Img, Map, Text } from '@shared/components'
 import { ControlledInput } from '@shared/components'
 import { box, color } from '@shared/constants'
-import { useAlert, usePopup } from '@shared/hooks'
+import { useAlert } from '@shared/hooks'
 import { routes } from '@shared/libraries'
 
 interface Props {
   region: string
 }
 
-export default function List({ region }: Props) {
+export default function Plan({ region }: Props) {
   const router = useRouter()
   const alert = useAlert()
-  const [, handler] = usePopup()
   const selectedPlaces = useRecoilValue(selectedPlacesState)
   const [form, setForm] = useState<Form>({
-    title: ''
+    title: '',
+    plans: [{ details: [] }]
   })
-
-  console.log(form, region)
 
   const handleTitle = useCallback(
     (v: string) => setForm((prev) => ({ ...prev, title: v })),
     [setForm]
   )
 
+  const handleDailyPlan = useCallback((plans: PlanType[]) => {
+    setForm((prev) => ({
+      ...prev,
+      plans
+    }))
+  }, [])
+
+  useLeavePageConfirm(selectedPlaces.length > 0)
+
   useEffect(() => {
     if (selectedPlaces.length === 0) {
       alert.error('선택된 장소가 없어요')
-      router.replace(routes.plan.guide.path)
-    }
-  }, [alert, router, selectedPlaces])
 
-  useEffect(() => {
-    const onBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault()
-      e.returnValue = '정말?'
+      router.replace({
+        pathname: routes.plan.list.path,
+        query: { region }
+      })
     }
-
-    window.addEventListener('beforeunload', onBeforeUnload)
-    return () => {
-      window.removeEventListener('beforeunload', onBeforeUnload)
-    }
-  }, [handler])
+  }, [alert, router, selectedPlaces, region])
 
   return (
     <>
@@ -88,12 +89,19 @@ export default function List({ region }: Props) {
       <CentralText size="xsmall" color={color.gray05}>
         꾹 누르면 드래그 이동이 가능해요!
       </CentralText>
-      <TravelPlan>
-        {({ plans }) => (
+      <TravelPlan plans={form.plans} onChange={handleDailyPlan}>
+        {({ plans, updatePlan }) => (
           <>
-            {plans.map((plan, index) => (
-              <DailyPlan key={index} plan={plan} day={index + 1} />
-            ))}
+            {plans.map((plan, index) => {
+              return (
+                <DailyPlan
+                  key={'daily-' + (index + 1)}
+                  plan={plan}
+                  day={index + 1}
+                  onChangePlan={updatePlan}
+                />
+              )
+            })}
           </>
         )}
       </TravelPlan>
@@ -124,6 +132,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
 type Form = {
   title: string
+  plans: PlanType[]
 }
 
 const Input = styled(ControlledInput)`

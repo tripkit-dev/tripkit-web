@@ -7,11 +7,13 @@ const DEFAULT_SIDE_LENGTH = '24px'
 interface Props {
   sideLength?: string
   containerCss?: Interpolation<Theme>
+  onClick?(): void
 }
 
 export default function Heart({
   sideLength = DEFAULT_SIDE_LENGTH,
-  containerCss
+  containerCss,
+  onClick
 }: Props) {
   return (
     <Img
@@ -19,6 +21,7 @@ export default function Heart({
       shape="normal"
       sideLength={sideLength}
       containerCss={containerCss}
+      onClick={onClick}
     />
   )
 }

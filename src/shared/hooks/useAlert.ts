@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useSetRecoilState } from 'recoil'
 
 import { alertState, AlertType } from '@shared/atoms'
@@ -18,10 +18,15 @@ export default function useAlert() {
     [setAlert]
   )
 
-  return {
-    normal: (message: string) => alert(message, 'normal'),
-    success: (message: string) => alert(message, 'success'),
-    warn: (message: string) => alert(message, 'warn'),
-    error: (message: string) => alert(message, 'error')
-  }
+  const returnProps = useMemo(
+    () => ({
+      normal: (message: string) => alert(message, 'normal'),
+      success: (message: string) => alert(message, 'success'),
+      warn: (message: string) => alert(message, 'warn'),
+      error: (message: string) => alert(message, 'error')
+    }),
+    [alert]
+  )
+
+  return returnProps
 }

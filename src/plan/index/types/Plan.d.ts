@@ -1,11 +1,13 @@
 export interface Plan {
-  detail: detail[]
+  details: PlanDetail[]
 }
 
-interface detail {
+export interface PlanDetail {
+  id: number
   name: string
   category: string
   img: string
-  time: string
+  startTime?: number
+  endTime?: number
   transportation?: 'bus' | 'taxi' | 'train'
 }

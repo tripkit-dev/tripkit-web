@@ -1,7 +1,6 @@
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import NextNProgress from 'nextjs-progressbar'
 import React, { useEffect, useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { RecoilRoot } from 'recoil'
@@ -10,10 +9,10 @@ import {
   ErrorBoundary,
   GlobalStyle,
   Layout,
-  ModalProvider
+  ModalProvider,
+  ProgressBar
 } from '@shared/components'
 import { Alert, Popup } from '@shared/components/popup'
-import { color } from '@shared/constants'
 import { useAlert, usePopup } from '@shared/hooks'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
@@ -55,12 +54,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               <Head>
                 <title>Tripkit</title>
               </Head>
-              <NextNProgress
-                color={color.mainPlaceholder}
-                height={2}
-                stopDelayMs={100}
-                options={{ showSpinner: false }}
-              />
+              <ProgressBar />
               <Alert />
               <Popup />
               {getLayout(<Component {...pageProps} />)}
