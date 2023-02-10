@@ -37,7 +37,9 @@ export default function List({ region }: Props) {
       <CategorySelector />
       <Container>
         <CentralText color={color.main} fontWeight="400">
-          가고싶은 장소를 선택해주세요!
+          {category
+            ? '가고싶은 장소를 선택해주세요!'
+            : '카테고리부터 선택해주세요'}
         </CentralText>
         {category &&
           hotPlaceModels.map((place) => (

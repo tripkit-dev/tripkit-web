@@ -1,6 +1,7 @@
 export const color = {
   main: '#0800FF',
   mainPlaceholder: '#0800FF70',
+  mainPlaceholder10: '#0800FF33',
   white: '#fff',
   mustard: '#FF9900',
   black: '#000',
