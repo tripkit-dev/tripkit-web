@@ -4,9 +4,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useMemo } from 'react'
 import { useInfiniteQuery } from 'react-query'
+import { useRecoilValue } from 'recoil'
 
 import { travelDestinationApi } from '@shared/apis'
-import { Button, InfiniteScroll, NotFound } from '@shared/components'
+import { searchState } from '@shared/atoms'
+import {
+  Button,
+  CategorySelector,
+  Header,
+  InfiniteScroll,
+  NotFound
+} from '@shared/components'
 import { useVirtualList } from '@shared/hooks'
 import { routes, withExtractData } from '@shared/libraries'
 import {
@@ -16,6 +24,7 @@ import {
 
 import { SearchPlaceCategory } from '@search/types'
 
+import Form from './Form'
 import Place from './Place'
 import Recommended from './Recommended'
 
@@ -23,6 +32,7 @@ const DEFAULT_CATEGORY: SearchPlaceCategory = 'cafe'
 
 export default function Places() {
   const { query } = useRouter()
+  const searchValue = useRecoilValue(searchState)
 
   const category = (query.category as SearchPlaceCategory) || DEFAULT_CATEGORY
   const keyword = (query.keyword as string) || ''
@@ -64,10 +74,19 @@ export default function Places() {
     onScrollTop()
   }, [keyword, category, onScrollTop])
 
+  const top = (
+    <>
+      <Header center={searchValue || '탐색'} />
+      <Form />
+      <CategorySelector />
+    </>
+  )
+
   return (
     <>
       {mergedList.length > 0 ? (
         <VirtualList ref={ref}>
+          {top}
           <Recommended />
 
           <Container height={totalHeight}>
@@ -82,18 +101,21 @@ export default function Places() {
           </Container>
         </VirtualList>
       ) : (
-        <NotFound
-          value={keyword}
-          title="찾으시는 장소가 없어요"
-          description="더 많은 장소를 알려주세요!"
-          bottom={
-            <Link href={routes.places.enroll.path}>
-              <a>
-                <SEnrollButton>장소 알리기</SEnrollButton>
-              </a>
-            </Link>
-          }
-        />
+        <>
+          {top}
+          <NotFound
+            value={keyword}
+            title="찾으시는 장소가 없어요"
+            description="더 많은 장소를 알려주세요!"
+            bottom={
+              <Link href={routes.places.enroll.path}>
+                <a>
+                  <SEnrollButton>장소 알리기</SEnrollButton>
+                </a>
+              </Link>
+            }
+          />
+        </>
       )}
     </>
   )
@@ -117,7 +139,7 @@ const VirtualList = styled.main`
   max-width: 720px;
   left: 50%;
   transform: translateX(-50%);
-  height: calc(100% - 276px);
+  height: calc(100% - 76px);
   overflow-y: scroll;
 `
 

@@ -36,5 +36,5 @@ const Form = () => {
 export default Form
 
 const Container = styled.section`
-  margin-top: 28px;
+  margin-top: 8px;
 `
