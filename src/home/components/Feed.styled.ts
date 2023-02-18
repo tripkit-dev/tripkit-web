@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
+import { Img } from '@shared/components'
 import { color } from '@shared/constants'
 
 export const Container = styled.section`
@@ -75,6 +76,13 @@ export const formStyle = css`
   button {
     margin-top: 24px;
   }
+`
+
+export const SearchIcon = styled.img`
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-90px);
 `
 
 export const inputStyle = css`

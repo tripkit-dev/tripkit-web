@@ -7,9 +7,9 @@ import { useSetRecoilState } from 'recoil'
 import { searchState } from '@shared/atoms/search'
 import {
   Button,
-  Img,
-  UnControlledForm,
-  UncontrolledInput
+  ControlledForm,
+  ControlledInput,
+  Img
 } from '@shared/components'
 import { color } from '@shared/constants'
 import { routes } from '@shared/libraries'
@@ -47,29 +47,32 @@ export default function Feed() {
           </s.Description>
         </s.Weather>
 
-        <UnControlledForm onSubmit={handleSubmit} cssStyle={s.formStyle}>
-          {({ ref, handleSubmit }) => (
+        <ControlledForm onSubmit={handleSubmit} cssStyle={s.formStyle}>
+          {({ value, onChange, onSubmit }) => (
             <>
-              <UncontrolledInput
-                ref={ref}
+              <ControlledInput
                 kind="tertiary"
                 shape={'round'}
                 placeholder="어디로 놀러가세요?"
+                onChange={onChange}
+                value={value}
                 cssStyle={s.inputStyle}
               />
 
+              {!value && <s.SearchIcon src="/images/official/search-1.svg" />}
+
               <Button
                 size="xlarge"
-                kind="primary"
+                kind={value ? 'primary' : 'tertiary'}
                 borderColor={color.white}
-                onClick={handleSubmit}
+                onClick={onSubmit}
                 cssStyle={s.buttonStyle}
               >
                 검색
               </Button>
             </>
           )}
-        </UnControlledForm>
+        </ControlledForm>
       </s.Inner>
     </s.Container>
   )

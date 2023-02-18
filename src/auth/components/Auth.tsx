@@ -4,9 +4,16 @@ import Link from 'next/link'
 
 import { Button, Text } from '@shared/components'
 import { box, color } from '@shared/constants'
+import { useAlert } from '@shared/hooks'
 import { routes } from '@shared/libraries'
 
 export default function Auth() {
+  const alert = useAlert()
+
+  const notReady = () => {
+    alert.normal('아직 지원하지 않는 기능이에요')
+  }
+
   return (
     <Container>
       <Filter />
@@ -16,15 +23,15 @@ export default function Auth() {
           쉽고 빠른 여행 계획을 위한
         </WhiteText>
         <WhiteText size="3xlarge">TRIP KIT</WhiteText>
-        <KakaoButton size="xlarge" kind="secondary">
+        <KakaoButton size="xlarge" kind="secondary" onClick={notReady}>
           카카오 로그인
         </KakaoButton>
-        <Link href={routes.main.path}>
+        <Link href={routes.main.path} replace>
           <TripkitButton size="xlarge" kind="secondary">
             탐방하기
           </TripkitButton>
         </Link>
-        <Join>회원가입</Join>
+        <Join onClick={notReady}>회원가입</Join>
       </Content>
 
       <ItsBeta size="xsmall">현재 베타버전으로 개발중에 있어요</ItsBeta>
