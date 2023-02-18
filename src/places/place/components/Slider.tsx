@@ -49,9 +49,9 @@ export default function Slider() {
               </s.Summary>
               <s.Image>
                 <Image
-                  src="/images/sample/dog_sit.png"
-                  width="40px"
-                  height="40px"
+                  src="/images/official/dog.svg"
+                  width="32px"
+                  height="32px"
                   alt="dog"
                 />
               </s.Image>
