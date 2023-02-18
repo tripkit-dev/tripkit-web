@@ -52,7 +52,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           <ErrorBoundary>
             <GlobalStyle>
               <Head>
-                <title>Tripkit</title>
+                <title>TRIP KIT</title>
+                <link rel="icon" href="/favicon.ico" />
               </Head>
               <ProgressBar />
               <Alert />
