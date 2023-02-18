@@ -16,7 +16,7 @@ export default function Navigation() {
     () => [
       {
         icon: '/images/official/nav-home-white.svg',
-        basePath: routes.main.path,
+        basePath: routes.home.path,
         label: '홈'
       },
       {

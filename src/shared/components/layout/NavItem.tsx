@@ -26,7 +26,7 @@ const Item = ({ item, idx }: ItemProps) => {
   const { pathname } = useRouter()
 
   const regExp = new RegExp(`^${item.basePath}`, 'g')
-  const isActiveHome = pathname === routes.main.path
+  const isActiveHome = pathname === routes.home.path
   const isActiveTab =
     idx > 0 ? !isActiveHome && regExp.test(pathname) : isActiveHome
 

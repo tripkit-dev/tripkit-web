@@ -26,7 +26,7 @@ export default function Auth() {
         <KakaoButton size="xlarge" kind="secondary" onClick={notReady}>
           카카오 로그인
         </KakaoButton>
-        <Link href={routes.main.path} replace>
+        <Link href={routes.home.path} replace>
           <TripkitButton size="xlarge" kind="secondary">
             탐방하기
           </TripkitButton>
