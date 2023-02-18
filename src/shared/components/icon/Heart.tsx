@@ -40,7 +40,7 @@ export default function Heart({
 
   return (
     <Img
-      src="/images/official/heart-white.svg"
+      src={src}
       shape="normal"
       sideLength={sideLength}
       containerCss={containerCss}
