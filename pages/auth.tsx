@@ -1,5 +1,6 @@
-import { Auth } from 'auth/components'
 import React, { ReactElement } from 'react'
+
+import { Auth } from '@auth/components'
 
 export default function AuthPage() {
   return <Auth />

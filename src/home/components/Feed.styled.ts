@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 
 import { css } from '@emotion/react'
 
-import { Img } from '@shared/components'
 import { color } from '@shared/constants'
 
 export const Container = styled.section`

@@ -18,6 +18,7 @@
     "baseUrl": "./src",
     "paths": {
       "@home/*": ["home/*"],
+      "@auth/*": ["auth/*"],
       "@mypage/*": ["mypage/*"],
       "@places/*": ["places/*"],
       "@enroll/*": ["places/enroll/*"],
@@ -25,6 +26,7 @@
       "@place/*": ["places/place/*"],
       "@guide/*": ["plan/guide/*"],
       "@list/*": ["plan/list/*"],
+      "@pages/*": ["../pages/*"],
       "@shared/*": ["shared/*"]
     },
     "types": ["kakao.maps.d.ts"]
