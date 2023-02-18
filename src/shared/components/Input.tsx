@@ -135,5 +135,5 @@ interface ControlledInputProps
     Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> {
   cssStyle?: Interpolation<Theme>
   value?: string
-  onChange?(value: string): void
+  onChange(value: string): void
 }

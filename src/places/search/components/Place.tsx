@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 import Link from 'next/link'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { HeartIcon, Img, Text } from '@shared/components'
 import { color } from '@shared/constants'
@@ -13,6 +13,9 @@ interface Props {
 }
 
 const Place = ({ place }: Props) => {
+  const rd = useMemo(() => Math.random(), [])
+  const isLiked = rd < 0.2
+
   return (
     <SPlace key={place.id}>
       <Link
@@ -34,7 +37,7 @@ const Place = ({ place }: Props) => {
               사천해변 걷다가 하늘계단 오르는 강릉카페
             </Text>
             <SHeart>
-              <HeartIcon />
+              <HeartIcon isBlue isFill={isLiked} />
             </SHeart>
           </SContent>
         </SLink>
@@ -54,7 +57,7 @@ const SPlace = styled.li`
     right: 0;
     bottom: 0;
     width: calc(100% - 20px);
-    border-bottom: 1px solid ${color.gray06};
+    border-bottom: 1px solid ${color.gray07};
   }
 `
 

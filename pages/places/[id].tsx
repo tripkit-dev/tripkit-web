@@ -2,9 +2,8 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { Fragment, ReactElement } from 'react'
 
-import { Header, HeartIcon, Navigation } from '@shared/components'
+import { Header, Navigation } from '@shared/components'
 import { color } from '@shared/constants'
-import { whiteImgStyle } from '@shared/styles'
 
 import {
   BusinessTime,
@@ -22,12 +21,7 @@ export default function Place() {
 
   return (
     <Fragment>
-      <Header
-        center={<PageTitle />}
-        right={<HeartIcon containerCss={whiteImgStyle} />}
-        float
-        whiteBack
-      />
+      <Header center={<PageTitle />} float whiteBack />
       <Slider />
       <Tabs />
 

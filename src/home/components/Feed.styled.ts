@@ -77,6 +77,13 @@ export const formStyle = css`
   }
 `
 
+export const SearchIcon = styled.img`
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-90px);
+`
+
 export const inputStyle = css`
   box-shadow: 0px 3px 10px #00000014;
 `

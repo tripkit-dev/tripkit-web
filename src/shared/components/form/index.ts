@@ -1,4 +1,5 @@
 export { default as UnControlledForm } from './UnControlled'
+export { default as ControlledForm } from './Controlled'
 export { default as Select } from './Select'
 export { default as TimePicker } from './TimePicker'
 export type { TimePickerType } from './TimePicker'

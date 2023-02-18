@@ -37,5 +37,6 @@ const UncontrolledForm = ({ children, onSubmit, cssStyle }: Props) => {
 export default UncontrolledForm
 
 const SForm = styled.form`
+  position: relative;
   text-align: center;
 `

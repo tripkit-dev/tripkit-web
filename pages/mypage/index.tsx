@@ -67,13 +67,14 @@ export default function MyPage() {
                   region: CATEGORY
                 }
               }}
+              replace
               shallow
             >
               <Category>
                 <Img
                   src="/images/sample/kyungju_02.png"
                   hasBorder={region === CATEGORY}
-                  sideLength="28px"
+                  sideLength="42px"
                 />
                 <Label active={region === CATEGORY}>{CATEGORY}</Label>
               </Category>
@@ -87,7 +88,7 @@ export default function MyPage() {
       <Section>
         <Title>
           좋아요 한 {region}
-          <Selected>카페</Selected>
+          <Selected emoji="coffee.svg">카페</Selected>
         </Title>
 
         <List>
@@ -111,6 +112,7 @@ export default function MyPage() {
                     bottom: 11px;
                     ${whiteImgStyle};
                   `}
+                  isFill
                 />
               </Item>
             </Link>
@@ -173,16 +175,26 @@ const Title = styled(Text)`
   margin-bottom: 16px;
 `
 
-const Selected = styled.strong`
+const Selected = styled.strong<{ emoji: string }>`
   font-weight: 400;
   color: ${color.main};
-  border-bottom: 1px solid ${color.mainPlaceholder};
-  padding: 0 6px;
+  border-bottom: 2px solid ${color.mainPlaceholder};
+  padding: 4px 6px;
+  padding-left: 30px;
   margin-left: 6px;
+
+  ${({ emoji }) => css`
+    background-image: url(/images/official/${emoji});
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    background-size: 20px;
+  `}
 `
 
 const XScroll = styled.div`
-  overflow-y: auto;
+  width: calc(100% - 24px);
+  padding: 0 12px;
+  overflow-x: auto;
   white-space: nowrap;
 `
 
@@ -190,7 +202,7 @@ const Category = styled.div`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 14px;
+  margin: 0 10px;
 `
 
 const Label = styled.strong<{ active: boolean }>`
